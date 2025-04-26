@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>나만의 이력 관리 프로그램</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="jop_card.css" />
+  <link rel="stylesheet" href="profile.css" />
+  <link rel="stylesheet" href="applycard.css" />
+
+
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <div class="logo-box">
+          <img src="/Mypage/myimage/image.png" alt="로고" class="logo-icon" />
+          <span class="logo">Init</span>
+        </div>
+        <div class="navbar-right">
+          <button class="alarm-button">🔔</button>
+          <button class="logout-button">👤</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- 메인 메뉴 -->
+  <div class="menu-bar">
+    <div class="menu-item">
+      <div class="emoji">🧑‍💻</div>
+      <span>MyPage</span>
+    </div>
+    <div class="menu-item">
+      <div class="emoji">📄</div>
+      <span>이력서 관리</span>
+    </div>
+    <div class="menu-item">
+      <div class="emoji">✍️</div>
+      <span>자기소개서</span>
+    </div>
+    <div class="menu-item">
+      <div class="emoji">🗓️</div>
+      <span>공고 캘린더</span>
+    </div>
+    <div class="menu-item">
+      <div class="emoji">💬</div>
+      <span>커뮤니티</span>
+    </div>
+  </div>
+
+  <!-- 여기 main div안에다가 메인 화면에 들어갈 내용들 추가 -->
+  <div id="main">
+    <!-- 개인 프로필 메인 들어갈 자리 -->
+    <div class="mypage-profile container">
+      <div class="profile-header">
+        <div style="border-radius: 100%; background-color: #ffffff; width: 70px;height: 70px; margin-right: 20px;">
+          <img src="/Mypage/myimage/프로필1.png" alt="프로필" class="profile-img" />
+        </div>
+
+        <div class="profile-info">
+          <div class="name-row">
+            <span class="user-name">홍길동</span>
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider"></span>
+            </label>
+            <span class="match-status">매칭</span>
+          </div>
+          <p class="sub-info">신입 ｜ oo대학교</p>
+          <button class="edit-btn1"><a href="#" style="text-decoration-line: none;">✏️</a></button>
+        </div>
+      </div>
+
+      <div class="profile-box">
+        <div class="box-header">
+          <span>희망 조건</span>
+        </div>
+        <div class="box-content">
+          <div class="info-group">
+            <label>직군 · 직무</label>
+            <span>웹 · SW 기획 외 4개</span>
+          </div>
+          <div class="info-group">
+            <label>근무 지역</label>
+            <span>서울특별시 외 1개</span>
+          </div>
+          <div class="info-group">
+            <label>연봉</label>
+            <span>2,500만원 이상</span>
+          </div>
+          <div class="info-group">
+            <label>기타 희망사항</label>
+            <span>-</span>
+          </div>
+        </div>
+        <button class="edit-btn"><a href="#" style="text-decoration-line: none;">✏️</a></button>
+      </div>
+    </div>
+    <!-- 개인 프로필 메인 끝 -->
+
+    <!-- 지원현황 카드 시작 -->
+    <div class="wrapper container">
+      <!-- 지원 현황 -->
+      <div class="status-card">
+        <div class="status-title">지원 현황</div>
+        <div class="status-list">
+          <div class="status-item">
+            <div class="count">0</div>
+            <div class="label">지원 완료</div>
+          </div>
+          <div class="status-item">
+            <div class="count">0</div>
+            <div class="label">서류 합격</div>
+          </div>
+          <div class="status-item">
+            <div class="count">0</div>
+            <div class="label">최종 합격</div>
+          </div>
+          <div class="status-item">
+            <div class="count">0</div>
+            <div class="label">불합격</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 받은 제안 -->
+      <div class="status-card">
+        <div class="status-title">나의 활동 요약</div>
+        <div class="status-list">
+          <div class="status-item">
+            <div class="count">0</div>
+            <div class="label">작성한 이력서</div>
+          </div>
+          <div class="status-item">
+            <div class="count">0</div>
+            <div class="label">완성한 자소서</div>
+          </div>
+          <div class="status-item">
+            <div class="count">0</div>
+            <div class="label">북마크한 기업</div>
+          </div>
+          <div class="status-item">
+            <div class="count">0</div>
+            <div class="label">다가오는 마감 일정</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 지원 현황 카드 끝 -->
+
+    <!-- 현재 주목해야할 정보 시작 -->
+    <p class="card-title container">현재 주목 해야 할 정보</p>
+    <section class="highlight-cards container">
+      <a href="https://www.cio.com/article/3963370/%EC%98%A4%ED%94%88ai-gpt-4-1-
+      %EB%AA%A8%EB%8D%B8%EA%B5%B0-%EB%B0%9C%ED%91%9C%C2%B7%C2%B7%C2%B7
+      -%EC%BD%94%EB%94%A9-%EB%B0%8F-%EB%B3%B5%EC%9E%A1%ED%95%9C
+      -%EC%9E%91%EC%97%85-%EC%84%B1%EB%8A%A5.html" class="highlight-card"
+        style="background-image: url('/Mypage/myimage/ai.png');">
+        <div class="card-text">
+          <h3>오픈AI, GPT-4.1 모델군 발표</h3>
+          <p>“코딩 및 복잡한 작업 성능 높여”</p>
+        </div>
+      </a>
+
+      <a href="#" class="highlight-card" style="background-image: url('/Mypage/myimage/머스트.png');">
+        <div class="card-text">
+          <h3>데이지크 상반기 채용</h3>
+          <p>dasique와 함께할 당신을 기다립니다</p>
+        </div>
+      </a>
+
+      <a href="#" class="highlight-card" style="background-image: url('/Mypage/myimage/클럼엘.png');">
+        <div class="card-text">
+          <h3>글로벌로 가는 중인데요,</h3>
+          <p>자리 하나 남았어요</p>
+        </div>
+      </a>
+    </section>
+    <!-- 현재 주목해야할 끝 -->
+
+    <!-- 합격 가능성 높은 포지션 카드 시작  -->
+    <div class="card-title container">
+      <p>합격 가능성 높은 포지션</p>
+    </div>
+    <section class="job-cards container">
+      <a href="https://www.wanted.co.kr/company/37749" class="job-card">
+        <div>
+          <div class="thumbnail-wrapper">
+            <img src="/Mypage/myimage/머스트.png" class="job-thumbnail" />
+            <span class="reward-badge">합격보상금 100만원</span>
+
+          </div>
+          <h3 class="job-title">[신입] 백엔드/서버 개발자</h3>
+          <p class="job-company">머스트핀테크</p>
+        </div>
+      </a>
+
+      <a href="https://www.wanted.co.kr/wd/180448" class="job-card">
+        <div>
+          <div class="thumbnail-wrapper">
+            <img src="/Mypage/myimage/카카오.png" class="job-thumbnail" />
+            <span class="reward-badge">합격보상금 100만원</span>
+
+          </div>
+          <h3 class="job-title">[신입] 시스템 엔지니어</h3>
+          <p class="job-company">카카오 증권</p>
+        </div>
+      </a>
+
+      <a href="https://www.wanted.co.kr/company/49342" class="job-card">
+        <div>
+          <div class="thumbnail-wrapper">
+            <img src="/Mypage/myimage/아이언메이스.png" class="job-thumbnail" />
+            <span class="reward-badge">합격보상금 100만원</span>
+
+          </div>
+          <h3 class="job-title">[신입] 게임 서버 개발자</h3>
+          <p class="job-company">아이언메이스</p>
+        </div>
+      </a>
+    </section>
+    <!-- 합격 가능성 높은 포지션 카드 끝 -->
+
+  </div>
+  <!-- 메인 끝 -->
+
+  <!-- 푸터 부분 -->
+  <footer class="main-footer">
+    <div class="footer-container">
+      <div class="footer-logo">Init</div>
+      <p>© 2025 이름추천받음. All rights reserved.</p>
+      <p>문의: gundo9918@gmail.com</p>
+    </div>
+  </footer>
+  <!-- 푸터 끝 -->
+
+
+  <!-- 편집버튼 누를때 뜨는 패널 부분 -->
+  <div class="edit-panel" id="editPanel">
+    <div class="edit-content">
+      <div class="edit-main">
+        <h1>
+          <p>희망 조건을 확인해주세요.</p>
+        </h1>
+
+        <h2>
+          <p>희망 조건</p>
+        </h2>
+        <table class="edit-table">
+          <tr>
+            <th><label for="job">직군 · 직무</label></th>
+            <td><input type="text" id="org" placeholder="웹 · SW 기획 외 4개"></td>
+          </tr>
+          <tr>
+            <th><label for="region">근무 지역</label></th>
+            <td><input type="text" id="award" placeholder="서울시 강남구"></td>
+          </tr>
+          <tr>
+            <th><label for="salary">연봉</label></th>
+            <td><input type="text" id="date" placeholder="3000만원"></td>
+          </tr>
+          <tr>
+            <th><label for="etc">기타 희망사항</label></th>
+            <td><textarea id="text" rows="5" style="resize: none;" placeholder="기타 희망사항을 입력해주세요."></textarea></td>
+          </tr>
+        </table>
+
+        <div class="btn-group">
+          <button class="cancel-btn">취소</button>
+          <button class="save-btn">저장</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- 희망조건 패널 끝 -->
+
+  <!-- 메인 프로필 변경 패널 생성 시작(이름, 사진 등) -->
+  <div class="profile-edit-panel" id="profileEditPanel">
+    <div class="profile-edit-content">
+      <div class="profile-edit-main">
+        <h1 class="panel-title">기본 정보를 확인해 주세요.</h1>
+        <p class="panel-subtitle">이름, 경력 유무 , 최종학력을 입력해주세요.</p>
+
+        <div class="profile-image-section">
+          <div class="profile-image-wrapper">
+            <img src="/Mypage/myimage/default-profile.png" alt="프로필 이미지" />
+            <button class="camera-icon">📷</button>
+          </div>
+        </div>
+
+        <table class="profile-edit-table">
+          <tr>
+            <th>이름 <span class="required">필수</span></th>
+            <td><input type="text" placeholder="홍길동" /></td>
+          </tr>
+          <tr>
+            <th>경력 <span class="required">필수</span></th>
+            <td><input type="text" placeholder="경력/신입" /></td>
+          </tr>
+          <tr>
+            <th>학력 <span class="required">필수</span></th>
+            <td><input type="email" placeholder="최종학력을 입력해주세요." /></td>
+          </tr>
+          
+          
+        </table>
+
+        <div class="button-bottom">
+          <button class="btn-wide gray">취소</button>
+          <button class="btn-wide blue">저장</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 메인 프로필 변경 패널 생성 끝(이름, 사진 등) -->
+
+
+  <!-- 알림 패널 -->
+<div id="notification-panel" class="popup-panel" style="display: none;">
+  <div class="popup-content">
+    <p>🔔 새로운 알림이 없습니다.</p>
+  </div>
+</div>
+
+<!-- 유저 패널 (로그아웃 등) -->
+<div id="user-panel" class="popup-panel" style="display: none;">
+  <div class="popup-content">
+    <button class="logout-action">로그아웃</button>
+  </div>
+</div>
+
+
+
+
+  <script src="profile_Edit.js"></script>
+
+
+</body>
+
+</html>

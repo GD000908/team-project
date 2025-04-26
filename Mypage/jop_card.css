@@ -1,0 +1,140 @@
+/* Job Cards */
+.highlight-cards {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));  
+  gap: 24px;
+  margin-bottom: 90px;
+}
+
+
+.highlight-card {
+  
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  height: 320px;
+  background-size: cover;
+  background-position: center;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: flex-end;
+}
+
+.highlight-card:hover {
+  transform: translateY(-4px);
+}
+
+.card-text {
+  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+  color: white;
+  padding: 20px;
+  width: 100%;
+}
+
+.card-text h3 {
+  margin: 0 0 4px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.card-text p {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.job-card {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  /* a 태그지만 블록처럼 전체 박스로 인식 */
+  text-decoration: none;
+  color: inherit;
+  margin-bottom: 70px;
+}
+
+.thumbnail-wrapper {
+  position: relative;
+}
+
+.job-thumbnail {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* 합격보상금 */
+.reward-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  font-size: 13px;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+
+/* 제목 / 회사명 */
+.job-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 12px 0 4px;
+}
+
+.job-company {
+  font-size: 14px;
+  color: #666;
+}
+
+.card-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+
+.job-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  padding: 20px 0px;
+}
+
+.job-card {
+  border: 2px solid #e5e7eb;
+  background-color: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: 0.3s;
+  position: relative;
+}
+
+.job-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.job-card h3 {
+  margin-bottom: 8px;
+}
+
+.job-card p {
+  font-size: 14px;
+  color: #666;
+}
+
+.job-card button {
+  margin-top: 16px;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}

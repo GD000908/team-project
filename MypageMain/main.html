@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/Mypage/style.css">
+    <style>
+        /* 매칭 프로필 스타일 */
+
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        .profile-section {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-sub {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 16px;
+        }
+
+        .edit-button {
+            margin-left: auto;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            color: #555;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .user-info img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .user-details {
+            font-size: 15px;
+            color: #333;
+            flex-grow: 1;
+        }
+
+        .required {
+            color: red;
+            font-size: 12px;
+            margin-left: 4px;
+        }
+
+        .experience-item {
+            border-left: 3px solid #2563eb;
+            padding-left: 16px;
+            margin-top: 16px;
+        }
+
+        .experience-item h4 {
+            margin: 0 0 4px;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .experience-item p {
+            margin: 2px 0;
+            font-size: 13px;
+            color: #555;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #f3f4f6;
+            color: #111;
+            font-size: 12px;
+            padding: 4px 8px;
+            border-radius: 6px;
+            margin-bottom: 6px;
+        }
+
+        @media (max-width: 768px) {
+            .user-info {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .edit-button {
+                align-self: flex-end;
+                margin-top: 12px;
+            }
+        }
+    </style>
+
+
+</head>
+
+
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <div class="logo-box">
+                    <img src="/Mypage/myimage/image.png" alt="로고" class="logo-icon" />
+                    <span class="logo">Init</span>
+                </div>
+                <div class="navbar-right">
+                    <button class="alarm-button">🔔</button>
+                    <button class="logout-button">👤</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 매칭 프로필 본문 시작 -->
+    <div class="main-container">
+        <!-- 프로필 기본정보 -->
+        <div class="profile-section">
+            <div class="user-info">
+                <img src="/Mypage/myimage/default-profile.png" alt="프로필 이미지" />
+                <div class="user-details">
+                    <div><strong>박건도</strong> <span class="required">필수</span></div>
+                    <div>2000.09.08 ｜ 010-9590-9918 ｜ nagundo@naver.com</div>
+                </div>
+                <button class="edit-button">✏️</button>
+            </div>
+        </div>
+
+        <!-- 셀프 브랜딩 -->
+        <div class="profile-section">
+            <div class="section-title">👤 셀프 브랜딩 <span class="required">필수</span>
+                <button class="edit-button">✏️</button>
+            </div>
+            <div class="section-sub">간단한 문장과 사진으로 나를 소개하세요.</div>
+        </div>
+
+        <!-- 학력 -->
+        <div class="profile-section">
+            <div class="section-title">🎓 학력 <span class="required">필수</span>
+                <button class="edit-button">✏️</button>
+            </div>
+            <div class="section-sub">학력정보를 적어주세요.</div>
+            <div class="experience-item">
+                <h4>효양고등학교</h4>
+                <p>📅 2016.03 ~ 2019.02</p>
+                <p>고등학교</p>
+            </div>
+        </div>
+
+        <!-- 경력 -->
+        <div class="profile-section">
+            <div class="section-title">💼 경력
+                <button class="edit-button">✏️</button>
+            </div>
+            <div class="section-sub">직장, 인턴십, 아르바이트 등의 업무 경험을 적어주세요.</div>
+        </div>
+
+        <!-- 프로젝트 -->
+        <div class="profile-section">
+            <div class="section-title">📁 프로젝트
+                <button class="edit-button">✏️</button>
+            </div>
+            <div class="section-sub">참여했던 개인/팀 프로젝트를 적어주세요.</div>
+        </div>
+
+        <!-- 지식/기술 -->
+        <div class="profile-section">
+            <div class="section-title">🛠️ 지식 · 기술
+                <button class="edit-button">✏️</button>
+            </div>
+            <div class="section-sub">자격증, 공인 어학시험, 툴, 개발스택 등을 적어주세요.</div>
+        </div>
+
+        <!-- 경험 -->
+        <div class="profile-section">
+            <div class="section-title">📌 경험
+                <button class="edit-button">✏️</button>
+            </div>
+            <div class="section-sub">대내외 활동, 해외 경험, 봉사 경험 등을 적어주세요.</div>
+            <div class="experience-item">
+                <div class="tag">봉사 활동</div>
+                <h4>안동시자원봉사센터</h4>
+                <p>📅 2022.09 ~ 2023.11</p>
+                <p>매주 토요일마다 지역봉사 활동진행</p>
+            </div>
+            <div class="experience-item">
+                <div class="tag">봉사 활동</div>
+                <h4>안동시자원봉사센터</h4>
+                <p>📅 2022.09 ~ 2023.11</p>
+                <p>매주 토요일마다 지역봉사 활동진행</p>
+            </div>
+        </div>
+
+        <!-- 수상내역 -->
+        <div class="profile-section">
+            <div class="section-title">💎 수상내역
+                <button class="edit-button">✏️</button>
+            </div>
+            <div class="section-sub">수상명, 수상연도 등을 적어주세요.</div>
+        </div>
+
+        <!-- 병역 및 우대 -->
+        <div class="profile-section">
+            <div class="section-title">🪖 병역 · 취업 우대
+                <button class="edit-button">✏️</button>
+            </div>
+            <div class="section-sub">병역, 취업 우대사항을 적어주세요.</div>
+        </div>
+
+        <!-- 첨부자료 -->
+        <div class="profile-section">
+            <div class="section-title">📎 첨부자료
+                <button class="edit-button">✏️</button>
+            </div>
+            <div class="section-sub">포트폴리오, 경력기술서, URL 등을 첨부해주세요.</div>
+        </div>
+    </div>
+    <!-- 매칭 프로필 본문 끝 -->
+
+    <!-- 푸터 부분 -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-logo">Init</div>
+            <p>© 2025 이름추천받음. All rights reserved.</p>
+            <p>문의: gundo9918@gmail.com</p>
+        </div>
+    </footer>
+    <!-- 푸터 끝 -->
+
+</body>
+
+</html>
