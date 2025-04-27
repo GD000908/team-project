@@ -1,4 +1,6 @@
-/* 프로필 - 희망조건에 대한 패널 css */
+/* -------------------------------------- */
+/* 공통 스타일 설정 */
+/* -------------------------------------- */
 .mypage-profile {
   background: #fff;
   border-radius: 12px;
@@ -45,9 +47,7 @@
   height: 20px;
 }
 
-.switch input {
-  display: none;
-}
+.switch input { display: none; }
 
 .slider {
   position: absolute;
@@ -73,11 +73,11 @@
   transition: 0.4s;
 }
 
-.switch input:checked+.slider {
+.switch input:checked + .slider {
   background-color: #2563eb;
 }
 
-.switch input:checked+.slider::before {
+.switch input:checked + .slider::before {
   transform: translateX(16px);
 }
 
@@ -120,56 +120,20 @@
   color: #333;
 }
 
-/* 연필 버튼 */
-.edit-btn {
+.edit-btn, .edit-btn1 {
   position: absolute;
-  top: 12px;
-  right: 12px;
   background: none;
   border: none;
   font-size: 18px;
   cursor: pointer;
 }
 
-.edit-btn1 {
-  position: absolute;
-  top: 5px;
-  right: 10px;
-  background: none;
-  border: none;
-  font-size: 18px;
-  cursor: pointer;
-}
+.edit-btn { top: 12px; right: 12px; }
+.edit-btn1 { top: 5px; right: 10px; }
 
-
-
-
-/* 편집 버튼을 눌렀을 때 편집 패널이 뜨도록 하는부분 */
-
-/* 전체 오버레이 배경 */
-.edit-panel {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.3);
-  /* 뒷배경 어둡게 */
-  display: flex;
-  justify-content: flex-end;
-  z-index: 999;
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-/* 열렸을 때 보이게 하기 */
-.edit-panel.active {
-  visibility: visible;
-  opacity: 1;
-}
-
-/* 전체 오버레이 배경 */
+/* -------------------------------------- */
+/* 희망 조건 패널(edit-panel) */
+/* -------------------------------------- */
 .edit-panel {
   position: fixed;
   top: 0;
@@ -185,13 +149,11 @@
   transition: opacity 0.4s ease;
 }
 
-/* 패널이 열렸을 때 */
 .edit-panel.active {
   visibility: visible;
   opacity: 1;
 }
 
-/* 실제 우측 패널 콘텐츠 */
 .edit-content {
   width: 720px;
   height: auto;
@@ -206,15 +168,14 @@
   transition: transform 0.4s ease;
 }
 
-/* 열릴 때 슬라이드 인 */
 .edit-panel.active .edit-content {
   transform: translateX(0);
 }
 
-/* 안쪽 메인 박스 */
 .edit-main {
-  width: 90%;
-  height: 90%;
+  display: flex;
+  flex-direction: column;
+  height: 95%;
   background: #ffffff;
   margin: 0 auto;
   margin-top: 20px;
@@ -224,15 +185,12 @@
   position: relative;
   border: 1px solid #6293ff;
   overflow-y: auto;
-  /* 스크롤 가능하게 */
 }
 
-/* 제목 */
 .edit-main h1 {
   font-size: 23px;
-  margin-bottom: 12px;
-  color: #111;
   margin-bottom: 35px;
+  color: #111;
 }
 
 .edit-main h2 {
@@ -241,23 +199,17 @@
   color: #111;
 }
 
-.edit-main p {
-  margin: 0;
-}
-
-/* 테이블 (레이아웃 용) */
-.edit-main table {
+.edit-table {
+  flex-grow: 1;
   width: 100%;
   border-collapse: collapse;
   margin-top: 16px;
 }
 
-.edit-main th,
-.edit-main td {
+.edit-main th, .edit-main td {
   padding: 20px 0;
   vertical-align: top;
   border: none;
-
 }
 
 .edit-main th {
@@ -269,11 +221,8 @@
   font-weight: 500;
 }
 
-.edit-main td {
-  width: 100%;
-}
+.edit-main td { width: 100%; }
 
-/* 입력 필드 스타일 */
 .edit-main input,
 .edit-main textarea {
   width: 100%;
@@ -294,51 +243,36 @@
   transition: all 0.2s ease;
 }
 
-/* 버튼 하단 고정 */
 .btn-group {
   display: flex;
   gap: 16px;
-  width: 100%;
-  max-width: 600px;
+  margin-top: auto;
+  padding-top: 20px;
   justify-content: center;
-  padding: 24px 16px 0;
-  /* 위쪽 여백 */
-  margin-top: 20px;
-  /* 버튼이 본문 아래로 내려가도록 */
 }
 
-
-/* 저장 버튼 */
-.save-btn {
+.save-btn, .cancel-btn {
   flex: 1;
+  padding: 12px 24px;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+}
+
+.save-btn {
   background-color: #6293ff;
   color: #fff;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
 }
 
-/* 취소(나가기) 버튼 */
 .cancel-btn {
-  flex: 1;
   background-color: #e5e7eb;
   color: #111;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
 }
 
-
-
-/* 메인 프로필 변경에 대한 css */
-
-
+/* -------------------------------------- */
+/* 프로필 수정 패널(profile-edit-panel) */
+/* -------------------------------------- */
 .profile-edit-panel {
   position: fixed;
   top: 0;
@@ -367,23 +301,20 @@
   border-radius: 12px;
   margin: 40px 20px;
   padding: 24px;
-  border: 1px solid #6293ff;
-  /* ✅ 테두리 추가 */
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
   overflow-y: auto;
   transform: translateX(100%);
   transition: transform 0.4s ease;
 }
 
-/* 슬라이드 인 효과 */
 .profile-edit-panel.active .profile-edit-content {
   transform: translateX(0);
 }
 
-/* 안쪽 메인 콘텐츠 */
 .profile-edit-main {
-  width: 90%;
-  height: 90%;
+  display: flex;
+  flex-direction: column;
+  height: 95%;
   background: #ffffff;
   margin: 0 auto;
   margin-top: 20px;
@@ -441,11 +372,6 @@
   cursor: pointer;
 }
 
-.required {
-  color: red;
-  font-size: 12px;
-}
-
 .profile-edit-table {
   width: 100%;
   border-collapse: separate;
@@ -469,68 +395,27 @@
   font-size: 14px;
 }
 
-.phone-flex,
-.auth-flex {
-  display: flex;
-  gap: 8px;
-}
-
-.country-code {
-  width: 60px;
-}
-
-.auth-status {
-  background-color: #f3f3f3;
-  border: none;
-  padding: 12px 16px;
-  font-size: 14px;
-  border-radius: 8px;
-  flex: 1;
-}
-
-.btn-small {
-  padding: 12px 16px;
-  border-radius: 8px;
-  font-size: 14px;
-  cursor: pointer;
-  border: none;
-}
-
-.gray {
-  background-color: #e5e7eb;
-  color: #333;
-}
-
-.black {
-  background-color: #333;
-  color: #fff;
-}
-
 .button-bottom {
   display: flex;
   gap: 16px;
-  margin-top: 40px;
+  margin-top: auto;
 }
 
 .btn-wide {
   flex: 1;
   padding: 16px 0;
-  border: none;
   font-size: 16px;
   border-radius: 10px;
   cursor: pointer;
+  border: none;
 }
 
 .btn-wide.gray {
-  margin-top: 70px;
-  height: 50px;
   background-color: #e5e7eb;
   color: #333;
 }
 
 .btn-wide.blue {
-  margin-top: 70px;
-  height: 50px;
   background-color: #6293ff;
   color: white;
 }
