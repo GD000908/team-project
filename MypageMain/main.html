@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="/Mypage/style.css">
     <link rel="stylesheet" href="/MypageMain/Mypage-main.css">
+    <link rel="stylesheet" href="/MypageMain/main-panel.css">
 
 
 </head>
@@ -62,14 +63,14 @@
                     <div><strong>박건도</strong> <span class="required">필수</span></div>
                     <div>2000.09.08 ｜ 010-9590-9918 ｜ nagundo@naver.com</div>
                 </div>
-                <button class="edit-button">✏️</button>
+                <button class="edit-button" data-target="#userInfoPanel">✏️</button> <!-- 추가!! -->
             </div>
         </div>
 
         <!-- 셀프 브랜딩 -->
         <div class="profile-section">
             <div class="section-title">👤 셀프 브랜딩 <span class="required">필수</span>
-                <button class="edit-button">✏️</button>
+                <button class="edit-button" data-target="#selfBrandingPanel">✏️</button> <!-- 추가!! -->
             </div>
             <div class="section-sub">간단한 문장과 사진으로 나를 소개하세요.</div>
         </div>
@@ -166,6 +167,11 @@
         </div>
     </footer>
     <!-- 푸터 끝 -->
+
+    <!-- 각 div에 대한 편집 패널 부분 -->
+
+    
+    
 
 </body>
 
