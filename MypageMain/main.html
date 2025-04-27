@@ -6,112 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/Mypage/style.css">
-    <style>
-        /* 매칭 프로필 스타일 */
-
-        .main-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 16px;
-        }
-
-        .profile-section {
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 24px;
-            margin-bottom: 24px;
-            border: 1px solid #e5e7eb;
-        }
-
-        .section-title {
-            font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .section-sub {
-            font-size: 14px;
-            color: #888;
-            margin-bottom: 16px;
-        }
-
-        .edit-button {
-            margin-left: auto;
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 18px;
-            color: #555;
-        }
-
-        .user-info {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .user-info img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .user-details {
-            font-size: 15px;
-            color: #333;
-            flex-grow: 1;
-        }
-
-        .required {
-            color: red;
-            font-size: 12px;
-            margin-left: 4px;
-        }
-
-        .experience-item {
-            border-left: 3px solid #2563eb;
-            padding-left: 16px;
-            margin-top: 16px;
-        }
-
-        .experience-item h4 {
-            margin: 0 0 4px;
-            font-size: 15px;
-            font-weight: 600;
-        }
-
-        .experience-item p {
-            margin: 2px 0;
-            font-size: 13px;
-            color: #555;
-        }
-
-        .tag {
-            display: inline-block;
-            background-color: #f3f4f6;
-            color: #111;
-            font-size: 12px;
-            padding: 4px 8px;
-            border-radius: 6px;
-            margin-bottom: 6px;
-        }
-
-        @media (max-width: 768px) {
-            .user-info {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .edit-button {
-                align-self: flex-end;
-                margin-top: 12px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="/MypageMain/Mypage-main.css">
 
 
 </head>
@@ -119,12 +14,13 @@
 
 
 <body>
+
     <header class="header">
         <div class="container">
             <div class="header-inner">
                 <div class="logo-box">
-                    <img src="/Mypage/myimage/image.png" alt="로고" class="logo-icon" />
-                    <span class="logo">Init</span>
+                    
+                    <span class="logo">Init.</span>
                 </div>
                 <div class="navbar-right">
                     <button class="alarm-button">🔔</button>
@@ -135,11 +31,33 @@
     </header>
 
     <!-- 매칭 프로필 본문 시작 -->
+
     <div class="main-container">
+        <!-- 메인 타이틀 및 구분박스?? -->
+        <div>
+            <div class="main-title">
+                <h2>매칭 프로필</h2>
+                <p>매칭에 활용되는 내 커리어 정보입니다.</p>
+            </div>
+            
+            <div class="profile-shortcut-card">
+                <div class="profile-text">
+                  <h3>클릭 한 번이면, 매칭 프로필 입력 끝!</h3>
+                  <p>내 프로필 내보내기 ></p>
+                </div>
+                <div class="profile-image">
+                  <img src="/Mypage/myimage/이력서.png" alt="프로필 이미지" />
+                </div>
+              </div>
+              
+
+        </div>
+        <!-- 메인 타이틀 및 구분 박스 종료 -->
+
         <!-- 프로필 기본정보 -->
         <div class="profile-section">
             <div class="user-info">
-                <img src="/Mypage/myimage/default-profile.png" alt="프로필 이미지" />
+                <img src="/Mypage/myimage/프로필1.png" alt="프로필 이미지" />
                 <div class="user-details">
                     <div><strong>박건도</strong> <span class="required">필수</span></div>
                     <div>2000.09.08 ｜ 010-9590-9918 ｜ nagundo@naver.com</div>
