@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Calendar</title>
+    <link rel="stylesheet" href="/Mypage/style.css">
+    <!-- fullcalendar 5버전 -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet" />
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .main-container {
+            display: flex;
+            flex-grow: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        #bookmark-list {
+            width: 250px;
+            background: #fafafa;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .company {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 10px 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .add-button {
+            background: #4fc3f7;
+            color: white;
+            font-weight: bold;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: auto;
+        }
+
+        .add-button:hover {
+            background: #039be5;
+        }
+
+        .calendar-container {
+            flex-grow: 1;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 헤더 부분 (원래 네가 쓰던 거 그대로 넣으면 됨) -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <div class="logo-box">
+                    <span class="logo"><a href="/Mypage/Mypage.html" class="logo">Init.</a></span>
+                </div>
+                <div class="navbar-right">
+                    <button class="alarm-button">🔔</button>
+                    <button class="logout-button">👤</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- 헤더 끝 -->
+
+    <!-- 메인 영역 -->
+    <div class="main-container">
+        <div id="bookmark-list">
+            <div class="company" data-title="삼성전자" data-start="2024-04-28" data-end="2024-05-10">
+                삼성전자 : 2024-04-28 ~ 2024-05-10
+            </div>
+            <div class="company" data-title="현대자동차" data-start="2024-05-02" data-end="2024-05-14">
+                현대자동차 : 2024-05-02 ~ 2024-05-14
+            </div>
+            <div class="company" data-title="카카오" data-start="2024-05-01" data-end="2024-05-12">
+                카카오 : 2024-05-01 ~ 2024-05-12
+            </div>
+            <button id="add-bookmark" class="add-button">+ 회사 추가</button>
+        </div>
+
+
+        <div class="calendar-container">
+            <div id="calendar"></div>
+        </div>
+    </div>
+
+    <!-- fullcalendar 스크립트 -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+
+    <script>
+        var calendar;
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const calendarEl = document.getElementById('calendar');
+            const calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                locale: 'ko'
+            });
+
+            calendar.render();
+
+            let hoverSource;  // 현재 hover 이벤트 소스를 저장
+
+            document.querySelectorAll('.company').forEach(div => {
+                div.addEventListener('mouseenter', function () {
+                    // ① 해당 회사의 시작일이 보이는 달로 이동
+                    calendar.gotoDate(this.dataset.start);
+
+                    // ② 이벤트 소스 추가
+                    hoverSource = calendar.addEventSource({
+                        events: [{
+                            title: this.dataset.title,
+                            start: this.dataset.start,
+                            end: this.dataset.end
+                        }],
+                        display: 'background',
+                        backgroundColor: '#c5e1a5'
+                    });
+                });
+
+                div.addEventListener('mouseleave', function () {
+                    // hover 해제 시 방금 추가한 소스만 제거
+                    if (hoverSource) {
+                        hoverSource.remove();
+                        hoverSource = null;
+                    }
+                });
+            });
+        });
+
+
+
+
+    </script>
+
+    <!-- 푸터 -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-logo">Init</div>
+            <p>© 2025 이름추천받음. All rights reserved.</p>
+            <p>문의: gundo9918@gmail.com</p>
+        </div>
+    </footer>
+</body>
+
+</html>

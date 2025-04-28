@@ -31,7 +31,7 @@ textarea {
 }
 
 /* container는 이미 정의되어 있음 */
-.container {
+.header-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 40 16px;
@@ -63,10 +63,11 @@ textarea {
 }
 
 /* 텍스트 로고 */
-.logo {
-  font-size: 22px;
+.header-logo {
+  font-size: 30px;
   font-weight: 700;
   color: #111;
+  text-decoration: none ;
 }
 
 
