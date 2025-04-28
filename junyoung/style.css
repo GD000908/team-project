@@ -64,10 +64,9 @@ textarea {
 
 /* 텍스트 로고 */
 .logo {
-  font-size: 30px;
+  font-size: 22px;
   font-weight: 700;
   color: #111;
-  text-decoration: none;
 }
 
 
@@ -90,7 +89,8 @@ textarea {
   padding: 12px;
   border-radius: 12px;
   transition: background-color 0.3s;
-  text-decoration: none;
+  /* 배경색 전환 효과 */
+  /* cursor: pointer; */
 }
 
 .menu-item:hover {

@@ -1,0 +1,140 @@
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.profile-section {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    border: 1px solid #e5e7eb;
+}
+
+.section-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.section-sub {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 16px;
+}
+
+.edit-button {
+    margin-left: auto;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #555;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.user-info img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-details {
+    font-size: 15px;
+    color: #333;
+    flex-grow: 1;
+}
+
+.required {
+    color: red;
+    font-size: 12px;
+    margin-left: 4px;
+}
+
+.experience-item {
+    border-left: 3px solid #2563eb;
+    padding-left: 16px;
+    margin-top: 16px;
+}
+
+.experience-item h4 {
+    margin: 0 0 4px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.experience-item p {
+    margin: 2px 0;
+    font-size: 13px;
+    color: #555;
+}
+
+.tag {
+    display: inline-block;
+    background-color: #f3f4f6;
+    color: #111;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    margin-bottom: 6px;
+}
+
+/* 매칭프로필 타이틀 */
+.main-title{
+        padding: 30px 0;
+        font-size: 20px;
+        margin-bottom: 16px;
+        color: #333;
+        
+}
+
+
+
+/* 매칭 프로필 구분박스 */
+
+.profile-shortcut-card{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #389cffb5; /* 예쁜 파란색 */
+    padding: 30px 40px;
+    border-radius: 16px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1200px;
+    /* margin: 0 auto; 가운데 정렬 */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;;
+  }
+  
+  .profile-text {
+    color: white;
+  }
+  
+  .profile-text h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .profile-text p {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0;
+  }
+  
+  .profile-image img {
+    width: 160px; /* 적당한 크기 */
+    height: auto;
+  }
+  
