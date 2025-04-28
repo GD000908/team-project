@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>자기소개서 작성 | ResumeBuilder</title>
-    
-    
+    <link rel="stylesheet" href="/junyoung/style.css">
+
     <style>
         :root {
             --primary-blue: #1E88E5;
@@ -18,19 +19,19 @@
             --white: #FFFFFF;
             --background: #F5F7FA;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Noto Sans KR', 'Roboto', sans-serif;
         }
-        
+
         body {
             background-color: var(--background);
             color: var(--text-dark);
         }
-        
+
         .container {
             display: flex;
             max-width: 1200px;
@@ -41,7 +42,7 @@
             overflow: hidden;
             background-color: var(--white);
         }
-        
+
         /* Sidebar */
         .sidebar {
             width: 250px;
@@ -49,7 +50,7 @@
             color: var(--white);
             padding: 25px 15px;
         }
-        
+
         .logo {
             font-size: 24px;
             font-weight: 700;
@@ -60,7 +61,7 @@
             color: var(--white);
             letter-spacing: 0.5px;
         }
-        
+
         .nav-title {
             font-size: 14px;
             text-transform: uppercase;
@@ -69,11 +70,11 @@
             opacity: 0.9;
             padding-left: 15px;
         }
-        
+
         .nav-links {
             margin-bottom: 30px;
         }
-        
+
         .nav-links a {
             display: flex;
             align-items: center;
@@ -86,18 +87,18 @@
             transition: all 0.3s ease;
             opacity: 0.85;
         }
-        
+
         .nav-links a:hover {
             background-color: rgba(255, 255, 255, 0.15);
             opacity: 1;
             transform: translateX(5px);
         }
-        
+
         .nav-links a i {
             margin-right: 10px;
             font-size: 18px;
         }
-        
+
         /* Main Content */
         .main-content {
             flex: 1;
@@ -106,8 +107,8 @@
             padding: 25px;
             background-color: var(--white);
         }
-        
-        .header {
+
+        .page-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -115,33 +116,34 @@
             border-bottom: 1px solid var(--border-color);
             margin-bottom: 25px;
         }
-        
+
+
         .page-title {
             font-size: 24px;
             font-weight: 600;
             color: var(--text-dark);
         }
-        
+
         /* Content Area */
         .content-area {
             display: flex;
             flex: 1;
             gap: 25px;
         }
-        
+
         .editor-container {
             flex: 3;
             display: flex;
             flex-direction: column;
         }
-        
+
         .editor-header {
             display: flex;
             align-items: center;
             gap: 15px;
             margin-bottom: 20px;
         }
-        
+
         .pagination {
             display: flex;
             align-items: center;
@@ -149,7 +151,7 @@
             border-radius: 8px;
             overflow: hidden;
         }
-        
+
         .pagination button {
             width: 40px;
             height: 40px;
@@ -163,18 +165,18 @@
             transition: all 0.3s ease;
             color: var(--text-dark);
         }
-        
+
         .pagination button:hover {
             background-color: rgba(30, 136, 229, 0.1);
             color: var(--primary-blue);
         }
-        
+
         .pagination button.active {
             background-color: var(--primary-blue);
             color: var(--white);
             font-weight: 600;
         }
-        
+
         .editor-form {
             display: flex;
             flex-direction: column;
@@ -184,7 +186,7 @@
             overflow: hidden;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
-        
+
         .question-input {
             padding: 18px 20px;
             font-size: 16px;
@@ -194,7 +196,7 @@
             resize: none;
             outline: none;
         }
-        
+
         .answer-input {
             flex: 1;
             padding: 20px;
@@ -207,7 +209,7 @@
             min-height: 350px;
             overflow-y: auto;
         }
-        
+
         .editor-footer {
             display: flex;
             justify-content: space-between;
@@ -216,31 +218,33 @@
             background-color: var(--lightest-blue);
             border-top: 1px solid var(--border-color);
         }
-        
+
         .character-count {
             font-size: 13px;
             color: var(--text-light);
             display: flex;
             align-items: center;
         }
-        
+
         .last-saved {
             font-size: 13px;
             color: var(--text-light);
             margin-left: auto;
             margin-right: 15px;
         }
-        
+
         /* Sidebar */
         .tools-sidebar {
-            width: 300px; /* 오른쪽 사이드바 너비 */
+            width: 300px;
+            /* 오른쪽 사이드바 너비 */
             padding: 20px;
             background-color: var(--background);
             display: flex;
             flex-direction: column;
-            gap: 20px; /* 각 섹션 간격 */
+            gap: 20px;
+            /* 각 섹션 간격 */
         }
-        
+
         .tool-card {
             background-color: var(--white);
             border: 1px solid var(--border-color);
@@ -248,7 +252,7 @@
             overflow: hidden;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
-        
+
         .tool-header {
             padding: 15px 20px;
             background-color: var(--lightest-blue);
@@ -257,11 +261,11 @@
             color: var(--primary-blue);
             border-bottom: 1px solid var(--border-color);
         }
-        
+
         .tool-content {
             padding: 20px;
         }
-        
+
         #spelling {
             display: block;
             width: 100%;
@@ -278,14 +282,14 @@
             text-decoration: none;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
-        
+
         #spelling:hover {
             background: linear-gradient(135deg, var(--hover-blue), var(--primary-blue));
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
-        
-		#save-btn {
+
+        #save-btn {
             display: block;
             width: 30%;
             padding: 12px 15px;
@@ -301,19 +305,19 @@
             text-decoration: none;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
-        
-		#save-btn :hover {
+
+        #save-btn :hover {
             background: linear-gradient(135deg, var(--hover-blue), var(--primary-blue));
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
-        
+
         .save-history {
             list-style: none;
             max-height: 200px;
             overflow-y: auto;
         }
-        
+
         .save-history li {
             display: flex;
             justify-content: space-between;
@@ -321,15 +325,15 @@
             border-bottom: 1px solid var(--border-color);
             font-size: 13px;
         }
-        
+
         .save-history li:last-child {
             border-bottom: none;
         }
-        
+
         .save-time {
             color: var(--text-light);
         }
-        
+
         /* Switch */
         .switch-container {
             display: flex;
@@ -337,20 +341,20 @@
             justify-content: space-between;
             margin-bottom: 15px;
         }
-        
+
         .switch {
             position: relative;
             display: inline-block;
             width: 50px;
             height: 24px;
         }
-        
+
         .switch input {
             opacity: 0;
             width: 0;
             height: 0;
         }
-        
+
         .slider {
             position: absolute;
             cursor: pointer;
@@ -362,7 +366,7 @@
             transition: .4s;
             border-radius: 24px;
         }
-        
+
         .slider:before {
             position: absolute;
             content: "";
@@ -374,19 +378,19 @@
             transition: .4s;
             border-radius: 50%;
         }
-        
-        input:checked + .slider {
+
+        input:checked+.slider {
             background-color: var(--primary-blue);
         }
-        
-        input:focus + .slider {
+
+        input:focus+.slider {
             box-shadow: 0 0 1px var(--primary-blue);
         }
-        
-        input:checked + .slider:before {
+
+        input:checked+.slider:before {
             transform: translateX(26px);
         }
-        
+
         /* Alert notification */
         .alert-box {
             position: fixed;
@@ -397,30 +401,44 @@
             padding: 12px 20px;
             border-radius: 6px;
             font-size: 14px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
             display: none;
             animation: fadeIn 0.3s, fadeOut 0.3s 2.7s;
             opacity: 0;
             z-index: 1000;
         }
-        
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        
+
         @keyframes fadeOut {
-            from { opacity: 1; transform: translateY(0); }
-            to { opacity: 0; transform: translateY(10px); }
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            to {
+                opacity: 0;
+                transform: translateY(10px);
+            }
         }
-        
+
         /* Add character limit button styling */
         .char-limit-container {
             display: flex;
             align-items: center;
             gap: 10px;
         }
-        
+
         .char-limit-button {
             padding: 5px 10px;
             background-color: rgba(255, 255, 255, 0.8);
@@ -431,29 +449,29 @@
             color: var(--text-dark);
             transition: all 0.3s ease;
         }
-        
+
         .char-limit-button:hover {
             background-color: var(--white);
             color: var(--primary-blue);
             border-color: var(--primary-blue);
         }
-        
+
         /* Improve textarea focus states */
-        .question-input:focus, .answer-input:focus {
+        .question-input:focus,
+        .answer-input:focus {
             border-color: var(--primary-blue);
             box-shadow: inset 0 0 0 1px rgba(30, 136, 229, 0.1);
         }
-        
+
         /* Improve button interactions */
         button {
             cursor: pointer;
             transition: all 0.2s ease;
         }
-        
+
         button:active {
             transform: scale(0.98);
         }
-
     </style>
     <script>
         window.onload = function () {
@@ -665,16 +683,32 @@
         };
     </script>
 </head>
+
 <body>
+
+    <!-- 헤더부분 -->
+    <header class="header">
+        <div class="header-container">
+            <div class="header-inner">
+                <div class="logo-box">
+                    <span><a href="/Mypage/Mypage.html"  class="header-logo">Init.</a></span>
+                </div>
+                <div class="navbar-right">
+                    <button class="alarm-button">🔔</button>
+                    <button class="logout-button">👤</button>
+                </div>
+            </div>
+        </div>
+    </header>
     <div class="container">
         <!-- Sidebar -->
         <div class="sidebar">
             <a href="#" class="logo">ResumeBuilder</a>
-            
+
             <div class="nav-title">
                 자기소개서 관리
             </div>
-            
+
             <div class="nav-links">
                 <a href="#">
                     <i>📄</i> 내 자기소개서 목록
@@ -690,13 +724,14 @@
                 </a>
             </div>
         </div>
-        
+
         <!-- Main Content -->
         <div class="main-content">
-            <div class="header">
+            <div class="page-header">
+
                 <h1 class="page-title">자기소개서 작성</h1>
             </div>
-            
+
             <!-- Editor Container -->
             <div class="editor-container">
                 <div class="editor-header">
@@ -708,11 +743,11 @@
                         <button id="next-btn">&gt;</button>
                     </div>
                 </div>
-                
+
                 <div class="editor-form">
                     <textarea class="question-input" placeholder="질문을 입력하세요..."></textarea>
                     <textarea id="answer-input" class="answer-input" placeholder="내용을 입력하세요..."></textarea>
-                    
+
                     <div class="editor-footer">
                         <div class="character-count">
                             <span id="current-count">0</span>/<span id="max-count">1000</span>자
@@ -726,7 +761,7 @@
                 </div>
             </div>
         </div>
-    
+
         <!-- Tools Sidebar -->
         <div class="tools-sidebar">
             <!-- Spell Check -->
@@ -736,7 +771,7 @@
                     <a href="#" class="tool-button" id="spelling">맞춤법 검사하기</a>
                 </div>
             </div>
-            
+
             <!-- Auto Save -->
             <div class="tool-card">
                 <div class="tool-header">자동 저장</div>
@@ -750,7 +785,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Save History -->
             <div class="tool-card">
                 <div class="tool-header">저장 기록</div>
@@ -762,8 +797,19 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Alert Box -->
     <div class="alert-box" id="alert-box"></div>
+
+    <!-- 푸터 부분 -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-logo">Init.</div>
+            <p>© 2025 이름추천받음. All rights reserved.</p>
+            <p>문의: gundo9918@gmail.com</p>
+        </div>
+    </footer>
+    <!-- 푸터 끝 -->
 </body>
+
 </html>
