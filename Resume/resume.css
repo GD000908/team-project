@@ -1,0 +1,166 @@
+.resume-name{
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+.resume-card {
+    background-color: #f4f9ff;
+    border-radius: 16px;
+    padding: 24px;
+    max-width: 1200px;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #333;
+    margin: 20px auto;
+  }
+  
+  .resume-header {
+    display: flex;
+    justify-content: space-between;
+    color: #1976d2;
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  
+  .resume-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 16px 0;
+  }
+  
+  .resume-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .info-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 15px;
+  }
+  
+  
+  .stat-badge {
+    background-color: #e3eaf5;
+    border-radius: 20px;
+    padding: 6px 12px;
+    font-weight: bold;
+  }
+  
+  .activity-link {
+    margin-left: auto;
+    font-size: 14px;
+    cursor: pointer;
+    color: #555;
+    text-decoration: underline;
+  }
+  
+  .resume-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .button-group {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .edit-btn,
+  .copy-btn {
+    padding: 8px 14px;
+    border: 1px solid #1976d2;
+    background: white;
+    color: #1976d2;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+  }
+  
+  .edit-btn:hover,
+  .copy-btn:hover {
+    background-color: #e3f2fd;
+  }
+  
+
+  /* 대표 이력서 밑에 버튼들 */
+
+  .resume-action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .btn {
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+  }
+  
+  /* 외곽선 버튼 */
+  .btn.outline {
+    border: 1px solid #1976d2;
+    background-color: white;
+    color: #1976d2;
+  }
+  
+  .btn.outline:hover {
+    background-color: #e3f2fd;
+  }
+  
+  /* 파란색 버튼 */
+  .btn.primary {
+    background-color: #2962ff;
+    color: white;
+    border: none;
+  }
+  
+  .btn.primary:hover {
+    background-color: #0039cb;
+  }
+  
+  .icon{
+    width: 20px;
+    height: 18px;
+    margin-right: 8px;
+     
+  }
+
+  /* 배너에 대한 css */
+
+  .banner-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 15px;
+    overflow: hidden;
+  }
+  
+  .banner-box {
+    height: 120px;
+    background: url('/Mypage/myimage/banner.png') center/cover no-repeat;
+  }
+  
+  
+  /* 배너 아래부분 */
+  .banner-caption {
+
+    max-width: 1200px;     /* 배너 최대 너비와 동일하게 */
+    margin: 15px auto 0;     /* 위쪽 간격은 8px, 좌우 auto -> 중앙, 아래 0 */
+    padding: 0 16px;        /* 왼쪽·오른쪽 여유 주기 (원하면 생략) */
+    font-size: 15px;
+    color: #555;
+    text-align: left;       /* 무조건 왼쪽 정렬 */
+  }
+  
+  
