@@ -38,7 +38,7 @@ nav ul {
 }
 
 nav ul li {
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 nav ul li a {
@@ -46,11 +46,13 @@ nav ul li a {
     text-decoration: none;
     font: bold 18px "sans_serif";
     transition: color 0.3s;
+    padding : 15px;
+    border-radius: 5px;
 }
 
 nav ul li a:hover {
-    color: blue;
-    background: gray;
+    color: #191970;
+    background: #6292ff;
 }
 
 /*직사각 패널*/
