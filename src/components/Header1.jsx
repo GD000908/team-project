@@ -14,9 +14,9 @@ function Header() {
           {/* 가운데: 메뉴 */}
           <nav className="nav-menu">
             <Link to="/mypageMain" className="nav-item">Mypage</Link>
-            <Link to="/" className="nav-item">이력서</Link>
+            <Link to="/resume" className="nav-item">이력서</Link>
             <Link to="/" className="nav-item">자기소개서</Link>
-            <Link to="/calendar" className="nav-item">캘린더</Link>
+            <Link to="/calendar" className="nav-item">공고 캘린더</Link>
             <Link to="/community" className="nav-item">커뮤니티</Link>
           </nav>
 

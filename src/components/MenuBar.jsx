@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'; // 맨 위에 추가
+import { Link } from 'react-router-dom';
 
 function MenuBar() {
   return (
@@ -8,22 +8,22 @@ function MenuBar() {
         <span>MyPage</span>
       </Link>
 
-      <div className="menu-item">
+      <Link to="/resume" className="menu-item">
         <div className="emoji">📄</div>
         <span>이력서 관리</span>
-      </div>
+      </Link>
 
       <Link to="/junyoung" className="menu-item">
         <div className="emoji">✍️</div>
         <span>자기소개서</span>
       </Link>
 
-      {/* 여기! 공고 캘린더 */}
       <Link to="/calendar" className="menu-item">
         <div className="emoji">🗓️</div>
         <span>공고 캘린더</span>
       </Link>
 
+      {/* 커뮤니티는 아직 페이지 없으면 그냥 Link 없이 남겨도 됨 */}
       <div className="menu-item">
         <div className="emoji">💬</div>
         <span>커뮤니티</span>
