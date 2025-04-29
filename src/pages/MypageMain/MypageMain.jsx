@@ -1,5 +1,6 @@
 import React from 'react';
-import Header from '../../components/Header';
+import Header1 from '../../components/Header1';
+
 import Footer from '../../components/Footer';
 import './Mypage-main.css';
  // CSS도 함께 적용
@@ -7,7 +8,7 @@ import './Mypage-main.css';
 function MypageMain() {
   return (
     <>
-      <Header />
+      <Header1 />
 
       <main className="main-container">
         {/* 메인 타이틀 */}

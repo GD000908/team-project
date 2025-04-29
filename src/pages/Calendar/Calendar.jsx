@@ -1,10 +1,10 @@
 import React, { useRef, useEffect } from 'react';
-import Header from '../../components/Header';
+import Header1 from '../../components/Header1';
 import Footer from '../../components/Footer';
 
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
-// ❌ FullCalendar CSS import 삭제
+
 
 import './Calendar.css'; // 너가 만든 캘린더 CSS만 import
 
@@ -45,7 +45,7 @@ function CalendarPage() {
 
     return (
         <>
-            <Header />
+            <Header1 />
 
             <main className="Calendar-container">
                 {/* 북마크 리스트 */}
