@@ -8,7 +8,8 @@ html,
 body {
     height: 100%;
     background: #fff;
-    font-family: 'Arial', sans-serif;
+    font-family: '12롯데마트드림 Medium', sans-serif;
+    font-size: 16px;
 }
 
 /*상단 네비게이션 바*/
@@ -17,7 +18,7 @@ nav {
     top: 0;
     width: 100%;
     height: 100px;
-    background : #fff;
+    background: #fff;
     /* 반투명 */
     display: flex;
     justify-content: space-between;
@@ -46,13 +47,13 @@ nav ul li a {
     text-decoration: none;
     font: bold 18px "sans_serif";
     transition: color 0.3s;
-    padding : 15px;
+    padding: 15px;
     border-radius: 5px;
 }
 
 nav ul li a:hover {
-    color: #191970;
-    background: #6292ff;
+    color: #fff;
+    background: #1f5dea;
 }
 
 /*직사각 패널*/
@@ -68,7 +69,7 @@ nav ul li a:hover {
 
 .panel {
     flex: 1;
-    background : #6292ff;
+    background: #356ae4;
     background-size: cover;
     background-position: center;
     border-radius: 5px;
@@ -79,6 +80,19 @@ nav ul li a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.panel img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.5s ease;
+}
+
+/* 호버하거나 active 되었을 때 이미지를 사라지게! */
+.panel.active img {
+    opacity: 0;
 }
 
 .panel.active {
@@ -109,46 +123,54 @@ nav ul li a:hover {
     padding: 0 20px;
 }
 
-/*로그인 화면*/
-.login {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 30px 20px;
-    width: 100%;
-    max-width: 320px;
-    background-color: rgba(255, 255, 255, 0.1);
-    /* 반투명 화이트 */
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
-    gap: 15px;
-    transition: transform 0.3s ease;
+.last-panel img {
+    object-fit: contain;
+    width: 90%;
+    height: auto;
+    object-fit: contain;
+    margin: auto;
 }
 
-.login:hover {
-    transform: scale(1.02);
-}
+    /*로그인 화면*/
+    .login {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 20px;
+        width: 100%;
+        max-width: 320px;
+        background-color: rgba(255, 255, 255, 0.1);
+        /* 반투명 화이트 */
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+        gap: 15px;
+        transition: transform 0.3s ease;
+    }
 
-.login h2 {
-    color: #fff;
-    font-size: 1.8rem;
-    text-align: center;
-    margin-bottom: 10px;
-}
+    .login:hover {
+        transform: scale(1.02);
+    }
 
-.login button {
-    padding: 12px 24px;
-    background-color: royalblue;
-    color: #fff;
-    border: none;
-    border-radius: 10px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
+    .login h2 {
+        color: #fff;
+        font-size: 1.8rem;
+        text-align: center;
+        margin-bottom: 10px;
+    }
 
-.login button:hover {
-    background-color: royalblue;
-    transform: translateY(-2px);
-}
+    .login button {
+        padding: 12px 24px;
+        background-color: #356ae4;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .login button:hover {
+        background-color: #0c3eaf;
+        transform: translateY(-2px);
+    }

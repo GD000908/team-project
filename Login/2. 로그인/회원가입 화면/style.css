@@ -45,7 +45,7 @@
   
   .form-control:focus {
     outline: none;
-    border-color: #007bff;
+    border-color: #1f5dea;
   }
   
   .form-floating label {
@@ -65,7 +65,7 @@
     top: -0.6rem;
     left: 0.8rem;
     font-size: 13px;
-    color: #007bff;
+    color: #1f5dea;
   }
   
   .form-check {
@@ -80,14 +80,15 @@
     font-size: 16px;
     border: none;
     border-radius: 6px;
-    background-color: #007bff;
+    background-color: #1f5dea;
     color: #fff;
     cursor: pointer;
     transition: background-color 0.2s ease;
   }
   
   .btn:hover {
-    background-color: #0056b3;
+    color: #fff;
+    background-color: #0c3eaf;
   }
   
   .signup-link {
@@ -98,7 +99,7 @@
   }
   
   .signup-link a {
-    color: #007bff;
+    color: #1f5dea;
     text-decoration: none;
     font-weight: bold;
   }
