@@ -1,3 +1,4 @@
+
 .resume-name{
     font-size: 35px;
     font-weight: bold;
@@ -165,4 +166,729 @@
   
   /* 하단 기본 이력서 목록들 */
 
+  .editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    font-family: 'Noto Sans KR', sans-serif;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
   
+  /* 왼쪽 */
+  .editor-back a {
+    font-size: 14px;
+    color: #666;
+    text-decoration: none;
+  }
+  
+  /* 가운데 */
+  .editor-center {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .editor-tag {
+    background-color: #eaf4ff;
+    color: #1976d2;
+    padding: 4px 10px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  
+  .editor-name {
+    font-size: 14px;
+    color: #222;
+  }
+  
+  /* 오른쪽 */
+  .editor-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .editor-select {
+    padding: 6px 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  /* 버튼들 */
+  .editor-btn {
+    font-size: 14px;
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+    border: none;
+  }
+  
+  .editor-btn.icon {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 6px 10px;
+  }
+  
+  .editor-btn.ghost {
+    background-color: white;
+    color: #1976d2;
+    border: 1px solid #1976d2;
+  }
+  
+  .editor-btn.ghost:hover {
+    background-color: #e3f2fd;
+  }
+  
+  .editor-btn.primary {
+    background-color: #2962ff;
+    color: white;
+    font-weight: 500;
+  }
+  
+  .editor-btn.primary:hover {
+    background-color: #0039cb;
+  }
+  
+
+  .before-btn{
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+    border: none;
+    background-color: #fff;
+    color: white;
+  }
+
+  .before-btn a{
+    text-decoration: none;
+    font-weight :600;
+  }
+
+  .before-btn:hover{
+    background-color: #c7c7c7;
+  }
+  
+
+  /* 기본 이미지 변환 버튼 css */
+
+  /* 비활성 상태 */
+/* 기본: 회색 테두리 버튼 + 체크 없음 */
+.default-btn {
+  padding: 6px 14px;
+  font-size: 14px;
+  color: #333;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  position: relative;
+}
+
+/* 눌렀을 때: 파란 배경 + 흰 글씨 */
+.default-btn.active {
+  background-color: #2962ff;
+  color: white;
+  border: none;
+}
+
+/* 체크 표시 왼쪽에 넣기 */
+.default-btn.active::before {
+  
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 13px;
+}
+
+
+/* 이력서 편집 메인 */
+
+.resume-edit-body{
+  margin: 0;
+  padding: 0;
+  background: #f4f9ff;
+}
+
+.resume-edit-container{
+  width: 1300px;
+  margin: 0 auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.resume-edit-content{
+  
+  padding: 40px;
+  background-color: #fff;
+  width: 70%;
+  height: 90%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+
+/* div 커서 올릴때 css */
+.resume-edit-div{
+  width: 900px;
+  height: auto;
+  padding: 10px;
+  
+}
+
+.resume-edit-div:hover
+{
+  background-color: #fafdff8a;
+  border-radius: 10px;
+  /* cursor: pointer; */ /* 마우스 포인터 변경 */
+  border: 1px solid #59aee2;
+}
+
+
+textarea {
+  width: 100%;
+  height: 8.25em;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: none;
+}
+
+/* 경력란 */
+
+
+.career-block {
+  width: 100%;
+  max-width: 900px;
+  padding: 24px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  transition: all 0.2s ease;
+  margin-top: 20px;
+  box-sizing: border-box;
+}
+
+
+.career-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.career-header h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #222;
+}
+
+.career-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.career-toggle,
+.career-import {
+  padding: 6px 14px;
+  font-size: 14px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  background-color: white;
+  color: #444;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.career-toggle.active {
+  border-color: #1976d2;
+  background-color: #eaf4ff;
+  color: #1976d2;
+  font-weight: 600;
+}
+
+.career-toggle:hover,
+.career-import:hover {
+  background-color: #f1f5ff;
+  border-color: #1976d2;
+  color: #1976d2;
+}
+
+/* 폼 필드 */
+.career-item {
+  margin-top: 24px;
+}
+
+.form-field {
+  margin-bottom: 18px;
+}
+
+.form-field label {
+  font-weight: 600;
+  font-size: 15px;
+  color: #333;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.required {
+  color: red;
+  font-size: 14px;
+}
+
+/* 인풋, 텍스트영역 공통 */
+.form-field input,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border 0.2s ease;
+  box-sizing: border-box;
+}
+
+.form-field input:focus,
+textarea:focus {
+  border-color: #1976d2;
+  outline: none;
+}
+
+/* 여러 필드를 한 줄에 배치 */
+.form-field-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.form-field-row input {
+  flex: 1;
+}
+
+/* 주요 성과 추가 버튼 */
+.add-performance {
+  color: #1976d2;
+  font-weight: 500;
+  margin: 12px 0;
+  cursor: pointer;
+  font-size: 14px;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+.add-performance:hover {
+  text-decoration: underline;
+}
+
+/* 주요 성과 입력 박스 */
+.performance-item {
+  background-color: #f8fafd;
+  padding: 20px;
+  /* border-left: 4px solid #1976d2; */
+  border-radius: 8px;
+  margin-top: 16px;
+}
+
+.performance-hint {
+  font-size: 13px;
+  color: #777;
+  margin-top: 12px;
+  line-height: 1.5;
+}
+
+
+/* 학력 입력란 */
+
+.education-block {
+  width: 100%;
+  max-width: 900px;
+  padding: 24px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-sizing: border-box;
+  margin: 20px auto;
+  transition: all 0.2s ease; 
+}
+
+.education-header h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 16px;
+}
+
+.education-item {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+
+
+/* 오른쪽 내용 */
+.edu-content {
+  flex: 1;
+}
+
+/* 학교명 */
+.edu-school-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+/* 한 줄 필드 */
+.form-field-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.form-field-row input {
+  flex: 1;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc; 
+  border-radius: 6px;
+  transition: border 0.2s ease;
+}
+
+.form-field-row input:focus {
+  border-color: #1976d2;
+  outline: none;
+}
+
+/* 설명 textarea */
+.form-field textarea {
+  width: 100%;
+  height: 100px;
+  padding: 12px 14px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: none;
+}
+
+.form-field textarea:focus {
+  border-color: #1976d2;
+  outline: none;
+}
+
+
+/* 스킬 */
+
+.skill-block {
+  width: 100%;
+  max-width: 900px;
+  margin: 20px auto;
+  font-family: 'Noto Sans KR', sans-serif;
+  padding: 24px;
+}
+
+.selected-skills {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 12px 12px 0 0;
+  background: #fff;
+  border: 1px solid #eee;
+  border-bottom: none;
+  min-height: 50px;
+  box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.skill-tag {
+  background-color: #f1f3f5;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.remove-skill {
+  margin-left: 6px;
+  cursor: pointer;
+}
+
+.skill-input {
+  width: 100%; /* Match the width of selected-skills */
+  border: 1px solid #eee;
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  padding: 12px 16px;
+  font-size: 14px;
+  box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.autocomplete-box {
+  background: white;
+  border: 1px solid #ddd;
+  border-top: none;
+  max-height: 200px;
+  overflow-y: auto;
+  display: none; /* JS로 토글 */
+  border-radius: 0 0 8px 8px;
+}
+
+.autocomplete-item {
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+.autocomplete-item:hover {
+  background-color: #f0f0f0;
+}
+
+
+/* 자격증/수상 */
+
+.certificate-block {
+  width: 100%;
+  max-width: 900px;
+  background-color: #fff;
+  padding: 24px;
+  border-radius: 10px;
+  margin: 20px auto;
+  box-sizing: border-box;
+}
+
+.certificate-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.certificate-header h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #222;
+}
+
+.add-certificate-btn {
+  background: none;
+  border: none;
+  color: #1976d2;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.add-certificate-btn:hover {
+  text-decoration: underline;
+}
+
+.certificate-item {
+  margin-top: 12px;
+}
+
+.form-field-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.form-field-row input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border 0.2s ease;
+}
+
+.form-field-row input:focus {
+  border-color: #1976d2;
+  outline: none;
+}
+
+.form-field textarea {
+  width: 100%;
+  height: 80px;
+  padding: 12px 14px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  resize: none;
+}
+
+.form-field textarea:focus {
+  border-color: #1976d2;
+  outline: none;
+}
+
+
+/* 외국어 및 어학시험*/
+
+.language-block {
+  max-width: 900px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 24px;
+  border-radius: 10px;
+}
+
+.language-block h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.language-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.lang-icon img {
+  width: 40px;
+  height: 40px;
+}
+
+.lang-info {
+  flex: 1;
+}
+
+.form-field-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.form-field-row input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: 0.2s border ease;
+}
+
+.form-field-row input:focus {
+  border-color: #1976d2;
+  outline: none;
+}
+
+.add-test {
+  font-size: 14px;
+  color: #1976d2;
+  font-weight: 500;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+
+/* 레벨 선택 모달 */
+.level-modal {
+  margin-top: 16px;
+  border: 1px solid #eee;
+  padding: 16px;
+  border-radius: 10px;
+  background: #f9f9f9;
+}
+
+.level-modal label {
+  display: block;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.level-modal label:last-child {
+  border-bottom: none;
+}
+
+.level-modal input[type="radio"] {
+  margin-right: 10px;
+}
+
+.level-modal p {
+  margin: 4px 0 0 24px;
+  color: #777;
+  font-size: 13px;
+}
+
+.hidden {
+  display: none;
+}
+
+.lang-level-select {
+  flex: 1;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  appearance: none;
+  background-color: #fff;
+  transition: border 0.2s ease;
+}
+
+.lang-level-select:focus {
+  border-color: #1976d2;
+  outline: none;
+}
+
+
+/* 링크 거는 란 */
+
+.link-block {
+  max-width: 900px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 24px;
+  border-radius: 10px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.link-block h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.link-item {
+  margin-bottom: 16px;
+}
+
+.form-field-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.form-field-row input {
+  flex: 1;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border 0.2s ease;
+}
+
+.form-field-row input:focus {
+  border-color: #1976d2;
+  outline: none;
+}
+
+.add-link {
+  font-size: 14px;
+  color: #1976d2;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.add-link:hover {
+  text-decoration: underline;
+}
