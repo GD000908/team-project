@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/Resume/resume.css">
+</head>
+
+<body class="resume-edit-body">
+    <!-- 이력서 편집 창 헤더 -->
+    <div>
+        <div class="editor-header">
+            <div class="editor-back">
+                <button class="before-btn"><a>← 이전 페이지</a></button>
+            </div>
+            <div class="editor-center">
+                <div class="resume-option">
+                    <button class="default-btn" onclick="setAsDefault(this)">
+                        기본 이력서
+                    </button>
+                </div>
+
+                <span class="editor-name">박건도</span>
+            </div>
+            <div class="editor-controls">
+
+                <button class="editor-btn icon">📋</button>
+                <button class="editor-btn ghost">임시 저장</button>
+                <button class="editor-btn primary">작성 완료</button>
+            </div>
+        </div>
+
+        <!-- 이력서 편집 메인 -->
+        <div class="resume-edit-container">
+
+            <div class="resume-edit-content">
+                <!-- 이력서 편집 내용 -->
+
+                <div class="resume-edit-div">
+                    <h2 class="resume-edit-title">박건도</h2>
+                    <p style="display: inline;"><img src="/Mypage/myimage/phone.svg"> 010-9590-9918 &nbsp;</p>
+                    &nbsp;&nbsp;
+                    <p style="display: inline;"><img src="/Mypage/myimage/envelope-at.svg"> gundo9918@gmail.com</p>
+                </div>
+
+                <br>
+
+                <div class="resume-edit-div">
+                    <h3 class="resume-edit-title">간단 소개</h3>
+                    <textarea class="resume-edit-textarea"></textarea>
+                </div>
+                <br>
+
+                <!-- 경력 입력 div -->
+                <div class="resume-edit-div">
+                    <div class="career-block">
+                        <div class="career-header">
+                            <h3>경력</h3>
+                            <div class="career-buttons">
+                                <button class="career-toggle active">✔ 신입</button>
+
+                            </div>
+                        </div>
+
+                        <!-- 하나의 경력 항목 -->
+                        <div class="career-item">
+
+                            <!-- 회사명 -->
+                            <div class="form-field">
+                                <label>회사명 <span class="required">*</span></label>
+                                <input type="text" placeholder="회사명 입력" />
+                            </div>
+
+                            <!-- 근무기간, 재직형태 등 -->
+                            <div class="form-field-row">
+                                <input type="text" placeholder="YYYY.MM - YYYY.MM" />
+                                <input type="text" placeholder="재직 형태" />
+                                <input type="text" placeholder="직무" />
+                                <input type="text" placeholder="직책" />
+                            </div>
+
+                            <!-- 주요 성과 추가 버튼 -->
+                            <div>
+                                <button class="add-performance">+ 주요 성과 추가</button>
+                            </div>
+
+                            <!-- 주요 성과 입력 -->
+                            <div class="performance-item">
+                                <div class="form-field">
+                                    <label>주요 성과 <span class="required">*</span></label>
+
+                                    <div class="form-field-row">
+                                        <input type="text" placeholder="YYYY.MM - YYYY.MM" />
+                                        <input type="text" placeholder="직무" />
+                                        <input type="text" placeholder="직책" />
+                                    </div>
+                                    <textarea placeholder="업무 경험을 성과 기반으로 작성해 보세요."></textarea>
+                                </div>
+
+
+
+                                <p class="performance-hint">
+                                    나의 역할과 기여도, 사용 기술을 포함하는 것을 권장합니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 경력 입력 div끝 -->
+
+                <br>
+
+                <!-- 학력 입력란. -->
+
+                <div class="resume-edit-div">
+                    <div class="education-block">
+                        <div class="education-header">
+                            <h3>학력</h3>
+                        </div>
+
+                        <div class="education-item">
+
+                            <!-- 학력 상세 -->
+                            <div class="edu-content">
+                                <!-- 학교 이름 -->
+                                <div class="edu-school-name">
+                                    <strong>서강대학교</strong>
+                                </div>
+
+                                <!-- 기간, 졸업상태, 전공 -->
+                                <div class="form-field-row">
+                                    <input type="text" placeholder="YYYY.MM - YYYY.MM" />
+                                    <input type="text" placeholder="졸업 상태" />
+                                    <input type="text" placeholder="전공 및 학위" />
+                                </div>
+
+                                <!-- 세부 설명 -->
+                                <div class="form-field">
+                                    <textarea placeholder="이수 과목 또는 연구 내용을 작성해 보세요."></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+                <!-- 스킬 목록 -->
+
+                <br>
+
+                <div class="resume-edit-div">
+                    <div class="skill-block">
+                        <h3>스킬</h3>
+
+                        <!-- 선택된 스킬들 -->
+                        <div class="selected-skills">
+                            <div class="skill-tag">Java <span class="remove-skill">×</span></div>
+                            <!-- JS로 계속 추가될 예정 -->
+                        </div>
+
+                        <!-- 입력창 -->
+                        <input type="text" class="skill-input" placeholder="보유 스킬을 검색해 보세요." />
+
+                        <!-- 자동완성 영역 (초기에는 숨김) -->
+                        <div class="autocomplete-box">
+                            <!-- 예시 -->
+                            <div class="autocomplete-item">JavaScript</div>
+                            <div class="autocomplete-item">Java</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 스킬 입력 끝 -->
+                <br>
+                <div class="resume-edit-div">
+                    <div class="certificate-block">
+                        <div class="certificate-header">
+                            <h3>자격증</h3>
+                            <button class="add-certificate-btn">+ 자격증 추가</button>
+                        </div>
+
+                        <!-- 자격증 1개 항목 -->
+                        <div class="certificate-item">
+                            <div class="form-field-row">
+                                <input type="text" placeholder="자격증명 *" />
+                                <input type="text" placeholder="발급 기관 *" />
+                                <input type="text" placeholder="취득일 (YYYY.MM) *" />
+                            </div>
+
+                            <div class="form-field-row">
+                                <input type="text" placeholder="발급번호 (선택)" />
+                            </div>
+
+                            <div class="form-field">
+                                <textarea placeholder="비고/설명 (선택)"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 자격증 끝 -->
+
+                <!-- 어학 및 어학 시험 추가 -->
+
+                <br>
+
+                <div class="resume-edit-div">
+                    <div class="language-block">
+                        <h3>외국어</h3>
+                      
+                        <div class="language-item">
+                          
+                      
+                          <!-- 언어 정보 -->
+                          <div class="lang-info">
+                            <div class="form-field-row">
+                                <input type="text" placeholder="언어 *" />
+  
+                                <select class="lang-level-select">
+                                  <option value="">수준 선택 *</option>
+                                  <option value="유창함">유창함 - 네이티브 수준이에요</option>
+                                  <option value="고급">고급 비즈니스 레벨 - 회의, 문서 가능</option>
+                                  <option value="중급">비즈니스 레벨 - 업무 수행 가능</option>
+                                  <option value="일상회화">일상 회화 - 일상 대화 가능</option>
+                                </select>
+                            </div>
+                      
+                            <!-- 어학시험 추가 -->
+                            <div class="add-test">+ 어학시험 추가</div>
+                      
+                            <!-- 어학시험 정보 -->
+                            <div class="form-field-row">
+                              <input type="text" placeholder="시험명 *" />
+                              <input type="text" placeholder="점수/등급" />
+                              <input type="text" placeholder="YYYY.MM.DD" />
+                            </div>
+                          </div>
+                        </div>
+                      
+                        
+                      </div>
+                      
+                </div>
+
+                <!-- 어학 끝 -->
+
+                <!-- 링크 란 -->
+                 <br>
+
+                <div class="resume-edit-div">
+                    <div class="link-block">
+                        <h3>링크</h3>
+                      
+                        <div class="link-item">
+                          <div class="form-field-row">
+                            <input type="text" placeholder="링크명을 입력해 주세요. (예: GitHub, 블로그 등) https://*" />
+                          </div>
+                    
+                        </div>
+                      
+                        <div class="add-link">+ 링크 추가</div>
+                      </div>
+                      
+                </div>
+
+            </div> <!-- resume-edit-content 끝 -->
+
+        </div>
+
+    </div>
+
+    <script>
+        function setAsDefault(button) {
+            // 1. 기존 모든 버튼에서 active 제거
+            const buttons = document.querySelectorAll('.default-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // 2. 클릭된 버튼에 active 추가
+            button.classList.add('active');
+
+            // 3. 실제 서버 전송을 한다면 여기에 fetch/post 추가
+            // ex) fetch('/api/set-default', { method: 'POST', body: id })
+        }
+
+        // 향후 리액트에서 useState로 관리될 구조
+        let selectedSkills = [];
+        let skillSuggestions = []; // 나중에 DB or 배열에서 불러옴
+
+        // 틀만 만들고 이후 fetch로 연결 가능
+
+
+    </script>
+
+</body>
+
+</html>
