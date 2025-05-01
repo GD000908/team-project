@@ -189,3 +189,38 @@ footer {
   border-radius: 6px;
   cursor: pointer;
 }
+
+
+/*  */
+
+.nav-menu {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  margin-left: 40px;
+  margin-left: -30px;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  margin-left: 40px;
+  margin-left: -30px;
+}
+
+.nav-item {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: background-color 0.25s ease;
+  cursor: pointer;
+}
+
+.nav-item:hover {
+  background-color: #e3f2fd;  /* 연한 파란색 */
+  color: #1565C0;             /* 텍스트도 살짝 파란 느낌 */
+}
