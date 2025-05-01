@@ -87,11 +87,13 @@ textarea {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 12px;
-  border-radius: 12px;
-  transition: background-color 0.3s;
+  justify-content: center; 
+  text-align: center;
   text-decoration: none;
+  padding: 10px;
+  border-radius: 7px;
 }
+
 
 .menu-item:hover {
   background-color: #f2f2f2;
@@ -100,7 +102,9 @@ textarea {
 .emoji {
   font-size: 30px;
   margin-bottom: 8px;
+  line-height: 1;
 }
+
 
 .menu-item span {
   font-size: 14px;
@@ -224,3 +228,4 @@ footer {
   background-color: #e3f2fd;  /* 연한 파란색 */
   color: #1565C0;             /* 텍스트도 살짝 파란 느낌 */
 }
+

@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="jop_card.css" />
   <link rel="stylesheet" href="profile.css" />
   <link rel="stylesheet" href="applycard.css" />
+  <link rel="stylesheet" href="/Mypage/applyModal.css" />
 
 
 </head>
@@ -40,7 +41,7 @@
     </a>
 
     <a href="/Resume/resume.html" class="menu-item">
-      <div >
+      <div>
         <div class="emoji">📄</div>
         <span>이력서 관리</span>
       </div>
@@ -113,10 +114,14 @@
     </div>
     <!-- 개인 프로필 메인 끝 -->
 
+
+  
+
+
     <!-- 지원현황 카드 시작 -->
-    <div class="wrapper container">
+    <div class="wrapper container" >
       <!-- 지원 현황 -->
-      <div class="status-card">
+      <div class="status-card" id="openModal" role="button" tabindex="0" style="cursor:pointer;">
         <div class="status-title">지원 현황</div>
         <div class="status-list">
           <div class="status-item">
@@ -162,6 +167,8 @@
       </div>
     </div>
     <!-- 지원 현황 카드 끝 -->
+    <br>
+    <br>
 
     <!-- 현재 주목해야할 정보 시작 -->
     <p class="card-title container">현재 주목 해야 할 정보</p>
@@ -346,10 +353,86 @@
   </div>
 
 
+  <!-- 편집 모달 뜨는 부분 -->
+
+  <div id="fullscreenModal" class="apply-modal-overlay">
+    <div class="apply-modal-content">
+      <h2>지원 항목 관리</h2>
+      <div class="apply-status-wrapper">
+        <div class="apply-status-item" data-status="지원 완료">
+          <div class="apply-count-box">지원 완료 <span class="count">0</span></div>
+          <div class="apply-info-list">지원 정보가 없어요</div>
+          <button class="apply-add-btn">+ 회사 추가</button>
+        </div>
+        <div class="apply-status-item" data-status="지원 완료">
+          <div class="apply-count-box">지원 완료 <span class="count">0</span></div>
+          <div class="apply-info-list">지원 정보가 없어요</div>
+          <button class="apply-add-btn">+ 회사 추가</button>
+        </div>
+        <div class="apply-status-item" data-status="지원 완료">
+          <div class="apply-count-box">지원 완료 <span class="count">0</span></div>
+          <div class="apply-info-list">지원 정보가 없어요</div>
+          <button class="apply-add-btn">+ 회사 추가</button>
+        </div>
+        <div class="apply-status-item" data-status="지원 완료">
+          <div class="apply-count-box">지원 완료 <span class="count">0</span></div>
+          <div class="apply-info-list">지원 정보가 없어요</div>
+          <button class="apply-add-btn">+ 회사 추가</button>
+        </div>
+        <!-- 나머지 3개도 동일한 구조 -->
+      </div>
+      <button id="closeModal" class="apply-close-btn">닫기</button>
+    </div>
+  </div>
+
 
 
   <script src="profile_Edit.js"></script>
 
+  <script>
+    // ✅ 모달 열고 닫기 기능 추가
+    document.getElementById("openModal").addEventListener("click", () => {
+      document.getElementById("fullscreenModal").classList.add("active");
+    });
+
+
+    document.getElementById("closeModal").addEventListener("click", () => {
+      document.getElementById("fullscreenModal").classList.remove("active");
+    });
+
+    // 회사 항목 추가
+    document.querySelectorAll(".apply-add-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const container = btn.closest(".apply-status-item");
+        const infoList = container.querySelector(".apply-info-list");
+        const countEl = container.querySelector(".count");
+
+        const name = prompt("회사 이름을 입력하세요:");
+        if (!name) return;
+
+        if (infoList.textContent.includes("정보가 없어요")) {
+          infoList.innerHTML = "";
+        }
+
+        const p = document.createElement("p");
+        p.textContent = name;
+        infoList.appendChild(p);
+
+        countEl.textContent = parseInt(countEl.textContent) + 1;
+      });
+    });
+  </script>
+
+
+
+  // 나중에 쓸 구조 예시
+  // fetch("/api/apply", {
+  // method: "POST",
+  // body: JSON.stringify({ status: "지원 완료", company: "삼성전자" }),
+  // headers: { "Content-Type": "application/json" }
+  // });
+
+  </script>
 
 </body>
 
