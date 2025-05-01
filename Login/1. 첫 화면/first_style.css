@@ -8,7 +8,7 @@ html,
 body {
     height: 100%;
     background: #fff;
-    font-family: '12롯데마트드림 Medium', sans-serif;
+    font-family: 'a프로젝트 보통', sans-serif;
     font-size: 16px;
 }
 
@@ -154,6 +154,7 @@ nav ul li a:hover {
 
     .login h2 {
         color: #fff;
+        font-family: 'a프로젝트 보통';
         font-size: 1.8rem;
         text-align: center;
         margin-bottom: 10px;
