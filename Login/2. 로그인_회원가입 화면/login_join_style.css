@@ -61,11 +61,13 @@ body {
     margin-bottom: 20px;
 }
 
-.front input {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
+.front input[type="text"],
+.front input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
 }
+
 
 .front .remember {
     margin-top: 10px;
@@ -82,10 +84,14 @@ body {
     transform: rotateY(180deg);
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     justify-content: flex-start;
     padding: 40px;
 }
+
+.back h2 {
+    text-align: center;
+  }
 
 .id-check-group,
 .phone-check-group {
@@ -93,7 +99,7 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 12px;
+    margin-bottom: 4px;
 }
 
 .id-check-group .id-input,
@@ -102,6 +108,16 @@ body {
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
+}
+
+.back input[type="text"],
+.back input[type="password"],
+.back input[type="email"] {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .check-btn {
@@ -118,36 +134,28 @@ body {
     background-color: #0c3eaf;
 }
 
-.back input:not(.id-input):not(.phone-input):not(.check-btn) {
-    width: 100%;
-    padding: 12px;
-    margin: 8px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
 
 .checkbox-group {
     display: grid;
-    grid-template-columns: auto auto; /* 두 개의 자동 크기 열 */
-    column-gap: 40px;   /* 열 간격 */
-    row-gap: 12px;      /* 행 간격 */
-    justify-content: start; /* 전체 왼쪽 정렬 */
-    margin-bottom: 20px;
-  }
-  
-  .checkbox-group label {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-flow: row;
+    grid-gap: 12px 40px;
+    width: 600px;
+    justify-content: start;
+    margin: 0 auto 20px;
+}
+
+.checkbox-group label {
     display: flex;
-    align-items: center; /* 체크박스와 텍스트 중앙 정렬 */
+    align-items: center;
     gap: 6px;
-    white-space: nowrap; /* 텍스트 한 줄 유지 */
-    text-align: left;    /* 텍스트 왼쪽 정렬 */
-  }
+    white-space: nowrap;
+    text-align: left;
+}
 
 .checkbox-group input[type="checkbox"] {
     margin-top: 0;
-    /* 혹시 위로 튀어오른다면 0으로 초기화 */
     transform: scale(1);
-    /* 크기 조절 안 하려면 이 줄도 제거 */
 }
 
 .btn {
@@ -168,6 +176,7 @@ body {
     color: #1f5dea;
     cursor: pointer;
     text-decoration: underline;
+    text-align: center;
 }
 
 h2 {

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/Login/3. 회원가입/3_style.css">
+    <link rel="stylesheet" href="login_join_style.css">
 </head>
 
 <body>
@@ -22,6 +22,11 @@
                     <label for="remember">아이디 저장</label>
                 </div>
                 <button class="btn">로그인</button>
+                <div>
+                    <button type="button" class="login-toggle"></button>
+                    <button type="button" class="login-toggle"></button>
+                    <button type="button" class="login-toggle"></button>
+                </div>
                 <div class="toggle-link" onclick="flipCard()">회원가입 하기</div>
             </div>
 
@@ -39,8 +44,9 @@
                     <button type="button" class="check-btn">인증번호</button>
                 </div>
                 <input type="email" placeholder="이메일" />
+                <br />
 
-                <p>관심 분야</p>
+                <h3 style="font-weight: bold;">관심 분야</h3><br />
                 <div class="checkbox-group">
                     <label><input type="checkbox"> 경영/기획/전략</label>
                     <label><input type="checkbox"> 디자인/컨텐츠</label>
@@ -52,7 +58,7 @@
                     <label><input type="checkbox"> 생산/물류/품질관리</label>
                     <label><input type="checkbox"> 사회/공공기관</label>
                     <label><input type="checkbox"> 특수직</label>
-                  </div>
+                </div>
 
                 <button class="btn">회원가입</button>
                 <div class="toggle-link" onclick="flipCard()">로그인으로 돌아가기</div>
@@ -60,7 +66,7 @@
         </div>
     </div>
 
-    <script src="/Login/3. 회원가입/3_script.js"></script>
+    <script src="login_join_script.js"></script>
 </body>
 
 </html>
