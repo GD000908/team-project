@@ -1,0 +1,163 @@
+/* 기본 설정 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Pretendard', sans-serif;
+    background-color: #fff;
+    color: #222;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* 제목 */
+.contact-title {
+    max-width: 1000px;
+    margin: 140px auto 30px;
+    /* 헤더 고정이므로 여백 확보 */
+    padding: 0 20px;
+}
+
+.contact-title h3 {
+    font-size: 28px;
+    margin: 0;
+    text-align: left;
+}
+
+/* 전체 레이아웃 */
+.left-container,
+.form-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: inline-block;
+    vertical-align: top;
+}
+
+/* 왼쪽 안내 문구 */
+.left-container {
+    width: 30%;
+    padding-right: 40px;
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+}
+
+.left-container p {
+    margin-top: 8px;
+    font-weight: 500;
+}
+
+/* 오른쪽 폼 */
+.form-container {
+    width: 65%;
+}
+
+/* 폼 전체 구조 */
+form {
+    background: #f9f9f9;
+    padding: 30px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* 폼 필드 행 */
+.form-row {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+dt {
+    width: 140px;
+    padding-top: 10px;
+    font-weight: 600;
+    color: #222;
+}
+
+dd {
+    flex: 1;
+}
+
+/* 입력 필드 */
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: border-color 0.3s;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #6c63ff;
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* 안내 텍스트 */
+.help-text {
+    font-size: 13px;
+    color: #888;
+    margin-top: 5px;
+}
+
+/* 필수 표시 */
+.required_text {
+    color: #1f5dea;
+    font-weight: bold;
+    margin-left: 4px;
+}
+
+/* 개인정보 체크 */
+input[type="checkbox"] {
+    transform: scale(1.2);
+    margin-right: 6px;
+}
+
+/* 전송 버튼 */
+button[type="submit"] {
+    display: block;
+    margin: 30px auto 0;
+    /* 가운데 정렬 */
+    padding: 14px 28px;
+    background-color: #1f5dea;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #0c3eaf;
+}
+
+/* 반응형 대응 */
+@media (max-width: 768px) {
+
+    .left-container,
+    .form-container {
+        width: 100%;
+        display: block;
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+
+    dt {
+        width: auto;
+        margin-bottom: 6px;
+    }
+}
