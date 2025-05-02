@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>경험</title>
+  <link rel="stylesheet" href="/패널모음/panel.css">
+</head>
+
+<body>
+  <div class="edit-panel" id="experienceEtcPanel">
+    <div class="edit-content">
+      <div class="edit-main">
+        <h1 class="panel-title">경험을 입력하세요.</h1>
+        <p class="panel-subtitle">대내외 활동, 해외 경험, 봉사 경험 등을 자유롭게 입력할 수 있습니다.</p>
+
+        <div id="experienceEtc-container">
+          <!-- 경험 항목 1 -->
+          <div class="experienceEtc-item-block">
+            <table class="profile-edit-table">
+              <tr>
+                <th>활동 제목</th>
+                <td><input type="text" placeholder="예: 자원봉사센터, 공모전 참가 등" /></td>
+              </tr>
+              <tr>
+                <th>활동 기간</th>
+                <td><input type="month" /> ~ <input type="month" /></td>
+              </tr>
+              <tr>
+                <th>상세 설명</th>
+                <td><textarea rows="3" placeholder="활동 내용 또는 결과를 간략히 작성하세요."></textarea></td>
+              </tr>
+            </table>
+            <hr style="margin: 30px 0;" />
+          </div>
+        </div>
+
+        <!-- 추가 버튼 -->
+        <div style="text-align: center; margin-bottom: 24px;">
+          <button type="button" class="btn-wide gray" id="add-experienceEtc-btn">경험 추가</button>
+        </div>
+
+        <div class="button-bottom">
+          <button class="btn-wide gray">취소</button>
+          <button class="btn-wide blue">저장</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("add-experienceEtc-btn").addEventListener("click", () => {
+      const container = document.getElementById("experienceEtc-container");
+      const clone = container.querySelector(".experienceEtc-item-block").cloneNode(true);
+      container.appendChild(clone);
+    });
+  </script>
+</body>
+
+</html>

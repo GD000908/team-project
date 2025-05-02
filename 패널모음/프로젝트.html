@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로젝트</title>
+    <link rel="stylesheet" href="/패널모음/panel.css">
+</head>
+
+<body>
+    <div class="edit-panel" id="projectPanel">
+        <div class="edit-content">
+            <div class="edit-main">
+                <h1 class="panel-title">참여한 프로젝트를 입력하세요.</h1>
+                <p class="panel-subtitle">개인 혹은 팀으로 진행한 프로젝트 경험을 작성하세요.</p>
+
+                <div id="project-container">
+                    <!-- 프로젝트 항목 1 -->
+                    <div class="project-item-block">
+                        <table class="profile-edit-table">
+                            <tr>
+                                <th>프로젝트명</th>
+                                <td><input type="text" placeholder="프로젝트 제목 입력" /></td>
+                            </tr>
+                            <tr>
+                                <th>진행 기간</th>
+                                <td><input type="month" /> ~ <input type="month" /></td>
+                            </tr>
+                            <tr>
+                                <th>참여 역할</th>
+                                <td><input type="text" placeholder="기획, 개발, 디자인 등" /></td>
+                            </tr>
+                            <tr>
+                                <th>내용 요약</th>
+                                <td><textarea rows="3" placeholder="간단한 소개 또는 성과"></textarea></td>
+                            </tr>
+                        </table>
+                        <hr style="margin: 30px 0;" />
+                    </div>
+                </div>
+
+                <!-- 추가 버튼 -->
+                <div style="text-align: center; margin-bottom: 24px;">
+                    <button type="button" class="btn-wide gray" id="add-project-btn">➕ 프로젝트 추가</button>
+                </div>
+
+                <div class="button-bottom">
+                    <button class="btn-wide gray">취소</button>
+                    <button class="btn-wide blue">저장</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 재활용 가능한 JS -->
+    <script>
+        document.getElementById("add-project-btn").addEventListener("click", () => {
+            const container = document.getElementById("project-container");
+            const clone = container.querySelector(".project-item-block").cloneNode(true);
+            container.appendChild(clone);
+        });
+    </script>
+</body>
+
+</html>
