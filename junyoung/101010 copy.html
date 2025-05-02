@@ -473,6 +473,7 @@
             transform: scale(0.98);
         }
     </style>
+
     <script>
         window.onload = function () {
             // DOM Elements
@@ -798,6 +799,20 @@
         </div>
     </div>
 
+      <!-- 알림 패널 -->
+  <div id="notification-panel" class="popup-panel" style="display: none;">
+    <div class="popup-content">
+      <p>🔔 새로운 알림이 없습니다.</p>
+    </div>
+  </div>
+
+  <!-- 유저 패널 (로그아웃 등) -->
+  <div id="user-panel" class="popup-panel" style="display: none;">
+    <div class="popup-content">
+      <button class="logout-action">로그아웃</button>
+    </div>
+  </div>
+
     <!-- Alert Box -->
     <div class="alert-box" id="alert-box"></div>
 
@@ -810,6 +825,8 @@
         </div>
     </footer>
     <!-- 푸터 끝 -->
+
+    <script src="/Mypage/logout.js"></script>
 </body>
 
 </html>
