@@ -9,12 +9,24 @@
 body {
 	background-color: #ffffff;
 	color: #333;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	user-select: none;
+	-webkit-user-select: none;
+}
+
+input,
+textarea {
+	user-select: auto;
+	-webkit-user-select: auto;
 }
 
 .container {
 	max-width: 1200px;
 	margin: 0 auto;
 	padding: 40px 16px;
+	width: 100%;
 }
 
 /* 헤더 스타일 */
@@ -131,15 +143,15 @@ body {
 
 /* 글쓰기 버튼 스타일 */
 .write-btn {
-	display: inline-block;
-	padding: 8px 16px;
 	background-color: #2563eb;
-	color: #fff;
+	color: white;
+	padding: 8px 16px;
 	text-align: center;
 	text-decoration: none;
 	border-radius: 5px;
 	margin-bottom: 20px;
-	float: right;
+	display: inline-block;
+	margin-left: auto;
 }
 
 /* 게시글 목록 스타일 */
@@ -245,13 +257,15 @@ body {
 	text-align: center;
 	font-size: 14px;
 	color: #333;
-	margin-top: 60px;
+	margin-top: auto;
 	border-top: 1px solid #c3d3e6;
+	width: 100%;
 }
 
 .footer-container {
 	max-width: 1200px;
 	margin: 0 auto;
+	width: 100%;
 }
 
 .footer-logo {
@@ -457,4 +471,206 @@ body {
 .reply .comment {
 	background-color: #f9fafb;
 	border-radius: 5px;
+}
+
+/* 게시글 상세 스타일 */
+.post-detail {
+	background: #fff;
+	padding: 30px;
+	border-radius: 8px;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+	margin-top: 20px;
+}
+
+.post-header {
+	border-bottom: 1px solid #e5e7eb;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+}
+
+.post-title {
+	font-size: 24px;
+	color: #333;
+	margin-bottom: 10px;
+}
+
+.post-meta {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: #666;
+	font-size: 14px;
+}
+
+.post-author {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.post-actions {
+	display: flex;
+	gap: 15px;
+}
+
+/* 게시글 상세의 좋아요 버튼 스타일 */
+.action-btn {
+	background: none;
+	border: none;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	padding: 4px 8px;
+	border-radius: 4px;
+	transition: background-color 0.2s;
+}
+
+.action-btn:hover {
+	background-color: #f3f4f6;
+}
+
+.action-btn.active {
+	color: #e11d48;
+}
+
+.post-content {
+	font-size: 16px;
+	line-height: 1.6;
+	color: #333;
+	margin-bottom: 30px;
+}
+
+.post-image {
+	width: 100%;
+	max-height: 500px;
+	object-fit: contain;
+	margin-bottom: 20px;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+	cursor: pointer;
+	transition: opacity 0.3s;
+}
+
+.post-image:hover {
+	opacity: 0.8;
+}
+
+.post-text {
+	margin-top: 20px;
+	line-height: 1.6;
+}
+
+/* 댓글 섹션 스타일 */
+.comments-section {
+	margin-top: 30px;
+	border-top: 1px solid #e5e7eb;
+	padding-top: 20px;
+}
+
+.comments-title {
+	font-size: 18px;
+	color: #333;
+	margin-bottom: 20px;
+}
+
+.comment-form {
+	margin-bottom: 30px;
+}
+
+.comment-textarea {
+	width: 100%;
+	padding: 12px;
+	border: 1px solid #e5e7eb;
+	border-radius: 5px;
+	font-size: 14px;
+	min-height: 100px;
+	resize: vertical;
+	margin-bottom: 10px;
+}
+
+.comment-textarea:focus {
+	outline: none;
+	border-color: #2563eb;
+}
+
+.comment-submit {
+	padding: 8px 16px;
+	background-color: #2563eb;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 14px;
+	float: right;
+}
+
+.comment-submit:hover {
+	background-color: #1d4ed8;
+}
+
+/* 이미지 모달 스타일 */
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1000;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+	margin: auto;
+	display: block;
+	max-width: 90%;
+	max-height: 90vh;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.modal-close {
+	position: absolute;
+	top: 15px;
+	right: 35px;
+	color: #f1f1f1;
+	font-size: 40px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+/* 팝업 패널 스타일 */
+.popup-panel {
+	position: fixed;
+	top: 60px;
+	right: 20px;
+	background: white;
+	border-radius: 8px;
+	box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+	z-index: 1000;
+	padding: 15px;
+	min-width: 200px;
+}
+
+.popup-content {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.logout-action {
+	padding: 8px 16px;
+	background-color: #ef4444;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	text-align: center;
+}
+
+.logout-action:hover {
+	background-color: #dc2626;
 } 

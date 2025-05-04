@@ -2,25 +2,53 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>게시글 작성 - IT JOB</title>
-    <link rel="stylesheet" href="/dong/board.css">
+    <title>게시글 작성</title>
+    <link rel="stylesheet" href="board.css">
+    <link rel="stylesheet" href="header.css">
 </head>
 <body>
     <!-- 헤더 영역 -->
     <header class="header">
         <div class="container">
             <div class="header-inner">
+
+                <!-- 왼쪽: 로고 -->
                 <div class="logo-box">
-                    <img src="#" alt="로고" class="logo-icon">
-                    <span class="logo">IT JOB</span>
+                    <a href="/Mypage/Mypage.html" class="logo">Init.</a>
                 </div>
-                <div>
+
+                <!-- 가운데: 메뉴 -->
+                <nav class="nav-menu">
+                    <a href="/MypageMain/Mypage_main.html" class="nav-item">Mypage</a>
+                    <a href="/Resume/resume.html" class="nav-item">이력서</a>
+                    <a href="/junyoung/101010 copy.html" class="nav-item">자기소개서</a>
+                    <a href="/calendar/calendar.html" class="nav-item">공고 캘린더</a>
+                    <a href="/community" class="nav-item">커뮤니티</a>
+                </nav>
+
+                <!-- 오른쪽: 알림/유저 -->
+                <div class="navbar-right">
                     <button class="alarm-button">🔔</button>
                     <button class="logout-button">👤</button>
                 </div>
+
             </div>
         </div>
     </header>
+
+    <!-- 알림 패널 -->
+    <div id="notification-panel" class="popup-panel" style="display: none;">
+        <div class="popup-content">
+            <p>🔔 새로운 알림이 없습니다.</p>
+        </div>
+    </div>
+
+    <!-- 유저 패널 (로그아웃 등) -->
+    <div id="user-panel" class="popup-panel" style="display: none;">
+        <div class="popup-content">
+            <button class="logout-action">로그아웃</button>
+        </div>
+    </div>
 
     <!-- 메인 컨텐츠 영역 -->
     <div class="container">
@@ -61,8 +89,9 @@
     <!-- 푸터 영역 -->
     <footer class="main-footer">
         <div class="footer-container">
-            <div class="footer-logo">IT JOB</div>
-            <p>© 2024 IT JOB. All rights reserved.</p>
+            <div class="footer-logo">Init</div>
+            <p>© 2025 이름추천받음. All rights reserved.</p>
+            <p>문의: gundo9918@gmail.com</p>
         </div>
     </footer>
 
@@ -152,4 +181,4 @@
         }
     </script>
 </body>
-</html>
+</html> 

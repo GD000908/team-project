@@ -1,394 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>게시글 상세 - IT JOB</title>
-    <style>
-        /* 기본 스타일 */
-        * {
-            box-sizing: border-box;
-            font-family: 'Noto Sans KR', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            background-color: #ffffff;
-            color: #333;
-            user-select: none;
-            -webkit-user-select: none;
-        }
-
-        input,
-        textarea {
-            user-select: auto;
-            -webkit-user-select: auto;
-        }
-
-        /* 헤더 스타일 */
-        .header {
-            background-color: #ffffff;
-            color: #111;
-            border-bottom: 1px solid #e5e7eb;
-            padding: 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 16px;
-        }
-
-        .header-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 60px;
-        }
-
-        .logo-box {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .logo-icon {
-            width: 24px;
-            height: 24px;
-        }
-
-        .logo {
-            font-size: 22px;
-            font-weight: 700;
-            color: #111;
-        }
-
-        /* 상단 버튼 스타일 */
-        .logout-button,
-        .alarm-button {
-            border: none;
-            background-color: transparent;
-            cursor: pointer;
-            font-size: 25px;
-        }
-
-        /* 푸터 스타일 */
-        .main-footer {
-            background-color: #e6f0fa;
-            padding: 40px 16px;
-            text-align: center;
-            font-size: 14px;
-            color: #333;
-            margin-top: 60px;
-            border-top: 1px solid #c3d3e6;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-logo {
-            font-size: 18px;
-            font-weight: bold;
-            color: #2563eb;
-            margin-bottom: 8px;
-        }
-
-        /* 게시글 상세 스타일 */
-        .post-detail {
-            background: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            margin-top: 20px;
-        }
-
-        .post-header {
-            border-bottom: 1px solid #e5e7eb;
-            padding-bottom: 20px;
-            margin-bottom: 20px;
-        }
-
-        .post-title {
-            font-size: 24px;
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        .post-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #666;
-            font-size: 14px;
-        }
-
-        .post-author {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .post-actions {
-            display: flex;
-            gap: 15px;
-        }
-
-        .action-btn {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            cursor: pointer;
-            color: #666;
-            transition: color 0.2s;
-        }
-
-        .action-btn:hover {
-            color: #2563eb;
-        }
-
-        .action-btn.active {
-            color: #e11d48;
-        }
-
-        .post-content {
-            font-size: 16px;
-            line-height: 1.6;
-            color: #333;
-            margin-bottom: 30px;
-        }
-
-        .post-image {
-            width: 100%;
-            max-height: 500px;
-            object-fit: contain;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .post-text {
-            margin-top: 20px;
-            line-height: 1.6;
-        }
-
-        /* 댓글 스타일 */
-        .comments-section {
-            margin-top: 30px;
-            border-top: 1px solid #e5e7eb;
-            padding-top: 20px;
-        }
-
-        .comments-title {
-            font-size: 18px;
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        .comment-form {
-            margin-bottom: 30px;
-        }
-
-        .comment-textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #e5e7eb;
-            border-radius: 5px;
-            font-size: 14px;
-            min-height: 100px;
-            resize: vertical;
-            margin-bottom: 10px;
-        }
-
-        .comment-textarea:focus {
-            outline: none;
-            border-color: #2563eb;
-        }
-
-        .comment-submit {
-            padding: 8px 16px;
-            background-color: #2563eb;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-            float: right;
-        }
-
-        .comment-submit:hover {
-            background-color: #1d4ed8;
-        }
-
-        .comment {
-            padding: 15px;
-            border-bottom: 1px solid #e5e7eb;
-            margin-bottom: 10px;
-        }
-
-        .comment-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 5px;
-        }
-
-        .comment-author {
-            font-weight: 500;
-            color: #333;
-        }
-
-        .comment-date {
-            color: #666;
-            font-size: 12px;
-        }
-
-        .comment-content {
-            font-size: 14px;
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        /* 답글 스타일 */
-        .reply {
-            margin-left: 30px;
-            padding-left: 15px;
-            border-left: 2px solid #e5e7eb;
-        }
-
-        .reply .comment {
-            background-color: #f9fafb;
-            border-radius: 5px;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-
-        .comment-actions {
-            display: flex;
-            gap: 15px;
-            margin-top: 10px;
-        }
-
-        .comment-like-btn,
-        .comment-reply-btn {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            color: #666;
-            cursor: pointer;
-            font-size: 14px;
-        }
-
-        .comment-like-btn:hover,
-        .comment-reply-btn:hover {
-            color: #2563eb;
-        }
-
-        /* 버튼 스타일 */
-        .btn {
-            padding: 8px 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-            transition: all 0.2s;
-        }
-
-        .btn-primary {
-            background-color: #2563eb;
-            color: #fff;
-            border: none;
-        }
-
-        .btn-primary:hover {
-            background-color: #1d4ed8;
-        }
-
-        .btn-secondary {
-            background-color: #fff;
-            color: #333;
-            border: 1px solid #e5e7eb;
-        }
-
-        .btn-secondary:hover {
-            background-color: #f3f4f6;
-        }
-
-        .btn-danger {
-            background-color: #ef4444;
-            color: #fff;
-            border: none;
-        }
-
-        .btn-danger:hover {
-            background-color: #dc2626;
-        }
-
-        .action-buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        /* 이미지 모달 스타일 */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.7);
-        }
-
-        .modal-content {
-            margin: auto;
-            display: block;
-            max-width: 90%;
-            max-height: 90vh;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 15px;
-            right: 35px;
-            color: #f1f1f1;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .post-image {
-            cursor: pointer;
-            transition: opacity 0.3s;
-        }
-
-        .post-image:hover {
-            opacity: 0.8;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 상세</title>
+    <link rel="stylesheet" href="board.css">
+    <link rel="stylesheet" href="header.css">
 </head>
 <body>
     <!-- 헤더 영역 -->
     <header class="header">
         <div class="container">
             <div class="header-inner">
+
+                <!-- 왼쪽: 로고 -->
                 <div class="logo-box">
-                    <img src="#" alt="로고" class="logo-icon">
-                    <span class="logo">IT JOB</span>
+                    <a href="/Mypage/Mypage.html" class="logo">Init.</a>
                 </div>
-                <div>
+
+                <!-- 가운데: 메뉴 -->
+                <nav class="nav-menu">
+                    <a href="/MypageMain/Mypage_main.html" class="nav-item">Mypage</a>
+                    <a href="/Resume/resume.html" class="nav-item">이력서</a>
+                    <a href="/junyoung/101010 copy.html" class="nav-item">자기소개서</a>
+                    <a href="/calendar/calendar.html" class="nav-item">공고 캘린더</a>
+                    <a href="/community" class="nav-item">커뮤니티</a>
+                </nav>
+
+                <!-- 오른쪽: 알림/유저 -->
+                <div class="navbar-right">
                     <button class="alarm-button">🔔</button>
                     <button class="logout-button">👤</button>
                 </div>
+
             </div>
         </div>
     </header>
+
+    <!-- 알림 패널 -->
+    <div id="notification-panel" class="popup-panel" style="display: none;">
+        <div class="popup-content">
+            <p>🔔 새로운 알림이 없습니다.</p>
+        </div>
+    </div>
+
+    <!-- 유저 패널 (로그아웃 등) -->
+    <div id="user-panel" class="popup-panel" style="display: none;">
+        <div class="popup-content">
+            <button class="logout-action">로그아웃</button>
+        </div>
+    </div>
 
     <!-- 메인 컨텐츠 영역 -->
     <div class="container">
@@ -444,8 +105,9 @@
     <!-- 푸터 영역 -->
     <footer class="main-footer">
         <div class="footer-container">
-            <div class="footer-logo">IT JOB</div>
-            <p>© 2024 IT JOB. All rights reserved.</p>
+            <div class="footer-logo">Init</div>
+            <p>© 2025 이름추천받음. All rights reserved.</p>
+            <p>문의: gundo9918@gmail.com</p>
         </div>
     </footer>
 
@@ -796,4 +458,4 @@
         }
     </script>
 </body>
-</html>
+</html> 

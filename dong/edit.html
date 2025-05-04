@@ -1,211 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>게시글 수정 - IT JOB</title>
-    <style>
-        /* 기본 스타일 */
-        * {
-            box-sizing: border-box;
-            font-family: 'Noto Sans KR', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            background-color: #ffffff;
-            color: #333;
-            user-select: none;
-            -webkit-user-select: none;
-        }
-
-        input,
-        textarea {
-            user-select: auto;
-            -webkit-user-select: auto;
-        }
-
-        /* 헤더 스타일 */
-        .header {
-            background-color: #ffffff;
-            color: #111;
-            border-bottom: 1px solid #e5e7eb;
-            padding: 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 16px;
-        }
-
-        .header-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 60px;
-        }
-
-        .logo-box {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .logo-icon {
-            width: 24px;
-            height: 24px;
-        }
-
-        .logo {
-            font-size: 22px;
-            font-weight: 700;
-            color: #111;
-        }
-
-        /* 상단 버튼 스타일 */
-        .logout-button,
-        .alarm-button {
-            border: none;
-            background-color: transparent;
-            cursor: pointer;
-            font-size: 25px;
-        }
-
-        /* 푸터 스타일 */
-        .main-footer {
-            background-color: #e6f0fa;
-            padding: 40px 16px;
-            text-align: center;
-            font-size: 14px;
-            color: #333;
-            margin-top: 60px;
-            border-top: 1px solid #c3d3e6;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-logo {
-            font-size: 18px;
-            font-weight: bold;
-            color: #2563eb;
-            margin-bottom: 8px;
-        }
-
-        /* 게시글 수정 폼 스타일 */
-        .edit-form {
-            background: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            margin-top: 20px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: #333;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #e5e7eb;
-            border-radius: 5px;
-            font-size: 14px;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: #2563eb;
-        }
-
-        .form-textarea {
-            min-height: 300px;
-            resize: vertical;
-        }
-
-        .form-select {
-            width: 200px;
-        }
-
-        .image-preview {
-            max-width: 100%;
-            max-height: 300px;
-            margin-top: 10px;
-            display: none;
-        }
-
-        .btn {
-            padding: 8px 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-            transition: all 0.2s;
-        }
-
-        .btn-primary {
-            background-color: #2563eb;
-            color: #fff;
-            border: none;
-        }
-
-        .btn-primary:hover {
-            background-color: #1d4ed8;
-        }
-
-        .btn-secondary {
-            background-color: #fff;
-            color: #333;
-            border: 1px solid #e5e7eb;
-        }
-
-        .btn-secondary:hover {
-            background-color: #f3f4f6;
-        }
-
-        .btn-danger {
-            background-color: #ef4444;
-            color: #fff;
-            border: none;
-        }
-
-        .btn-danger:hover {
-            background-color: #dc2626;
-        }
-
-        .action-buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 수정</title>
+    <link rel="stylesheet" href="board.css">
+    <link rel="stylesheet" href="header.css">
 </head>
 <body>
     <!-- 헤더 영역 -->
     <header class="header">
         <div class="container">
             <div class="header-inner">
+
+                <!-- 왼쪽: 로고 -->
                 <div class="logo-box">
-                    <img src="#" alt="로고" class="logo-icon">
-                    <span class="logo">IT JOB</span>
+                    <a href="/Mypage/Mypage.html" class="logo">Init.</a>
                 </div>
-                <div>
+
+                <!-- 가운데: 메뉴 -->
+                <nav class="nav-menu">
+                    <a href="/MypageMain/Mypage_main.html" class="nav-item">Mypage</a>
+                    <a href="/Resume/resume.html" class="nav-item">이력서</a>
+                    <a href="/junyoung/101010 copy.html" class="nav-item">자기소개서</a>
+                    <a href="/calendar/calendar.html" class="nav-item">공고 캘린더</a>
+                    <a href="/community" class="nav-item">커뮤니티</a>
+                </nav>
+
+                <!-- 오른쪽: 알림/유저 -->
+                <div class="navbar-right">
                     <button class="alarm-button">🔔</button>
                     <button class="logout-button">👤</button>
                 </div>
+
             </div>
         </div>
     </header>
+
+    <!-- 알림 패널 -->
+    <div id="notification-panel" class="popup-panel" style="display: none;">
+        <div class="popup-content">
+            <p>🔔 새로운 알림이 없습니다.</p>
+        </div>
+    </div>
+
+    <!-- 유저 패널 (로그아웃 등) -->
+    <div id="user-panel" class="popup-panel" style="display: none;">
+        <div class="popup-content">
+            <button class="logout-action">로그아웃</button>
+        </div>
+    </div>
 
     <!-- 메인 컨텐츠 영역 -->
     <div class="container">
@@ -246,8 +90,9 @@
     <!-- 푸터 영역 -->
     <footer class="main-footer">
         <div class="footer-container">
-            <div class="footer-logo">IT JOB</div>
-            <p>© 2024 IT JOB. All rights reserved.</p>
+            <div class="footer-logo">Init</div>
+            <p>© 2025 이름추천받음. All rights reserved.</p>
+            <p>문의: gundo9918@gmail.com</p>
         </div>
     </footer>
 
@@ -371,4 +216,4 @@
         }
     </script>
 </body>
-</html>
+</html> 
