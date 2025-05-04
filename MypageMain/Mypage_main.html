@@ -6,112 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/Mypage/style.css">
-    <style>
-        /* 매칭 프로필 스타일 */
-
-        .main-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 16px;
-        }
-
-        .profile-section {
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 24px;
-            margin-bottom: 24px;
-            border: 1px solid #e5e7eb;
-        }
-
-        .section-title {
-            font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .section-sub {
-            font-size: 14px;
-            color: #888;
-            margin-bottom: 16px;
-        }
-
-        .edit-button {
-            margin-left: auto;
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 18px;
-            color: #555;
-        }
-
-        .user-info {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .user-info img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .user-details {
-            font-size: 15px;
-            color: #333;
-            flex-grow: 1;
-        }
-
-        .required {
-            color: red;
-            font-size: 12px;
-            margin-left: 4px;
-        }
-
-        .experience-item {
-            border-left: 3px solid #2563eb;
-            padding-left: 16px;
-            margin-top: 16px;
-        }
-
-        .experience-item h4 {
-            margin: 0 0 4px;
-            font-size: 15px;
-            font-weight: 600;
-        }
-
-        .experience-item p {
-            margin: 2px 0;
-            font-size: 13px;
-            color: #555;
-        }
-
-        .tag {
-            display: inline-block;
-            background-color: #f3f4f6;
-            color: #111;
-            font-size: 12px;
-            padding: 4px 8px;
-            border-radius: 6px;
-            margin-bottom: 6px;
-        }
-
-        @media (max-width: 768px) {
-            .user-info {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .edit-button {
-                align-self: flex-end;
-                margin-top: 12px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="/MypageMain/Mypage-main.css">
+    <link rel="stylesheet" href="/MypageMain/main-panel.css">
 
 
 </head>
@@ -119,39 +15,78 @@
 
 
 <body>
+
+    <!-- 헤더 부분 (원래 네가 쓰던 거 그대로 넣으면 됨) -->
     <header class="header">
         <div class="container">
             <div class="header-inner">
+
+                <!-- 왼쪽: 로고 -->
                 <div class="logo-box">
-                    <img src="/Mypage/myimage/image.png" alt="로고" class="logo-icon" />
-                    <span class="logo">Init</span>
+                    <a href="/Mypage/Mypage.html" class="logo">Init.</a>
                 </div>
+
+                <!-- 가운데: 메뉴 -->
+                <nav class="nav-menu">
+                    <a href="/MypageMain/Mypage_main.html" class="nav-item">Mypage</a>
+                    <a href="/Resume/resume.html" class="nav-item">이력서</a>
+                    <a href="/junyoung/101010 copy.html" class="nav-item">자기소개서</a>
+                    <a href="/calendar/calendar.html" class="nav-item">공고 캘린더</a>
+                    <a href="/community" class="nav-item">커뮤니티</a>
+                </nav>
+
+                <!-- 오른쪽: 알림/유저 -->
                 <div class="navbar-right">
                     <button class="alarm-button">🔔</button>
                     <button class="logout-button">👤</button>
                 </div>
+
             </div>
         </div>
     </header>
 
+    <!-- 헤더 끝 -->
+
     <!-- 매칭 프로필 본문 시작 -->
+
     <div class="main-container">
+        <!-- 메인 타이틀 및 구분박스?? -->
+        <div>
+            <div class="main-title">
+                <h2>매칭 프로필</h2>
+                <p style="color: gray;">나의 커리어와 스펙을 정리해 보여주는 공간입니다.</p>
+            </div>
+
+            <div class="profile-shortcut-card">
+                <div class="profile-text">
+                    <h3>클릭 한 번이면, 매칭 프로필 입력 끝!</h3>
+                    <p>내 프로필 내보내기 ></p>
+                </div>
+                <div class="profile-image">
+                    <img src="/Mypage/myimage/이력서.png" alt="프로필 이미지" />
+                </div>
+            </div>
+
+
+        </div>
+        <!-- 메인 타이틀 및 구분 박스 종료 -->
+
         <!-- 프로필 기본정보 -->
         <div class="profile-section">
             <div class="user-info">
-                <img src="/Mypage/myimage/default-profile.png" alt="프로필 이미지" />
+                <img src="/Mypage/myimage/프로필1.png" alt="프로필 이미지" />
                 <div class="user-details">
                     <div><strong>박건도</strong> <span class="required">필수</span></div>
                     <div>2000.09.08 ｜ 010-9590-9918 ｜ nagundo@naver.com</div>
                 </div>
-                <button class="edit-button">✏️</button>
+                <button class="edit-button" data-target="#userInfoPanel">✏️</button> <!-- 추가!! -->
             </div>
         </div>
 
         <!-- 셀프 브랜딩 -->
         <div class="profile-section">
             <div class="section-title">👤 셀프 브랜딩 <span class="required">필수</span>
-                <button class="edit-button">✏️</button>
+                <button class="edit-button" data-target="#selfBrandingPanel">✏️</button> <!-- 추가!! -->
             </div>
             <div class="section-sub">간단한 문장과 사진으로 나를 소개하세요.</div>
         </div>
@@ -201,16 +136,11 @@
             <div class="section-sub">대내외 활동, 해외 경험, 봉사 경험 등을 적어주세요.</div>
             <div class="experience-item">
                 <div class="tag">봉사 활동</div>
-                <h4>안동시자원봉사센터</h4>
+                <h4>자원봉사센터</h4>
                 <p>📅 2022.09 ~ 2023.11</p>
                 <p>매주 토요일마다 지역봉사 활동진행</p>
             </div>
-            <div class="experience-item">
-                <div class="tag">봉사 활동</div>
-                <h4>안동시자원봉사센터</h4>
-                <p>📅 2022.09 ~ 2023.11</p>
-                <p>매주 토요일마다 지역봉사 활동진행</p>
-            </div>
+
         </div>
 
         <!-- 수상내역 -->
@@ -239,6 +169,21 @@
     </div>
     <!-- 매칭 프로필 본문 끝 -->
 
+    <!-- 알림 패널 -->
+    <div id="notification-panel" class="popup-panel" style="display: none;">
+        <div class="popup-content">
+            <p>🔔 새로운 알림이 없습니다.</p>
+        </div>
+    </div>
+
+    <!-- 유저 패널 (로그아웃 등) -->
+    <div id="user-panel" class="popup-panel" style="display: none;">
+        <div class="popup-content">
+            <button class="logout-action">로그아웃</button>
+        </div>
+    </div>
+
+
     <!-- 푸터 부분 -->
     <footer class="main-footer">
         <div class="footer-container">
@@ -248,6 +193,11 @@
         </div>
     </footer>
     <!-- 푸터 끝 -->
+
+    <!-- 각 div에 대한 편집 패널 부분 -->
+
+
+    <script src="/Mypage/logout.js"></script>
 
 </body>
 

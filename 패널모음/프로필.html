@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/패널모음/panel.css">
+</head>
+
+<body>
+    
+  <!-- userInfoPanel.html -->
+<div class="edit-panel" id="userInfoPanel">
+    <div class="edit-content">
+      <div class="edit-main">
+        <h1 class="panel-title">기본 정보를 확인해주세요.</h1>
+        <p class="panel-subtitle">이름, 생년월일, 연락처, 이메일을 수정하세요.</p>
+  
+        <!-- 프로필 이미지 -->
+        <div class="profile-image-section">
+          <div class="profile-image-wrapper">
+            <img src="/Mypage/myimage/default-profile.png" alt="프로필 이미지" id="profilePreview" />
+            <label for="profileUpload" class="camera-icon">📷</label>
+            <input type="file" id="profileUpload" accept="image/*" style="display: none;" />
+          </div>
+        </div>
+  
+        <!-- 정보 입력 -->
+        <table class="profile-edit-table">
+          <tr>
+            <th>이름 <span class="required">필수</span></th>
+            <td><input type="text" placeholder="홍길동" /></td>
+          </tr>
+          <tr>
+            <th>생년월일</th>
+            <td><input type="date" /></td>
+          </tr>
+          <tr>
+            <th>전화번호</th>
+            <td><input type="tel" placeholder="010-1234-5678" /></td>
+          </tr>
+          <tr>
+            <th>이메일</th>
+            <td><input type="email" placeholder="example@email.com" /></td>
+          </tr>
+        </table>
+  
+        <div class="button-bottom">
+          <button class="btn-wide gray">취소</button>
+          <button class="btn-wide blue">저장</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+</body>
+
+</html>

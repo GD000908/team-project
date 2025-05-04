@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    background: #fff;
+    font-family: 'Arial', sans-serif;
+}
+
+/*상단 네비게이션 바*/
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100px;
+    background : #fff;
+    /* 반투명 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    z-index: 10;
+}
+
+nav h1 a {
+    color: gray;
+    font-size: 50px;
+    text-decoration: none;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: gray;
+    text-decoration: none;
+    font: bold 18px "sans_serif";
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: blue;
+    background: gray;
+}
+
+/*직사각 패널*/
+.panel-container {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 80vh;
+    margin-top: 100px;
+    gap: 10px;
+    overflow: hidden;
+}
+
+.panel {
+    flex: 1;
+    background : #6292ff;
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    transition: flex 0.6s ease, transform 0.6s ease;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.panel.active {
+    flex: 5;
+    transform: scale(1.05);
+    z-index: 10;
+}
+
+.panel .overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.panel.active .overlay {
+    opacity: 1;
+}
+
+.overlay h2 {
+    color: #fff;
+    font-size: 2.5rem;
+    text-align: center;
+    padding: 0 20px;
+}
+
+/*로그인 화면*/
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+    width: 100%;
+    max-width: 320px;
+    background-color: rgba(255, 255, 255, 0.1);
+    /* 반투명 화이트 */
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+    gap: 15px;
+    transition: transform 0.3s ease;
+}
+
+.login:hover {
+    transform: scale(1.02);
+}
+
+.login h2 {
+    color: #fff;
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.login button {
+    padding: 12px 24px;
+    background-color: royalblue;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.login button:hover {
+    background-color: royalblue;
+    transform: translateY(-2px);
+}

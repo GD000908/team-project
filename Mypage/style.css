@@ -64,9 +64,10 @@ textarea {
 
 /* 텍스트 로고 */
 .logo {
-  font-size: 22px;
+  font-size: 30px;
   font-weight: 700;
   color: #111;
+  text-decoration: none;
 }
 
 
@@ -86,12 +87,13 @@ textarea {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 12px;
-  border-radius: 12px;
-  transition: background-color 0.3s;
-  /* 배경색 전환 효과 */
-  /* cursor: pointer; */
+  justify-content: center; 
+  text-align: center;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 7px;
 }
+
 
 .menu-item:hover {
   background-color: #f2f2f2;
@@ -100,7 +102,9 @@ textarea {
 .emoji {
   font-size: 30px;
   margin-bottom: 8px;
+  line-height: 1;
 }
+
 
 .menu-item span {
   font-size: 14px;
@@ -189,3 +193,39 @@ footer {
   border-radius: 6px;
   cursor: pointer;
 }
+
+
+/*  */
+
+.nav-menu {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  margin-left: 40px;
+  margin-left: -30px;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  margin-left: 40px;
+  margin-left: -30px;
+}
+
+.nav-item {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: background-color 0.25s ease;
+  cursor: pointer;
+}
+
+.nav-item:hover {
+  background-color: #e3f2fd;  /* 연한 파란색 */
+  color: #1565C0;             /* 텍스트도 살짝 파란 느낌 */
+}
+

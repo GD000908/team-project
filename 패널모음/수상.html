@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수상내역</title>
+    <link rel="stylesheet" href="/패널모음/panel.css">
+</head>
+
+<body>
+    <div class="edit-panel" id="awardPanel">
+        <div class="edit-content">
+            <div class="edit-main">
+                <h1 class="panel-title">수상 내역을 입력하세요.</h1>
+                <p class="panel-subtitle">수상명, 수상연도, 결과, 내용 등을 입력할 수 있습니다.</p>
+
+                <div id="award-container">
+                    <!-- 수상 항목 1 -->
+                    <div class="award-item-block">
+                        <table class="profile-edit-table">
+                            <tr>
+                                <th>수상명</th>
+                                <td><input type="text" placeholder="예: 전국 알고리즘 대회" /></td>
+                            </tr>
+                            <tr>
+                                <th>수상일</th>
+                                <td><input type="month" /></td>
+
+                            </tr>
+                            <tr>
+                                <th>설명</th>
+                                <td><textarea rows="3" placeholder="수상 배경이나 수행 내용 간략히 작성"></textarea></td>
+                            </tr>
+                            <tr>
+                                <th>결과</th>
+                                <td><input type="text" placeholder="예: 금상, 장려상, 참여 등" /></td>
+                            </tr>
+                        </table>
+                        <hr style="margin: 30px 0;" />
+                    </div>
+                </div>
+
+                <!-- 추가 버튼 -->
+                <div style="text-align: center; margin-bottom: 24px;">
+                    <button type="button" class="btn-wide gray" id="add-award-btn">수상 추가</button>
+                </div>
+
+                <div class="button-bottom">
+                    <button class="btn-wide gray">취소</button>
+                    <button class="btn-wide blue">저장</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("add-award-btn").addEventListener("click", () => {
+            const container = document.getElementById("award-container");
+            const clone = container.querySelector(".award-item-block").cloneNode(true);
+            container.appendChild(clone);
+        });
+    </script>
+</body>
+
+</html>
