@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>게시글 수정 - IT JOB</title>
+    <style>
+        /* 기본 스타일 */
+        * {
+            box-sizing: border-box;
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #333;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        input,
+        textarea {
+            user-select: auto;
+            -webkit-user-select: auto;
+        }
+
+        /* 헤더 스타일 */
+        .header {
+            background-color: #ffffff;
+            color: #111;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 16px;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: #111;
+        }
+
+        /* 상단 버튼 스타일 */
+        .logout-button,
+        .alarm-button {
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            font-size: 25px;
+        }
+
+        /* 푸터 스타일 */
+        .main-footer {
+            background-color: #e6f0fa;
+            padding: 40px 16px;
+            text-align: center;
+            font-size: 14px;
+            color: #333;
+            margin-top: 60px;
+            border-top: 1px solid #c3d3e6;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2563eb;
+            margin-bottom: 8px;
+        }
+
+        /* 게시글 수정 폼 스타일 */
+        .edit-form {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e5e7eb;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .form-textarea {
+            min-height: 300px;
+            resize: vertical;
+        }
+
+        .form-select {
+            width: 200px;
+        }
+
+        .image-preview {
+            max-width: 100%;
+            max-height: 300px;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background-color: #2563eb;
+            color: #fff;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+        }
+
+        .btn-secondary {
+            background-color: #fff;
+            color: #333;
+            border: 1px solid #e5e7eb;
+        }
+
+        .btn-secondary:hover {
+            background-color: #f3f4f6;
+        }
+
+        .btn-danger {
+            background-color: #ef4444;
+            color: #fff;
+            border: none;
+        }
+
+        .btn-danger:hover {
+            background-color: #dc2626;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 헤더 영역 -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <div class="logo-box">
+                    <img src="#" alt="로고" class="logo-icon">
+                    <span class="logo">IT JOB</span>
+                </div>
+                <div>
+                    <button class="alarm-button">🔔</button>
+                    <button class="logout-button">👤</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 메인 컨텐츠 영역 -->
+    <div class="container">
+        <form class="edit-form" onsubmit="updatePost(event)">
+            <div class="form-group">
+                <label class="form-label">카테고리</label>
+                <select class="form-input form-select" id="category" required>
+                    <option value="">카테고리 선택</option>
+                    <option value="review">후기</option>
+                    <option value="tip">팁</option>
+                    <option value="info">정보</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">제목</label>
+                <input type="text" class="form-input" id="title" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">내용</label>
+                <textarea class="form-input form-textarea" id="content" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">이미지</label>
+                <input type="file" class="form-input" id="image" accept="image/*" onchange="previewImage(event)">
+                <img id="imagePreview" class="image-preview">
+            </div>
+
+            <div class="action-buttons">
+                <button type="submit" class="btn btn-primary">수정</button>
+                <button type="button" class="btn btn-secondary" onclick="cancelEdit()">취소</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- 푸터 영역 -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-logo">IT JOB</div>
+            <p>© 2024 IT JOB. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 페이지 로드 시 게시글 데이터 불러오기
+        window.onload = function() {
+            loadPost();
+        }
+
+        // 게시글 데이터 로드
+        function loadPost() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const postId = parseInt(urlParams.get('id'));
+            const posts = JSON.parse(localStorage.getItem('posts') || '[]');
+            const post = posts.find(p => p.id === postId);
+
+            if (post) {
+                // 현재 로그인한 사용자 확인
+                const currentUser = localStorage.getItem('currentUser') || '현재 사용자';
+                
+                // 게시글 작성자와 현재 사용자가 다른 경우
+                if (post.author !== currentUser) {
+                    alert('수정 권한이 없습니다.');
+                    window.location.href = 'board.html';
+                    return;
+                }
+
+                // 폼에 데이터 설정
+                document.getElementById('category').value = post.category;
+                document.getElementById('title').value = post.title;
+                document.getElementById('content').value = post.content;
+                
+                // 이미지가 있는 경우 표시
+                if (post.image) {
+                    const preview = document.getElementById('imagePreview');
+                    preview.src = post.image;
+                    preview.style.display = 'block';
+                }
+            } else {
+                alert('존재하지 않는 게시글입니다.');
+                window.location.href = 'board.html';
+            }
+        }
+
+        // 이미지 미리보기
+        function previewImage(event) {
+            const input = event.target;
+            const preview = document.getElementById('imagePreview');
+            
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                }
+                
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        // 게시글 수정 취소
+        function cancelEdit() {
+            if (confirm('수정을 취소하시겠습니까?')) {
+                const postId = new URLSearchParams(window.location.search).get('id');
+                window.location.href = `detail.html?id=${postId}`;
+            }
+        }
+
+        // 게시글 수정
+        function updatePost(event) {
+            event.preventDefault();
+            
+            const urlParams = new URLSearchParams(window.location.search);
+            const postId = parseInt(urlParams.get('id'));
+            const posts = JSON.parse(localStorage.getItem('posts') || '[]');
+            const postIndex = posts.findIndex(p => p.id === postId);
+            
+            if (postIndex === -1) {
+                alert('존재하지 않는 게시글입니다.');
+                window.location.href = 'board.html';
+                return;
+            }
+            
+            const category = document.getElementById('category').value;
+            const title = document.getElementById('title').value.trim();
+            const content = document.getElementById('content').value.trim();
+            const imageInput = document.getElementById('image');
+            
+            if (title === '' || content === '') {
+                alert('제목과 내용을 입력해주세요.');
+                return;
+            }
+            
+            // 게시글 데이터 업데이트
+            posts[postIndex].category = category;
+            posts[postIndex].title = title;
+            posts[postIndex].content = content;
+            posts[postIndex].date = new Date().toLocaleString() + ' (수정됨)';
+            
+            // 이미지가 있는 경우 처리
+            if (imageInput.files && imageInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    posts[postIndex].image = e.target.result;
+                    savePost(posts);
+                }
+                reader.readAsDataURL(imageInput.files[0]);
+            } else {
+                savePost(posts);
+            }
+        }
+
+        // 게시글 저장
+        function savePost(posts) {
+            localStorage.setItem('posts', JSON.stringify(posts));
+            
+            alert('게시글이 수정되었습니다.');
+            const postId = new URLSearchParams(window.location.search).get('id');
+            window.location.href = `detail.html?id=${postId}`;
+        }
+    </script>
+</body>
+</html>
