@@ -192,6 +192,7 @@ footer {
   gap: 24px;
   align-items: center;
   margin-left: -30px;
+  
 }
 
 .nav-item {
@@ -199,9 +200,12 @@ footer {
   text-decoration: none;
   font-weight: 500;
   font-size: 16px;
+  padding: 10px;
 }
 
 .nav-item:hover {
   background-color: #e3f2fd;
   color: #1565C0;
+  border-radius: 5px;
+  
 } 
