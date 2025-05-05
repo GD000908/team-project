@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 수정</title>
+    <link rel="stylesheet" href="css/board.css">
+    <link rel="stylesheet" href="css/header.css">
+</head>
+<body>
+    <!-- 헤더 영역 -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <!-- 왼쪽: 로고 -->
+                <div class="logo-box">
+                    <a href="/Mypage/Mypage.html" class="logo">Init.</a>
+                </div>
+
+                <!-- 가운데: 메뉴 -->
+                <nav class="nav-menu">
+                    <a href="/MypageMain/Mypage_main.html" class="nav-item">Mypage</a>
+                    <a href="/Resume/resume.html" class="nav-item">이력서</a>
+                    <a href="/junyoung/101010 copy.html" class="nav-item">자기소개서</a>
+                    <a href="/calendar/calendar.html" class="nav-item">공고 캘린더</a>
+                    <a href="/community" class="nav-item">커뮤니티</a>
+                </nav>
+
+                <!-- 오른쪽: 알림/유저 -->
+                <div class="navbar-right">
+                    <button class="alarm-button">🔔</button>
+                    <button class="logout-button">👤</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 알림 패널 -->
+    <div id="notification-panel" class="popup-panel" style="display: none;">
+        <div class="popup-content">
+            <p>🔔 새로운 알림이 없습니다.</p>
+        </div>
+    </div>
+
+    <!-- 유저 패널 (로그아웃 등) -->
+    <div id="user-panel" class="popup-panel" style="display: none;">
+        <div class="popup-content">
+            <button class="logout-action">로그아웃</button>
+        </div>
+    </div>
+
+    <!-- 메인 컨텐츠 영역 -->
+    <div class="container">
+        <form class="edit-form" onsubmit="updatePost(event)">
+            <div class="form-group">
+                <label class="form-label">카테고리</label>
+                <select class="form-input form-select" id="category" required>
+                    <option value="">카테고리 선택</option>
+                    <option value="review">후기</option>
+                    <option value="tip">팁</option>
+                    <option value="info">정보</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">제목</label>
+                <input type="text" class="form-input" id="title" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">내용</label>
+                <textarea class="form-input form-textarea" id="content" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">이미지</label>
+                <input type="file" class="form-input" id="image" accept="image/*" onchange="previewImage(event)">
+                <img id="imagePreview" class="image-preview">
+            </div>
+
+            <div class="action-buttons">
+                <button type="submit" class="btn btn-primary">수정</button>
+                <button type="button" class="btn btn-secondary" onclick="cancelEdit()">취소</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- 푸터 영역 -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-logo">Init</div>
+            <p>© 2025 이름추천받음. All rights reserved.</p>
+            <p>문의: gundo9918@gmail.com</p>
+        </div>
+    </footer>
+
+    <script>
+        // 페이지 로드 시 게시글 데이터 불러오기
+        window.onload = function() {
+            loadPost();
+        }
+
+        // 게시글 데이터 로드
+        function loadPost() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const postId = parseInt(urlParams.get('id'));
+            const posts = JSON.parse(localStorage.getItem('posts') || '[]');
+            const post = posts.find(p => p.id === postId);
+
+            if (post) {
+                // 현재 로그인한 사용자 확인
+                const currentUser = localStorage.getItem('currentUser') || '현재 사용자';
+                
+                // 게시글 작성자와 현재 사용자가 다른 경우
+                if (post.author !== currentUser) {
+                    alert('수정 권한이 없습니다.');
+                    window.location.href = 'board.html';
+                    return;
+                }
+
+                // 폼에 데이터 설정
+                document.getElementById('category').value = post.category;
+                document.getElementById('title').value = post.title;
+                document.getElementById('content').value = post.content;
+                
+                // 이미지가 있는 경우 표시
+                if (post.image) {
+                    const preview = document.getElementById('imagePreview');
+                    preview.src = post.image;
+                    preview.style.display = 'block';
+                }
+            } else {
+                alert('존재하지 않는 게시글입니다.');
+                window.location.href = 'board.html';
+            }
+        }
+
+        // 이미지 미리보기
+        function previewImage(event) {
+            const input = event.target;
+            const preview = document.getElementById('imagePreview');
+            
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                }
+                
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        // 게시글 수정 취소
+        function cancelEdit() {
+            if (confirm('수정을 취소하시겠습니까?')) {
+                const postId = new URLSearchParams(window.location.search).get('id');
+                window.location.href = `detail.html?id=${postId}`;
+            }
+        }
+
+        // 게시글 수정
+        function updatePost(event) {
+            event.preventDefault();
+            
+            const urlParams = new URLSearchParams(window.location.search);
+            const postId = parseInt(urlParams.get('id'));
+            const posts = JSON.parse(localStorage.getItem('posts') || '[]');
+            const postIndex = posts.findIndex(p => p.id === postId);
+            
+            if (postIndex === -1) {
+                alert('존재하지 않는 게시글입니다.');
+                window.location.href = 'board.html';
+                return;
+            }
+            
+            const category = document.getElementById('category').value;
+            const title = document.getElementById('title').value.trim();
+            const content = document.getElementById('content').value.trim();
+            const imageInput = document.getElementById('image');
+            
+            if (title === '' || content === '') {
+                alert('제목과 내용을 입력해주세요.');
+                return;
+            }
+            
+            // 게시글 데이터 업데이트
+            posts[postIndex].category = category;
+            posts[postIndex].title = title;
+            posts[postIndex].content = content;
+            posts[postIndex].date = new Date().toLocaleString() + ' (수정됨)';
+            
+            // 이미지가 있는 경우 처리
+            if (imageInput.files && imageInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    posts[postIndex].image = e.target.result;
+                    savePost(posts);
+                }
+                reader.readAsDataURL(imageInput.files[0]);
+            } else {
+                savePost(posts);
+            }
+        }
+
+        // 게시글 저장
+        function savePost(posts) {
+            localStorage.setItem('posts', JSON.stringify(posts));
+            
+            alert('게시글이 수정되었습니다.');
+            const postId = new URLSearchParams(window.location.search).get('id');
+            window.location.href = `detail.html?id=${postId}`;
+        }
+    </script>
+</body>
+</html> 
