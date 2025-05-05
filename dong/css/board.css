@@ -16,6 +16,11 @@ body {
 	-webkit-user-select: none;
 }
 
+#main {
+	flex: 1;
+	margin-bottom: 100px;
+}
+
 input,
 textarea {
 	user-select: auto;
@@ -132,6 +137,7 @@ textarea {
 	flex-direction: column;
 	gap: 10px;
 	clear: both;
+	margin-bottom: 50px;
 }
 
 .post-list-item {
@@ -180,6 +186,7 @@ textarea {
 	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 	gap: 20px;
 	clear: both;
+	margin-bottom: 50px;
 }
 
 .post-card {
@@ -284,12 +291,13 @@ textarea {
 }
 
 /* 게시글 작성 폼 스타일 */
-.write-form {
+.write-form, .edit-form {
 	background: #fff;
 	padding: 30px;
 	border-radius: 8px;
 	box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 	margin-top: 20px;
+	margin-bottom: 50px;
 }
 
 .form-group {
@@ -413,6 +421,7 @@ textarea {
 	border-radius: 8px;
 	box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 	margin-top: 20px;
+	margin-bottom: 50px;
 }
 
 .post-header {
@@ -573,4 +582,16 @@ textarea {
 	font-size: 40px;
 	font-weight: bold;
 	cursor: pointer;
+}
+
+/* 푸터 스타일 */
+.main-footer {
+	background-color: #e6f0fa;
+	padding: 40px 16px;
+	text-align: center;
+	font-size: 14px;
+	color: #333;
+	border-top: 1px solid #c3d3e6;
+	width: 100%;
+	margin-top: auto;
 } 

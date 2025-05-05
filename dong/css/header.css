@@ -43,6 +43,7 @@ textarea {
 
 #main {
   margin: 0 auto;
+  flex: 1;
 }
 
 /* 내부 정렬 */
@@ -138,7 +139,7 @@ footer {
   color: #333;
   border-top: 1px solid #c3d3e6;
   width: 100%;
-  margin-top: 80px;
+  margin-top: auto;
 }
 
 .footer-container {
