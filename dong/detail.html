@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 상세</title>
+    <link rel="stylesheet" href="css/board.css">
+    <link rel="stylesheet" href="css/header.css">
+    <!-- <link rel="stylesheet" href="/Mypage/style.css"> -->
+</head>
+<body>
+    <!-- 헤더 영역 -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <!-- 왼쪽: 로고 -->
+                <div class="logo-box">
+                    <a href="/Mypage/Mypage.html" class="logo">Init.</a>
+                </div>
+
+                <!-- 가운데: 메뉴 -->
+                <nav class="nav-menu">
+                    <a href="/MypageMain/Mypage_main.html" class="nav-item">Mypage</a>
+                    <a href="/Resume/resume.html" class="nav-item">이력서</a>
+                    <a href="/junyoung/101010 copy.html" class="nav-item">자기소개서</a>
+                    <a href="/calendar/calendar.html" class="nav-item">공고 캘린더</a>
+                    <a href="/dong/board.html" class="nav-item">커뮤니티</a>
+                </nav>
+
+                <!-- 오른쪽: 알림/유저 -->
+                <div class="navbar-right">
+                    <button class="alarm-button">🔔</button>
+                    <button class="logout-button">👤</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 알림 패널 -->
+    <div id="notification-panel" class="popup-panel" style="display: none;">
+        <div class="popup-content">
+            <p>🔔 새로운 알림이 없습니다.</p>
+        </div>
+    </div>
+
+    <!-- 유저 패널 (로그아웃 등) -->
+    <div id="user-panel" class="popup-panel" style="display: none;">
+        <div class="popup-content">
+            <button class="logout-action">로그아웃</button>
+        </div>
+    </div>
+
+    <!-- 메인 컨텐츠 영역 -->
+    <div class="container">
+        <article class="post-detail">
+            <div class="post-header">
+                <h1 class="post-title" id="postTitle"></h1>
+                <div class="post-meta">
+                    <div class="post-author">
+                        <span id="postAuthor"></span>
+                        <span>•</span>
+                        <span id="postDate"></span>
+                        <span>•</span>
+                        <span>조회수</span>
+                        <span id="viewCount">0</span>
+                    </div>
+                    <div class="post-actions">
+                        <button class="action-btn" onclick="toggleLike()">
+                            <span>❤️</span>
+                            <span id="likeCount">0</span>
+                        </button>
+                        <span class="action-btn">
+                            <span>💬</span>
+                            <span id="commentCount">0</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post-content">
+                <div id="postImageContainer">
+                    <img id="postImage" class="post-image" alt="게시글 이미지" onclick="openModal(this.src)">
+                </div>
+                <div class="post-text" id="postContent"></div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn btn-primary" onclick="goToEdit()">수정</button>
+                <button class="btn btn-danger" onclick="deletePost()">삭제</button>
+                <button class="btn btn-secondary" onclick="goBack()">목록</button>
+            </div>
+
+            <div class="comments-section">
+                <h3 class="comments-title">댓글 0</h3>
+                
+                <div class="comment-form">
+                    <textarea class="comment-textarea" placeholder="댓글을 입력하세요"></textarea>
+                    <button class="comment-submit" onclick="submitComment()">댓글 작성</button>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <!-- 푸터 영역 -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-logo">Init</div>
+            <p>© 2025 이름추천받음. All rights reserved.</p>
+            <p>문의: gundo9918@gmail.com</p>
+        </div>
+    </footer>
+
+    <!-- 이미지 모달 영역 -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script>
+        // 페이지 로드 시 게시글 데이터 불러오기
+        window.onload = function() {
+            loadPost();
+        }
+
+        // 카테고리 이름 가져오기
+        function getCategoryName(category) {
+            const categories = {
+                'review': '후기',
+                'tip': '팁',
+                'info': '정보'
+            };
+            return categories[category] || category;
+        }
+
+        // 댓글 로드
+        function loadComments() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const postId = parseInt(urlParams.get('id'));
+            const currentUser = localStorage.getItem('currentUser') || '현재 사용자';
+            renderComments(postId, currentUser);
+        }
+
+        // 댓글 목록 렌더링
+        function renderComments(postId, currentUser) {
+            const comments = JSON.parse(localStorage.getItem(`comments_${postId}`) || '[]');
+            const commentsContainer = document.querySelector('.comments-section');
+            const commentsTitle = commentsContainer.querySelector('.comments-title');
+            
+            // 댓글 수 표시 업데이트
+            commentsTitle.textContent = `댓글 ${comments.length}`;
+            
+            // 기존 댓글 목록 제거
+            const existingComments = commentsContainer.querySelectorAll('.comment');
+            existingComments.forEach(comment => comment.remove());
+            
+            // 댓글 목록 HTML 생성
+            const commentsList = comments.map(comment => {
+                const isAuthor = comment.author === currentUser;
+                return `
+                    <div class="comment" id="comment-${comment.id}">
+                        <div class="comment-header">
+                            <span class="comment-author">${comment.author}</span>
+                            <span class="comment-date">${comment.date}</span>
+                        </div>
+                        <div class="comment-content" id="comment-content-${comment.id}">${comment.content}</div>
+                        <div class="comment-edit-form" id="comment-edit-form-${comment.id}" style="display: none;">
+                            <textarea class="comment-textarea" id="comment-edit-textarea-${comment.id}">${comment.content}</textarea>
+                            <div class="comment-actions">
+                                <button class="btn btn-primary" onclick="saveCommentEdit(${comment.id})">저장</button>
+                                <button class="btn btn-secondary" onclick="cancelCommentEdit(${comment.id})">취소</button>
+                            </div>
+                        </div>
+                        ${isAuthor ? `
+                            <div class="comment-actions" id="comment-actions-${comment.id}">
+                                <span class="comment-action-btn" onclick="startCommentEdit(${comment.id})">수정</span>
+                                <span class="comment-action-btn" onclick="deleteComment(${comment.id})">삭제</span>
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+            }).join('');
+            
+            // 댓글 폼 다음에 댓글 목록 삽입
+            const commentForm = commentsContainer.querySelector('.comment-form');
+            commentForm.insertAdjacentHTML('afterend', commentsList);
+        }
+
+        // 댓글 수정 시작
+        function startCommentEdit(commentId) {
+            // 댓글 내용과 수정 폼 표시/숨김 처리
+            document.getElementById(`comment-content-${commentId}`).style.display = 'none';
+            document.getElementById(`comment-edit-form-${commentId}`).style.display = 'block';
+            document.getElementById(`comment-actions-${commentId}`).style.display = 'none';
+        }
+
+        // 댓글 수정 취소
+        function cancelCommentEdit(commentId) {
+            // 댓글 내용과 수정 폼 표시/숨김 처리
+            document.getElementById(`comment-content-${commentId}`).style.display = 'block';
+            document.getElementById(`comment-edit-form-${commentId}`).style.display = 'none';
+            document.getElementById(`comment-actions-${commentId}`).style.display = 'flex';
+        }
+
+        // 댓글 수정 저장
+        function saveCommentEdit(commentId) {
+            const urlParams = new URLSearchParams(window.location.search);
+            const postId = parseInt(urlParams.get('id'));
+            const posts = JSON.parse(localStorage.getItem('posts') || '[]');
+            const post = posts.find(p => p.id === postId);
+            
+            if (post) {
+                const comments = JSON.parse(localStorage.getItem(`comments_${postId}`) || '[]');
+                const commentIndex = comments.findIndex(c => c.id === commentId);
+                
+                if (commentIndex !== -1) {
+                    const newContent = document.getElementById(`comment-edit-textarea-${commentId}`).value.trim();
+                    
+                    if (newContent === '') {
+                        alert('댓글 내용을 입력해주세요.');
+                        return;
+                    }
+                    
+                    // 댓글 내용 업데이트
+                    comments[commentIndex].content = newContent;
+                    comments[commentIndex].date = new Date().toLocaleString() + ' (수정됨)';
+                    
+                    localStorage.setItem(`comments_${postId}`, JSON.stringify(comments));
+                    
+                    // 현재 로그인한 사용자 확인
+                    const currentUser = localStorage.getItem('currentUser') || '현재 사용자';
+                    
+                    // 댓글 목록 새로고침
+                    renderComments(postId, currentUser);
+                }
+            }
+        }
+
+        // 좋아요 토글
+        function toggleLike() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const postId = parseInt(urlParams.get('id'));
+            const posts = JSON.parse(localStorage.getItem('posts') || '[]');
+            const post = posts.find(p => p.id === postId);
+            
+            if (post) {
+                // 좋아요 상태 토글
+                const isLiked = document.querySelector('.action-btn').classList.contains('active');
+                document.querySelector('.action-btn').classList.toggle('active');
+                
+                // 좋아요 수 업데이트
+                if (!isLiked) {
+                    post.likes++;
+                } else {
+                    post.likes = Math.max(0, post.likes - 1); // 음수가 되지 않도록 보호
+                }
+                
+                // localStorage 업데이트
+                localStorage.setItem('posts', JSON.stringify(posts));
+                
+                // 화면에 표시된 좋아요 수 업데이트
+                document.querySelector('#likeCount').textContent = post.likes;
+            }
+        }
+        
+        // 댓글 작성
+        function submitComment() {
+            const textarea = document.querySelector('.comment-textarea');
+            const content = textarea.value.trim();
+            
+            if (content === '') {
+                alert('댓글을 입력해주세요.');
+                return;
+            }
+            
+            const urlParams = new URLSearchParams(window.location.search);
+            const postId = parseInt(urlParams.get('id'));
+            const posts = JSON.parse(localStorage.getItem('posts') || '[]');
+            const post = posts.find(p => p.id === postId);
+            
+            if (post) {
+                // 현재 로그인한 사용자 확인 (실제로는 서버에서 세션 등을 통해 확인)
+                const currentUser = localStorage.getItem('currentUser') || '현재 사용자';
+                
+                // 댓글 데이터 생성
+                const comments = JSON.parse(localStorage.getItem(`comments_${postId}`) || '[]');
+                const newComment = {
+                    id: comments.length > 0 ? Math.max(...comments.map(c => c.id)) + 1 : 1,
+                    author: currentUser,
+                    date: new Date().toLocaleString(),
+                    content: content
+                };
+                
+                // 댓글 추가
+                comments.push(newComment);
+                localStorage.setItem(`comments_${postId}`, JSON.stringify(comments));
+                
+                // 게시글의 댓글 수 업데이트
+                post.comments = comments.length;
+                localStorage.setItem('posts', JSON.stringify(posts));
+                
+                // 댓글 수 표시 업데이트
+                document.querySelector('.action-btn:last-child').textContent = `💬 ${post.comments}`;
+                
+                // 댓글 목록 새로고침
+                renderComments(postId, currentUser);
+                
+                // 입력창 초기화
+                textarea.value = '';
+            }
+        }
+        
+        // 댓글 삭제
+        function deleteComment(commentId) {
+            if (confirm('댓글을 삭제하시겠습니까?')) {
+                const urlParams = new URLSearchParams(window.location.search);
+                const postId = parseInt(urlParams.get('id'));
+                const posts = JSON.parse(localStorage.getItem('posts') || '[]');
+                const post = posts.find(p => p.id === postId);
+                
+                if (post) {
+                    // 댓글 삭제
+                    const comments = JSON.parse(localStorage.getItem(`comments_${postId}`) || '[]');
+                    const updatedComments = comments.filter(c => c.id !== commentId);
+                    localStorage.setItem(`comments_${postId}`, JSON.stringify(updatedComments));
+                    
+                    // 게시글의 댓글 수 업데이트
+                    post.comments = updatedComments.length;
+                    localStorage.setItem('posts', JSON.stringify(posts));
+                    
+                    // 댓글 수 표시 업데이트
+                    document.querySelector('.action-btn:last-child').textContent = `💬 ${post.comments}`;
+                    
+                    // 현재 로그인한 사용자 확인
+                    const currentUser = localStorage.getItem('currentUser') || '현재 사용자';
+                    
+                    // 댓글 목록 새로고침
+                    renderComments(postId, currentUser);
+                }
+            }
+        }
+        
+        // 수정 페이지로 이동
+        function goToEdit() {
+            const postId = new URLSearchParams(window.location.search).get('id');
+            window.location.href = `edit.html?id=${postId}`;
+        }
+        
+        // 게시글 삭제
+        function deletePost() {
+            if (confirm('정말 삭제하시겠습니까?')) {
+                const urlParams = new URLSearchParams(window.location.search);
+                const postId = parseInt(urlParams.get('id'));
+                const posts = JSON.parse(localStorage.getItem('posts') || '[]');
+                const updatedPosts = posts.filter(p => p.id !== postId);
+                localStorage.setItem('posts', JSON.stringify(updatedPosts));
+                
+                // 게시글의 댓글도 삭제
+                localStorage.removeItem(`comments_${postId}`);
+                
+                alert('게시글이 삭제되었습니다.');
+                window.location.href = 'board.html';
+            }
+        }
+        
+        // 목록으로 돌아가기
+        function goBack() {
+            window.location.href = 'board.html';
+        }
+
+        // 이미지 모달 열기
+        function openModal(imgSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = "block";
+            modalImg.src = imgSrc;
+        }
+
+        // 이미지 모달 닫기
+        function closeModal() {
+            document.getElementById('imageModal').style.display = "none";
+        }
+
+        // ESC 키로 모달 닫기
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeModal();
+            }
+        });
+
+        // 이미지 클릭 이벤트 처리
+        document.addEventListener('click', function(event) {
+            if (event.target.classList.contains('post-image')) {
+                openModal(event.target.src);
+            }
+        });
+
+        // 게시글 데이터 로드
+        function loadPost() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const postId = parseInt(urlParams.get('id'));
+            const posts = JSON.parse(localStorage.getItem('posts') || '[]');
+            const post = posts.find(p => p.id === postId);
+
+            if (post) {
+                // 조회수 증가
+                post.views = (post.views || 0) + 1;
+                localStorage.setItem('posts', JSON.stringify(posts));
+
+                // 제목 설정
+                document.getElementById('postTitle').textContent = post.title;
+                
+                // 작성자 정보 설정
+                document.getElementById('postAuthor').textContent = post.author;
+                document.getElementById('postDate').textContent = post.date;
+                document.getElementById('viewCount').textContent = post.views;
+                
+                // 좋아요, 댓글 수 설정
+                document.getElementById('likeCount').textContent = post.likes || 0;
+                document.getElementById('commentCount').textContent = post.comments || 0;
+                
+                // 내용 설정
+                document.getElementById('postContent').innerHTML = post.content.replace(/\n/g, '<br>');
+                
+                // 이미지가 있는 경우 표시
+                const imageContainer = document.getElementById('postImageContainer');
+                if (post.image) {
+                    const img = document.getElementById('postImage');
+                    img.src = post.image;
+                    imageContainer.style.display = 'block';
+                } else {
+                    imageContainer.style.display = 'none';
+                }
+
+                // 현재 로그인한 사용자 확인
+                const currentUser = localStorage.getItem('currentUser') || '현재 사용자';
+                
+                // 게시글 작성자인 경우에만 수정/삭제 버튼 표시
+                const actionButtons = document.querySelector('.action-buttons');
+                if (post.author === currentUser) {
+                    actionButtons.innerHTML = `
+                        <button class="btn btn-primary" onclick="goToEdit()">수정</button>
+                        <button class="btn btn-danger" onclick="deletePost()">삭제</button>
+                        <button class="btn btn-secondary" onclick="goBack()">목록</button>
+                    `;
+                } else {
+                    actionButtons.innerHTML = `
+                        <button class="btn btn-secondary" onclick="goBack()">목록</button>
+                    `;
+                }
+
+                // 댓글 목록 표시
+                renderComments(postId, currentUser);
+            } else {
+                alert('존재하지 않는 게시글입니다.');
+                window.location.href = 'board.html';
+            }
+        }
+    </script>
+</body>
+</html> 
