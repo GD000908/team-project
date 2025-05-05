@@ -12,6 +12,9 @@ body {
   color: #333;
   user-select: none;
   -webkit-user-select: none;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 input,
@@ -27,6 +30,7 @@ textarea {
   color: #111;
   border-bottom: 1px solid #e5e7eb;
   padding: 0;
+  margin-bottom: 40px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -34,7 +38,7 @@ textarea {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40 16px;
+  padding: 0 16px;
 }
 
 #main {
@@ -132,8 +136,9 @@ footer {
   text-align: center;
   font-size: 14px;
   color: #333;
-  margin-top: 60px;
   border-top: 1px solid #c3d3e6;
+  width: 100%;
+  margin-top: auto;
 }
 
 .footer-container {
@@ -185,7 +190,6 @@ footer {
   display: flex;
   gap: 24px;
   align-items: center;
-  margin-left: 40px;
   margin-left: -30px;
 }
 
@@ -194,10 +198,6 @@ footer {
   text-decoration: none;
   font-weight: 500;
   font-size: 16px;
-  padding: 8px 14px;
-  border-radius: 8px;
-  transition: background-color 0.25s ease;
-  cursor: pointer;
 }
 
 .nav-item:hover {

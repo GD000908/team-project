@@ -29,34 +29,6 @@ textarea {
 	width: 100%;
 }
 
-/* 헤더 스타일 */
-.header {
-	background-color: #ffffff;
-	color: #111;
-	border-bottom: 1px solid #e5e7eb;
-	padding: 0;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.header-inner {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	height: 60px;
-}
-
-.logo-box {
-	display: flex;
-	align-items: center;
-	gap: 8px;
-}
-
-.logo {
-	font-size: 22px;
-	font-weight: 700;
-	color: #111;
-}
-
 /* 게시판 헤더 스타일 */
 .board-header {
 	display: flex;
@@ -250,31 +222,6 @@ textarea {
 	margin-bottom: 10px;
 }
 
-/* 푸터 스타일 */
-.main-footer {
-	background-color: #e6f0fa;
-	padding: 40px 16px;
-	text-align: center;
-	font-size: 14px;
-	color: #333;
-	margin-top: auto;
-	border-top: 1px solid #c3d3e6;
-	width: 100%;
-}
-
-.footer-container {
-	max-width: 1200px;
-	margin: 0 auto;
-	width: 100%;
-}
-
-.footer-logo {
-	font-size: 18px;
-	font-weight: bold;
-	color: #2563eb;
-	margin-bottom: 8px;
-}
-
 /* 유틸리티 클래스 */
 .hidden {
 	display: none;
@@ -383,20 +330,6 @@ textarea {
 	max-height: 300px;
 	margin-top: 10px;
 	display: none;
-}
-
-/* 상단 버튼 스타일 */
-.logout-button,
-.alarm-button {
-	border: none;
-	background-color: transparent;
-	cursor: pointer;
-	font-size: 25px;
-}
-
-.logo-icon {
-	width: 24px;
-	height: 24px;
 }
 
 /* 댓글 스타일 */
@@ -640,37 +573,4 @@ textarea {
 	font-size: 40px;
 	font-weight: bold;
 	cursor: pointer;
-}
-
-/* 팝업 패널 스타일 */
-.popup-panel {
-	position: fixed;
-	top: 60px;
-	right: 20px;
-	background: white;
-	border-radius: 8px;
-	box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-	z-index: 1000;
-	padding: 15px;
-	min-width: 200px;
-}
-
-.popup-content {
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
-}
-
-.logout-action {
-	padding: 8px 16px;
-	background-color: #ef4444;
-	color: white;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-	text-align: center;
-}
-
-.logout-action:hover {
-	background-color: #dc2626;
 } 
