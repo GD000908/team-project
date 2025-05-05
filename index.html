@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 전체 화면 덮는 오버레이 */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: white;
+            z-index: 999;
+            transform: translateY(-100%);
+            transition: transform 0.4s ease;
+        }
+
+        /* 활성화되면 아래로 슬라이드 */
+        .modal-overlay.active {
+            transform: translateY(0);
+        }
+
+        /* 내부 콘텐츠 */
+        .modal-content {
+            padding: 40px;
+            max-width: 700px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .modal-content input,
+        .modal-content textarea {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+        }
+
+        .btn-group button {
+            padding: 10px 20px;
+            font-size: 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .btn-group button:first-child {
+            background-color: #ddd;
+        }
+
+        .btn-group button:last-child {
+            background-color: #6293ff;
+            color: white;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: white;
+            z-index: 1000;
+            transform: translateY(-100%);
+            transition: transform 0.4s ease;
+        }
+
+        .modal-overlay.active {
+            transform: translateY(0);
+        }
+
+        .modal-content {
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .status-wrapper {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .status-item {
+            background: #f9f9fb;
+            border-radius: 16px;
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 300px;
+        }
+
+        .count-box {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .info-list {
+            color: #aaa;
+            flex-grow: 1;
+            margin-bottom: 20px;
+        }
+
+        .add-btn {
+            align-self: center;
+            background: #6293ff;
+            color: white;
+            padding: 10px 16px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+        }
+        .close-modal{
+            background: #ddd;
+            color: black;
+            padding: 10px 16px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="openModal">+ 추가</button>
+
+    <div id="fullscreenModal" class="modal-overlay">
+        <div class="modal-content">
+            <h2>지원 항목 관리</h2>
+            <div class="status-wrapper">
+                <!-- 4개 카드 -->
+                <div class="status-item" data-status="지원 완료">
+                    <div class="count-box">지원 완료 <span class="count">0</span></div>
+                    <div class="info-list">지원 정보가 없어요</div>
+                    <button class="add-btn">+ 회사 추가</button>
+                </div>
+                <div class="status-item" data-status="지원 완료">
+                    <div class="count-box">서류 합격 <span class="count">0</span></div>
+                    <div class="info-list">지원 정보가 없어요</div>
+                    <button class="add-btn">+ 회사 추가</button>
+                </div>
+                <div class="status-item" data-status="지원 완료">
+                    <div class="count-box">최종 합격 <span class="count">0</span></div>
+                    <div class="info-list">지원 정보가 없어요</div>
+                    <button class="add-btn">+ 회사 추가</button>
+                </div>
+                <div class="status-item" data-status="지원 완료">
+                    <div class="count-box">불합격 <span class="count">0</span></div>
+                    <div class="info-list">지원 정보가 없어요</div>
+                    <button class="add-btn">+ 회사 추가</button>
+                </div>
+                <!-- 나머지 3개도 위와 동일하게 복제 -->
+            </div>
+            <button id="closeModal" class="close-modal">닫기</button>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        const openBtn = document.getElementById("openModal");
+        const closeBtn = document.getElementById("closeModal");
+        const modal = document.getElementById("fullscreenModal");
+
+        openBtn.addEventListener("click", () => {
+            modal.classList.add("active");
+        });
+
+        closeBtn.addEventListener("click", () => {
+            modal.classList.remove("active");
+        });
+
+        document.querySelectorAll(".add-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                const container = btn.closest(".status-item");
+                const infoList = container.querySelector(".info-list");
+                const countEl = container.querySelector(".count");
+
+                // 사용자에게 회사명 입력받기
+                const name = prompt("회사 이름을 입력하세요:");
+                if (!name) return;
+
+                // 기존 안내 문구 제거
+                if (infoList.textContent.includes("정보가 없어요")) {
+                    infoList.innerHTML = "";
+                }
+
+                const p = document.createElement("p");
+                p.textContent = name;
+                infoList.appendChild(p);
+
+                countEl.textContent = parseInt(countEl.textContent) + 1;
+            });
+        });
+
+        // 나중에 쓸 구조 예시
+        // fetch("/api/apply", {
+        //   method: "POST",
+        //   body: JSON.stringify({ status: "지원 완료", company: "삼성전자" }),
+        //   headers: { "Content-Type": "application/json" }
+        // });
+
+    </script>
+
+</body>
+
+</html>
