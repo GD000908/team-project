@@ -52,6 +52,7 @@ body {
 
 /* 오른쪽 폼 */
 .form-container {
+    padding-left: 40px;
     width: 65%;
 }
 

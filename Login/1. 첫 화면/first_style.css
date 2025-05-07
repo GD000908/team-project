@@ -10,6 +10,7 @@ body {
     background: #fff;
     font-family: 'a프로젝트 보통', sans-serif;
     font-size: 16px;
+    overflow: hidden;
 }
 
 /*상단 네비게이션 바*/
@@ -24,7 +25,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
-    z-index: 10;
+    z-index: 100;
 }
 
 nav h1 a {
@@ -88,10 +89,11 @@ nav ul li a:hover {
     height: 100%;
     object-fit: cover;
     transition: opacity 0.5s ease;
+    
 }
 
 /* 호버하거나 active 되었을 때 이미지를 사라지게! */
-.panel.active img {
+.panel.active .panel-image {
     opacity: 0;
 }
 
@@ -104,13 +106,18 @@ nav ul li a:hover {
 .panel .overlay {
     position: absolute;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.65); /* 더 어두워서 텍스트 대비 상승 */
     opacity: 0;
     transition: opacity 0.5s ease;
     display: flex;
+    flex-direction: column; /* 수직 정렬 */
     align-items: center;
     justify-content: center;
-}
+    padding: 30px 20px;
+    gap: 20px; /* 요소 간 간격 */
+    text-align: center;
+    z-index: 1;
+  }
 
 .panel.active .overlay {
     opacity: 1;
@@ -120,8 +127,31 @@ nav ul li a:hover {
     color: #fff;
     font-size: 2.5rem;
     text-align: center;
-    padding: 0 20px;
+    margin-bottom: 10px;
+    z-index: 2;
 }
+.overlay p {
+    color: #f2f2f2;
+    font-size: 20px;
+    line-height: 1.6;
+    max-width: 320px;
+    z-index: 2;
+  }
+
+  .overlay img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    margin-top: 10px;
+    filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.4));
+    transition: transform 0.3s;
+    opacity: 0.2;
+    z-index: 1;
+  }
+  
+  .overlay img:hover {
+    transform: scale(1.05);
+  }
 
 .last-panel img {
     object-fit: contain;
