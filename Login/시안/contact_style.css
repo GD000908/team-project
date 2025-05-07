@@ -1,0 +1,74 @@
+/* ───────────── 전체 페이지 레이아웃 ───────────── */
+body {
+  margin: 0;
+  padding: 2rem;
+  display: flex;
+  gap: 2rem;                       /* 좌우 간격 */
+  background: #f5f5f5;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+/* 모바일에서 세로 스택 */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+    padding: 1rem;
+  }
+}
+
+.h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* ───────────── 왼쪽 이미지 영역 ───────────── */
+.left-container {
+  flex: 1 1 50%;                   /* 전체의 50% */
+  display: flex;                   
+  justify-content: center;         /* 가로 중앙 */
+  align-items: center;             /* 세로 중앙 */
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* ───────────── 오른쪽 폼 영역 ───────────── */
+.form-container {
+  flex: 1 1 50%;                   /* 전체의 50% */
+  max-width: 600px;                /* 원하면 최대 너비 지정 */
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* dt, dd 기본 여백 초기화 */
+.form-container .form-row dt,
+.form-container .form-row dd {
+  margin: 0;
+  padding: 0;
+}
+
+/* 레이블 우측 여유 (별표랑 붙지 않도록) */
+.form-container .form-row dt {
+  padding-right: 0.5rem;
+}
+
+/* dd 안쪽 요소들이 세로로 쌓이도록 */
+.form-container .form-row dd {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 입력 요소(인풋, 텍스트영역)에 가로 100% 적용 */
+.form-container .form-row dd input,
+.form-container .form-row dd textarea {
+  width: 100%;
+}
+
+/* 안내문구(help-text) 위치 조정 */
+.form-container .form-row dd .help-text {
+  margin-top: 0.5rem;
+}

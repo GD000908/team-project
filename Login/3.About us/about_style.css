@@ -1,0 +1,117 @@
+/* 기본 설정 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Pretendard', sans-serif;
+    background-color: #fff;
+    color: #222;
+    line-height: 1.6;
+}
+
+/* 소개 섹션 */
+.about-top {
+    height: 100vh; /* ✅ 브라우저 화면 전체 높이 */
+  margin-top: 0; /* ❌ 이전에 준 margin-top 제거 */
+  position: relative;
+  background-image: url();
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  }
+  
+  .about-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+  padding: 120px 60px 60px; /* ✅ nav 높이만큼 위 여백 확보 */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 1200px;
+  }
+  
+  .slogan-left {
+    flex: 1 1 45%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  .slogan-left .slogan {
+    font-size: 42px;
+    font-weight: 700;
+    text-align: left;
+    line-height: 1.4;
+  }
+  
+  .slogan-right {
+    flex: 1 1 45%;
+  }
+  
+  .slogan-sub {
+    font-size: 18px;
+    line-height: 1.8;
+    text-align: left;
+  }
+  
+  .slogan-sub p + p {
+    margin-top: 10px;
+  }
+
+/* 반응형 */
+@media (max-width: 768px) {
+    .slogan {
+        font-size: 28px;
+    }
+
+    .slogan-sub p {
+        font-size: 16px;
+    }
+}
+
+/* 하단 기능 소개 */
+.about-bottom {
+    max-width: 1000px;
+    margin: 80px auto;
+    padding: 0 20px;
+    text-align: center;
+    margin-top: 60px;
+  }
+  
+  .about-bottom h3 {
+    font-size: 28px;
+    margin-bottom: 40px;
+    color: #1f5dea;
+  }
+  
+  .features {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .feature-box {
+    flex: 1 1 250px;
+    background-color: #f9f9f9;
+    padding: 30px 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s;
+  }
+  
+  .feature-box:hover {
+    transform: translateY(-5px);
+  }
+  
+  .feature-box img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+  }

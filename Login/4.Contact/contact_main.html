@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact</title>
+
+  <link rel="stylesheet" href="contact.css">
+  <link rel="stylesheet" href="/Login/1. 첫 화면/first_style.css">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <nav>
+		<h1><a href="/Login/1. 첫 화면/first_main.html">Init</a></h1>
+		<ul>
+			<li><a href="/Login/3.About us/about_main.html">ABOUT US</a></li>
+			<li><a href="/Login/4.Contact/contact_main.html">CONTACT</a></li>
+			<li><a href="/Login/2. 로그인_회원가입 화면/login_join_main.html">LOGIN</a></li>
+		</ul>
+	</nav>
+  <div class="contact-title">
+    <h3>Contact</h3>
+  </div>
+
+  <div class="left-container">
+    <p>소통은 언제나 환영입니다</p>
+    
+  </div>
+  <div class="form-container">
+    <form action="/contact/submit" method="post">
+
+
+      <dl>
+        <div class="form-row">
+          <dt>
+            <label for="wr_name">
+              이름 <span class="required_text">*</span>
+            </label>
+          </dt>
+          <dd>
+            <input type="text" id="wr_name" name="wr_name" placeholder="이름을 입력하세요" required>
+          </dd>
+        </div>
+
+        <div class="form-row">
+          <dt>
+            <label for="wr_email">
+              이메일 주소 <span class="required_text">*</span>
+            </label>
+          </dt>
+          <dd>
+            <input type="email" id="wr_email" name="wr_email" placeholder="이메일 주소를 입력하세요" required>
+            <p class="help-text">
+              접수하신 내용에 대해 별도 안내가 필요한 경우 해당 이메일로 회신드립니다.
+            </p>
+          </dd>
+        </div>
+
+        <div class="form-row">
+          <dt>
+            <label for="wr_content">
+              문의 내용
+            </label>
+          </dt>
+          <dd>
+            <textarea id="wr_content" name="wr_content" rows="5" placeholder="내용을 입력하세요"></textarea>
+          </dd>
+        </div>
+
+        <div class="form-row">
+          <dt>
+            <label for="wr_agree">
+              개인정보 처리방침 <span class="required_text">*</span>
+            </label>
+          </dt>
+          <dd>
+            <input type="checkbox" id="wr_agree" name="wr_agree" required>
+            <label for="wr_agree">
+              <a href="#" target="_blank">개인정보 처리방침</a>에 동의합니다.
+            </label>
+          </dd>
+        </div>
+      </dl>
+
+      <button type="submit">전송하기</button>
+    </form>
+  </div>
+</body>
+
+</html>

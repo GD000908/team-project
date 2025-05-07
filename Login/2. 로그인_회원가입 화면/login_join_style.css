@@ -1,0 +1,190 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f0f0f0;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    perspective: 1200px;
+}
+
+.card {
+    width: 700px;
+    height: 700px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+    transform-origin: center center;
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.side {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+
+.front {
+    width: 400px;
+    height: 520px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+.front .logo {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.front input[type="text"],
+.front input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+}
+
+
+.front .remember {
+    margin-top: 10px;
+    font-size: 14px;
+    align-self: flex-start;
+}
+
+.front .btn {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.back {
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 40px;
+}
+
+.back h2 {
+    text-align: center;
+  }
+
+.id-check-group,
+.phone-check-group {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 4px;
+}
+
+.id-check-group .id-input,
+.phone-check-group .phone-input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.back input[type="text"],
+.back input[type="password"],
+.back input[type="email"] {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.check-btn {
+    padding: 12px 16px;
+    background-color: #1f5dea;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.check-btn:hover {
+    background-color: #0c3eaf;
+}
+
+
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-flow: row;
+    grid-gap: 12px 40px;
+    width: 600px;
+    justify-content: start;
+    margin: 0 auto 20px;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    text-align: left;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-top: 0;
+    transform: scale(1);
+}
+
+.btn {
+    background-color: #1f5dea;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0c3eaf;
+}
+
+.toggle-link {
+    margin-top: 20px;
+    color: #1f5dea;
+    cursor: pointer;
+    text-decoration: underline;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+@media screen and (max-height: 700px) {
+    .back {
+        overflow-y: auto;
+    }
+}
