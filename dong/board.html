@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>게시판</title>
+		<link rel="stylesheet" href="css/board.css">
+		<link rel="stylesheet" href="css/header.css">
+		<!-- <link rel="stylesheet" href="/Mypage/style.css"> -->
+	</head>
+	
+	<body>
+		<!-- 헤더 영역 -->
+		<header class="header">
+			<div class="container">
+				<div class="header-inner">
+
+					<!-- 왼쪽: 로고 -->
+					<div class="logo-box">
+						<a href="/Mypage/Mypage.html" class="logo">Init.</a>
+					</div>
+
+					<!-- 가운데: 메뉴 -->
+					<nav class="nav-menu">
+						<a href="/MypageMain/Mypage_main.html" class="nav-item">Mypage</a>
+						<a href="/Resume/resume.html" class="nav-item">이력서</a>
+						<a href="/junyoung/101010 copy.html" class="nav-item">자기소개서</a>
+						<a href="/calendar/calendar.html" class="nav-item">공고 캘린더</a>
+						<a href="/dong/board.html" class="nav-item">커뮤니티</a>
+					</nav>
+
+					<!-- 오른쪽: 알림/유저 -->
+					<div class="navbar-right">
+						<button class="alarm-button">🔔</button>
+						<button class="logout-button">👤</button>
+					</div>
+
+				</div>
+			</div>
+		</header>
+
+		<!-- 알림 패널 -->
+		<div id="notification-panel" class="popup-panel" style="display: none;">
+			<div class="popup-content">
+				<p>🔔 새로운 알림이 없습니다.</p>
+			</div>
+		</div>
+
+		<!-- 유저 패널 (로그아웃 등) -->
+		<div id="user-panel" class="popup-panel" style="display: none;">
+			<div class="popup-content">
+				<button class="logout-action">로그아웃</button>
+			</div>
+		</div>
+
+		<!-- 메인 컨텐츠 영역 -->
+		<div class="container">
+			<div class="board-header">
+				<h1 class="board-title">사용자 후기 / 팁 / 정보 게시판</h1>
+				<div class="header-actions">
+					<div class="search-box">
+						<input type="text" class="search-input" placeholder="게시글 검색...">
+						<button class="search-btn">🔍</button>
+					</div>
+					<button class="view-toggle-btn" onclick="toggleView()">카드형 보기</button>
+				</div>
+			</div>
+			
+			<!-- 필터 및 카테고리 영역 -->
+			<div class="board-filters">
+				<div class="category-filter">
+					<button class="category-btn active" data-category="all">전체</button>
+					<button class="category-btn" data-category="review">후기</button>
+					<button class="category-btn" data-category="tip">팁</button>
+					<button class="category-btn" data-category="info">정보</button>
+				</div>
+				<div class="sort-filter">
+					<button class="sort-btn active" data-sort="latest">최신순</button>
+					<button class="sort-btn" data-sort="popular">인기순</button>
+					<button class="sort-btn" data-sort="comments">댓글순</button>
+				</div>
+			</div>
+			
+			<div style="display: flex; justify-content: flex-end;">
+				<a href="write.html" class="write-btn">글쓰기</a>
+			</div>
+			
+			<div class="board-grid"></div>
+			<div class="post-list"></div>
+		</div>
+
+		<!-- 푸터 영역 -->
+		<footer class="main-footer">
+			<div class="footer-container">
+				<div class="footer-logo">Init</div>
+				<p>© 2025 이름추천받음. All rights reserved.</p>
+				<p>문의: gundo9918@gmail.com</p>
+			</div>
+		</footer>
+
+		<script>
+			// 게시글 데이터 초기화
+			function initializePosts() {
+				if (!localStorage.getItem('posts')) {
+					const samplePosts = [
+						{
+							id: 1,
+							category: 'review',
+							title: 'IT 회사 취업 후기',
+							content: '지난 달에 IT 회사에 취업했습니다. 면접 준비부터 입사까지의 과정을 공유합니다.',
+							author: '김개발',
+							date: '2024-03-20',
+							views: 156,
+							likes: 23,
+							comments: 8,
+							image: null
+						},
+						{
+							id: 2,
+							category: 'tip',
+							title: '코딩 테스트 준비 팁',
+							content: '코딩 테스트를 준비하는 분들을 위한 실전 팁을 공유합니다.',
+							author: '박코딩',
+							date: '2024-03-19',
+							views: 234,
+							likes: 45,
+							comments: 12,
+							image: null
+						},
+						{
+							id: 3,
+							category: 'info',
+							title: '2024년 IT 트렌드 분석',
+							content: '올해 주목할 만한 IT 기술 트렌드와 전망을 분석해봅니다.',
+							author: '이정보',
+							date: '2024-03-18',
+							views: 189,
+							likes: 32,
+							comments: 15,
+							image: null
+						},
+						{
+							id: 4,
+							category: 'review',
+							title: '신입 개발자 첫 달 회고',
+							content: '신입 개발자로 입사한 지 한 달이 지났습니다. 배운 점과 느낀 점을 공유합니다.',
+							author: '최신입',
+							date: '2024-03-17',
+							views: 145,
+							likes: 28,
+							comments: 9,
+							image: null
+						},
+						{
+							id: 5,
+							category: 'tip',
+							title: 'Git 사용법 정리',
+							content: 'Git을 처음 사용하는 분들을 위한 기본적인 사용법을 정리했습니다.',
+							author: '정깃',
+							date: '2024-03-16',
+							views: 278,
+							likes: 56,
+							comments: 18,
+							image: null
+						},
+						{
+							id: 6,
+							category: 'info',
+							title: 'IT 자격증 취득 가이드',
+							content: '취업에 도움이 되는 IT 관련 자격증 정보와 취득 방법을 안내합니다.',
+							author: '한자격',
+							date: '2024-03-15',
+							views: 167,
+							likes: 34,
+							comments: 11,
+							image: null
+						}
+					];
+					localStorage.setItem('posts', JSON.stringify(samplePosts));
+				}
+				renderPosts();
+			}
+
+			// 게시글 렌더링
+			function renderPosts() {
+				const posts = JSON.parse(localStorage.getItem('posts') || '[]');
+				const postList = document.querySelector('.post-list');
+				const boardGrid = document.querySelector('.board-grid');
+				
+				// 초기에는 목록형 보기로 설정
+				postList.classList.remove('hidden');
+				boardGrid.classList.add('hidden');
+				
+				const postHTML = posts.map(post => ({
+					list: `
+						<a href="detail.html?id=${post.id}" class="post-list-item" data-category="${post.category}" data-date="${post.date}" data-likes="${post.likes}" data-comments="${post.comments}">
+							<div class="post-list-title">${post.title}</div>
+							<div class="post-info">
+								<div class="post-meta">
+									<span>${post.author}</span> • 
+									<span>${post.date}</span> • 
+									<span>조회수 ${post.views}</span>
+								</div>
+								<div class="post-actions">
+									<span class="like-btn">❤️ ${post.likes}</span>
+									<span class="comment-btn">💬 ${post.comments}</span>
+								</div>
+							</div>
+						</a>
+					`,
+					card: `
+						<a href="detail.html?id=${post.id}" class="post-card" data-category="${post.category}" data-date="${post.date}" data-likes="${post.likes}" data-comments="${post.comments}">
+							<div class="post-image-box">
+								${post.image ? `<img src="${post.image}" alt="게시글 이미지" class="post-thumbnail">` : ''}
+							</div>
+							<div class="post-content">
+								<div class="post-title">${post.title}</div>
+								<div class="post-info">
+									<div class="post-meta">
+										<span>${post.author}</span> • 
+										<span>${post.date}</span> • 
+										<span>조회수 ${post.views}</span>
+									</div>
+									<div class="post-actions">
+										<span class="like-btn">❤️ ${post.likes}</span>
+										<span class="comment-btn">💬 ${post.comments}</span>
+									</div>
+								</div>
+							</div>
+						</a>
+					`
+				}));
+
+				postList.innerHTML = postHTML.map(post => post.list).join('');
+				boardGrid.innerHTML = postHTML.map(post => post.card).join('');
+			}
+
+			// 이벤트 리스너 설정
+			document.addEventListener('DOMContentLoaded', () => {
+				initializePosts();
+
+				// 카테고리 필터 이벤트
+				document.querySelector('.category-filter').addEventListener('click', (e) => {
+					if (e.target.classList.contains('category-btn')) {
+						document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
+						e.target.classList.add('active');
+						filterByCategory(e.target.dataset.category);
+					}
+				});
+
+				// 정렬 이벤트
+				document.querySelector('.sort-filter').addEventListener('click', (e) => {
+					if (e.target.classList.contains('sort-btn')) {
+						document.querySelectorAll('.sort-btn').forEach(btn => btn.classList.remove('active'));
+						e.target.classList.add('active');
+						sortBy(e.target.dataset.sort);
+					}
+				});
+
+				// 좋아요 버튼 이벤트
+				document.querySelector('.board-grid, .post-list').addEventListener('click', (e) => {
+					if (e.target.classList.contains('like-btn')) {
+						toggleLike(e.target);
+					}
+				});
+			});
+
+			// 뷰 전환 함수
+			function toggleView() {
+				const postList = document.querySelector('.post-list');
+				const boardGrid = document.querySelector('.board-grid');
+				const viewToggleBtn = document.querySelector('.view-toggle-btn');
+				
+				if (postList.classList.contains('hidden')) {
+					postList.classList.remove('hidden');
+					boardGrid.classList.add('hidden');
+					viewToggleBtn.textContent = '카드형 보기';
+				} else {
+					postList.classList.add('hidden');
+					boardGrid.classList.remove('hidden');
+					viewToggleBtn.textContent = '목록형 보기';
+				}
+			}
+
+			// 카테고리 필터링 함수
+			function filterByCategory(category) {
+				const posts = document.querySelectorAll('.post-card, .post-list-item');
+				posts.forEach(post => {
+					const postCategory = post.getAttribute('data-category');
+					post.style.display = (category === 'all' || postCategory === category) ? 'block' : 'none';
+				});
+			}
+
+			// 정렬 함수
+			function sortBy(criteria) {
+				const posts = JSON.parse(localStorage.getItem('posts') || '[]');
+				
+				posts.sort((a, b) => {
+					switch(criteria) {
+						case 'latest': return new Date(b.date) - new Date(a.date);
+						case 'popular': return b.likes - a.likes;
+						case 'comments': return b.comments - a.comments;
+						default: return 0;
+					}
+				});
+				
+				localStorage.setItem('posts', JSON.stringify(posts));
+				renderPosts();
+			}
+
+			// 좋아요 토글 함수
+			function toggleLike(element) {
+				element.classList.toggle('active');
+				const post = element.closest('.post-card, .post-list-item');
+				const currentLikes = parseInt(post.getAttribute('data-likes'));
+				const newLikes = element.classList.contains('active') ? currentLikes + 1 : currentLikes - 1;
+				post.setAttribute('data-likes', newLikes);
+				element.textContent = `❤️ ${newLikes}`;
+			}
+		</script>
+	</body>
+
+</html>

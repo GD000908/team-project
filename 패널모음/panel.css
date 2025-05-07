@@ -1,0 +1,164 @@
+/* 패널들의 css 모음 */
+
+/* 프로필 변경 패널 css */
+.edit-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: flex-end;
+    z-index: 999;
+}
+
+.edit-content {
+    width: 640px;
+    /* 줄임 */
+    background: white;
+    border-radius: 12px;
+    margin: 40px 16px;
+    padding: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    /* 화면 기준 최대 높이 설정 */
+    overflow-y: auto;
+}
+
+.edit-main {
+    background-color: white;
+    border: 1px solid #6293ff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.05);
+
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    /* 남는 높이만큼 채움 */
+    overflow-y: auto;
+
+}
+
+.panel-title {
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.panel-subtitle {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.profile-image-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.profile-image-wrapper {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #f0f0f0;
+    position: relative;
+}
+
+.profile-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.camera-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translate(30%, 30%);
+    background-color: #333;
+    color: white;
+    border-radius: 50%;
+    padding: 5px 6px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.profile-edit-table {
+    width: 100%;
+    table-layout: fixed;
+    border-spacing: 0 14px;
+}
+
+.profile-edit-table th {
+    width: 110px;
+    text-align: left;
+    font-size: 14px;
+    vertical-align: top;
+}
+
+.profile-edit-table td input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.button-bottom {
+    margin-top: auto;
+    display: flex;
+    gap: 14px;
+  }
+  
+
+.btn-wide {
+    flex: 1;
+    padding: 12px 0;
+    font-size: 15px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-wide.gray {
+    background-color: #e5e7eb;
+    color: #333;
+}
+
+.btn-wide.blue {
+    background-color: #6293ff;
+    color: white;
+}
+
+/* 간략 소개 부분 */
+
+.profile-edit-table textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+    resize: vertical;
+  }
+  
+
+/* 경력 추가 버튼에 대한 css */
+
+#add-experience-btn,#add-skill-btn,
+#add-experienceEtc-btn,#add-award-btn,#add-attachment-btn
+{
+    padding: 10px;
+}
+
+
+

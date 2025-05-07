@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>경력 정보</title>
+    <link rel="stylesheet" href="/패널모음/panel.css">
+</head>
+
+<body>
+    <div class="edit-panel" id="experiencePanel">
+        <div class="edit-content">
+            <div class="edit-main">
+                <h1 class="panel-title">경력 정보를 입력하세요.</h1>
+                <p class="panel-subtitle">직장, 인턴십, 아르바이트 등의 업무 경험을 입력해주세요.</p>
+
+                <div id="experience-container">
+                    <!-- 경력 항목 1 -->
+                    <div class="experience-item-block">
+                        <table class="profile-edit-table">
+                            <tr>
+                                <th>회사명</th>
+                                <td><input type="text" placeholder="회사 이름 입력" /></td>
+                            </tr>
+                            <tr>
+                                <th>근무 기간</th>
+                                <td>
+                                    <input type="month" /> ~ <input type="month" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>담당 업무</th>
+                                <td><textarea rows="3" placeholder="간단한 업무 내용을 작성하세요."></textarea></td>
+                            </tr>
+                        </table>
+                        <hr style="margin: 30px 0;" />
+                    </div>
+                </div>
+
+                <!-- 추가 버튼 -->
+                <div style="text-align: center; margin-bottom: 24px;">
+                    <button type="button" class="btn-wide gray" id="add-experience-btn">경력 추가</button>
+                </div>
+
+                <!-- 하단 버튼 -->
+                <div class="button-bottom">
+                    <button class="btn-wide gray">취소</button>
+                    <button class="btn-wide blue">저장</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("add-experience-btn").addEventListener("click", () => {
+            const container = document.getElementById("experience-container");
+            const clone = container.querySelector(".experience-item-block").cloneNode(true);
+            container.appendChild(clone);
+        });
+
+    </script>
+</body>
+
+</html>

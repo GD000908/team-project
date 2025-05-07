@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Calendar</title>
+    <link rel="stylesheet" href="/Mypage/style.css">
+    <link rel="stylesheet" href="/calendar/Calendar.css">
+    <!-- fullcalendar 5버전 -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- 헤더 부분 -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+
+                <!-- 왼쪽: 로고 -->
+                <div class="logo-box">
+                    <a href="/Mypage/Mypage.html" class="logo">Init.</a>
+                </div>
+
+                <!-- 가운데: 메뉴 -->
+                <nav class="nav-menu">
+                    <a href="/MypageMain/Mypage_main.html" class="nav-item">Mypage</a>
+                    <a href="/Resume/resume.html" class="nav-item">이력서</a>
+                    <a href="/junyoung/101010 copy.html" class="nav-item">자기소개서</a>
+                    <a href="/calendar/calendar.html" class="nav-item">공고 캘린더</a>
+                    <a href="/dong/board.html" class="nav-item">커뮤니티</a>
+                </nav>
+
+                <!-- 오른쪽: 알림/유저 -->
+                <div class="navbar-right">
+                    <button class="alarm-button">🔔</button>
+                    <button class="logout-button">👤</button>
+                </div>
+
+            </div>
+        </div>
+    </header>
+    <!-- 헤더 끝 -->
+
+    <!-- 메인 영역 -->
+    <div class="main-container">
+        <div id="bookmark-list">
+            <div class="company" data-title="삼성전자" data-start="2024-04-28" data-end="2024-05-10">
+                삼성전자 : 2024-04-28 ~ 2024-05-10
+            </div>
+            <div class="company" data-title="현대자동차" data-start="2024-05-02" data-end="2024-05-14">
+                현대자동차 : 2024-05-02 ~ 2024-05-14
+            </div>
+            <div class="company" data-title="카카오" data-start="2024-05-01" data-end="2024-05-12">
+                카카오 : 2024-05-01 ~ 2024-05-12
+            </div>
+            <button id="add-bookmark" class="add-button">+ 회사 추가</button>
+        </div>
+
+
+        <div class="calendar-container">
+            <div id="calendar"></div>
+        </div>
+    </div>
+
+    <!-- 알림 패널 -->
+    <div id="notification-panel" class="popup-panel" style="display: none;">
+        <div class="popup-content">
+            <p>🔔 새로운 알림이 없습니다.</p>
+        </div>
+    </div>
+
+    <!-- 유저 패널 (로그아웃 등) -->
+    <div id="user-panel" class="popup-panel" style="display: none;">
+        <div class="popup-content">
+            <button class="logout-action">로그아웃</button>
+        </div>
+    </div>
+
+    <!-- fullcalendar 스크립트 -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+    <script src="/Mypage/logout.js"></script>
+    <script>
+        var calendar;
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const calendarEl = document.getElementById('calendar');
+            const calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                locale: 'ko'
+            });
+
+            calendar.render();
+
+            let hoverSource;  // 현재 hover 이벤트 소스를 저장
+
+            document.querySelectorAll('.company').forEach(div => {
+                div.addEventListener('mouseenter', function () {
+                    // ① 해당 회사의 시작일이 보이는 달로 이동
+                    calendar.gotoDate(this.dataset.start);
+
+                    // ② 이벤트 소스 추가
+                    hoverSource = calendar.addEventSource({
+                        events: [{
+                            title: this.dataset.title,
+                            start: this.dataset.start,
+                            end: this.dataset.end
+                        }],
+                        display: 'background',
+                        backgroundColor: '#c5e1a5'
+                    });
+                });
+
+                div.addEventListener('mouseleave', function () {
+                    // hover 해제 시 방금 추가한 소스만 제거
+                    if (hoverSource) {
+                        hoverSource.remove();
+                        hoverSource = null;
+                    }
+                });
+            });
+        });
+
+
+
+
+    </script>
+
+    <!-- 푸터 -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-logo">Init</div>
+            <p>© 2025 이름추천받음. All rights reserved.</p>
+            <p>문의: gundo9918@gmail.com</p>
+        </div>
+    </footer>
+</body>
+
+</html>

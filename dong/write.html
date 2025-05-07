@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 작성</title>
+    <link rel="stylesheet" href="css/board.css">
+    <link rel="stylesheet" href="css/header.css">
+    <!-- <link rel="stylesheet" href="/Mypage/style.css"> -->
+</head>
+<body>
+    <!-- 헤더 영역 -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <!-- 왼쪽: 로고 -->
+                <div class="logo-box">
+                    <a href="/Mypage/Mypage.html" class="logo">Init.</a>
+                </div>
+
+                <!-- 가운데: 메뉴 -->
+                <nav class="nav-menu">
+                    <a href="/MypageMain/Mypage_main.html" class="nav-item">Mypage</a>
+                    <a href="/Resume/resume.html" class="nav-item">이력서</a>
+                    <a href="/junyoung/101010 copy.html" class="nav-item">자기소개서</a>
+                    <a href="/calendar/calendar.html" class="nav-item">공고 캘린더</a>
+                    <a href="/dong/board.html" class="nav-item">커뮤니티</a>
+                </nav>
+
+                <!-- 오른쪽: 알림/유저 -->
+                <div class="navbar-right">
+                    <button class="alarm-button">🔔</button>
+                    <button class="logout-button">👤</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 알림 패널 -->
+    <div id="notification-panel" class="popup-panel" style="display: none;">
+        <div class="popup-content">
+            <p>🔔 새로운 알림이 없습니다.</p>
+        </div>
+    </div>
+
+    <!-- 유저 패널 (로그아웃 등) -->
+    <div id="user-panel" class="popup-panel" style="display: none;">
+        <div class="popup-content">
+            <button class="logout-action">로그아웃</button>
+        </div>
+    </div>
+
+    <!-- 메인 컨텐츠 영역 -->
+    <div class="container">
+        <form class="write-form" onsubmit="submitPost(event)">
+            <div class="form-group">
+                <label class="form-label">카테고리</label>
+                <select class="form-input form-select" id="category" required>
+                    <option value="">카테고리 선택</option>
+                    <option value="review">후기</option>
+                    <option value="tip">팁</option>
+                    <option value="info">정보</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">제목</label>
+                <input type="text" class="form-input" id="title" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">내용</label>
+                <textarea class="form-input form-textarea" id="content" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">이미지</label>
+                <input type="file" class="form-input" id="image" accept="image/*" onchange="previewImage(event)">
+                <img id="imagePreview" class="image-preview">
+            </div>
+
+            <div class="action-buttons">
+                <button type="submit" class="btn btn-primary">작성</button>
+                <button type="button" class="btn btn-secondary" onclick="cancelWrite()">취소</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- 푸터 영역 -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-logo">Init</div>
+            <p>© 2025 이름추천받음. All rights reserved.</p>
+            <p>문의: gundo9918@gmail.com</p>
+        </div>
+    </footer>
+
+    <script>
+        // 이미지 미리보기
+        function previewImage(event) {
+            const input = event.target;
+            const preview = document.getElementById('imagePreview');
+            
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                }
+                
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        // 게시글 작성 취소
+        function cancelWrite() {
+            if (confirm('작성을 취소하시겠습니까?')) {
+                window.location.href = 'board.html';
+            }
+        }
+
+        // 게시글 작성
+        function submitPost(event) {
+            event.preventDefault();
+            
+            const category = document.getElementById('category').value;
+            const title = document.getElementById('title').value.trim();
+            const content = document.getElementById('content').value.trim();
+            const imageInput = document.getElementById('image');
+            
+            if (title === '' || content === '') {
+                alert('제목과 내용을 입력해주세요.');
+                return;
+            }
+            
+            // 현재 로그인한 사용자 확인 (실제로는 서버에서 세션 등을 통해 확인)
+            const currentUser = localStorage.getItem('currentUser') || '현재 사용자';
+            
+            // 현재 날짜를 YYYY-MM-DD 형식으로 설정
+            const today = new Date();
+            const year = today.getFullYear();
+            const month = String(today.getMonth() + 1).padStart(2, '0');
+            const day = String(today.getDate()).padStart(2, '0');
+            const date = `${year}-${month}-${day}`;
+            
+            // 게시글 데이터 생성
+            const posts = JSON.parse(localStorage.getItem('posts') || '[]');
+            const newPost = {
+                id: posts.length > 0 ? Math.max(...posts.map(p => p.id)) + 1 : 1,
+                category: category,
+                title: title,
+                content: content,
+                author: currentUser,
+                date: date,
+                views: 0,  // 조회수 0으로 초기화
+                likes: 0,
+                comments: 0,
+                image: null
+            };
+            
+            // 이미지가 있는 경우 처리
+            if (imageInput.files && imageInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    newPost.image = e.target.result;
+                    // 게시글 추가 (최신순으로 정렬)
+                    posts.unshift(newPost);
+                    localStorage.setItem('posts', JSON.stringify(posts));
+                    alert('게시글이 작성되었습니다.');
+                    window.location.href = 'board.html';
+                };
+                reader.readAsDataURL(imageInput.files[0]);
+            } else {
+                // 게시글 추가 (최신순으로 정렬)
+                posts.unshift(newPost);
+                localStorage.setItem('posts', JSON.stringify(posts));
+                alert('게시글이 작성되었습니다.');
+                window.location.href = 'board.html';
+            }
+        }
+    </script>
+</body>
+</html> 

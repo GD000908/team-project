@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>지식 · 기술</title>
+  <link rel="stylesheet" href="/패널모음/panel.css">
+</head>
+
+<body>
+  <div class="edit-panel" id="skillPanel">
+    <div class="edit-content">
+      <div class="edit-main">
+        <h1 class="panel-title">지식 · 기술 정보를 입력하세요.</h1>
+        <p class="panel-subtitle">자격증, 공인어학시험, 툴, 개발스택 등을 자유롭게 입력해주세요.</p>
+
+        <div id="skill-container">
+          <!-- 지식/기술 항목 1 -->
+          <div class="skill-item-block">
+            <table class="profile-edit-table">
+              <tr>
+                <th>항목명</th>
+                <td><input type="text" placeholder="예: 정보처리기사, TOEIC, Figma, Python 등" /></td>
+              </tr>
+              <tr>
+                <th>세부 설명</th>
+                <td><input type="text" placeholder="예: 2023년 9월 취득, 910점 등" /></td>
+              </tr>
+            </table>
+            <hr style="margin: 30px 0;" />
+          </div>
+        </div>
+
+        <!-- 추가 버튼 -->
+        <div style="text-align: center; margin-bottom: 24px;">
+          <button type="button" class="btn-wide gray" id="add-skill-btn">항목 추가</button>
+        </div>
+
+        <div class="button-bottom">
+          <button class="btn-wide gray">취소</button>
+          <button class="btn-wide blue">저장</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("add-skill-btn").addEventListener("click", () => {
+      const container = document.getElementById("skill-container");
+      const clone = container.querySelector(".skill-item-block").cloneNode(true);
+      container.appendChild(clone);
+    });
+  </script>
+</body>
+
+</html>

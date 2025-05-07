@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>첨부자료</title>
+  <link rel="stylesheet" href="/패널모음/panel.css">
+</head>
+
+<body>
+  <div class="edit-panel" id="attachmentPanel">
+    <div class="edit-content">
+      <div class="edit-main">
+        <h1 class="panel-title">첨부 자료를 등록하세요.</h1>
+        <p class="panel-subtitle">포트폴리오, 경력기술서, 깃허브 URL 등을 자유롭게 추가할 수 있습니다.</p>
+
+        <div id="attachment-container">
+          <!-- 첨부 항목 1 -->
+          <div class="attachment-item-block">
+            <table class="profile-edit-table">
+              <tr>
+                <th>자료명</th>
+                <td><input type="text" placeholder="예: GitHub, Notion 포트폴리오 등" /></td>
+              </tr>
+              <tr>
+                <th>URL 첨부</th>
+                <td><input type="url" placeholder="https://example.com" /></td>
+              </tr>
+              <tr>
+                <th>파일 첨부</th>
+                <td><input type="file" /></td>
+              </tr>
+            </table>
+            <hr style="margin: 30px 0;" />
+          </div>
+        </div>
+
+        <!-- 추가 버튼 -->
+        <div style="text-align: center; margin-bottom: 24px;">
+          <button type="button" class="btn-wide gray" id="add-attachment-btn">첨부 추가</button>
+        </div>
+
+        <div class="button-bottom">
+          <button class="btn-wide gray">취소</button>
+          <button class="btn-wide blue">저장</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("add-attachment-btn").addEventListener("click", () => {
+      const container = document.getElementById("attachment-container");
+      const clone = container.querySelector(".attachment-item-block").cloneNode(true);
+      container.appendChild(clone);
+    });
+  </script>
+</body>
+
+</html>
