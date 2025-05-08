@@ -1,0 +1,159 @@
+/* 기본 설정 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Pretendard', sans-serif;
+    background-color: #fff;
+    color: #222;
+    margin: 0;
+    box-sizing: border-box;
+    padding-top: 100px;
+}
+
+/* 제목 */
+.contact-title {
+    position: static;
+    margin: 80px 20px 30px;
+}
+
+.contact-title h3 {
+    font-size: 28px;
+    color: #222;
+}
+
+/* 전체 레이아웃 */
+.contact-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 100px auto 0;
+    padding: 0 20px;
+    gap: 2rem;
+}
+
+/* 왼쪽 안내 문구 */
+.left-container {
+    flex: 0 0 30%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+}
+
+.left-container p {
+    margin-top: 8px;
+    font-weight: 500;
+}
+
+/* 오른쪽 폼 */
+.form-container {
+    flex: 0 0 65%;
+}
+
+/* 테이블 레이아웃 */
+.contact-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 20px;
+}
+
+.contact-table th {
+    width: 140px;
+    text-align: left;
+    vertical-align: middle;
+    padding: 0;
+    font-weight: 600;
+    color: #222;
+}
+
+.contact-table td {
+    padding: 8px 0;
+}
+
+/* 입력 필드 스타일 (기존 유지) */
+.contact-table input[type="text"],
+.contact-table input[type="email"],
+.contact-table textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: border-color 0.3s;
+}
+
+.contact-table input:focus,
+.contact-table textarea:focus {
+    border-color: #6c63ff;
+    outline: none;
+}
+
+/* 안내 문구 */
+.help-text {
+    margin-top: 6px;
+    font-size: 13px;
+    color: #888;
+}
+
+/* 체크박스 */
+input[type="checkbox"] {
+    transform: scale(1.2);
+    margin-right: 6px;
+}
+
+/* 전송 버튼 셀 */
+.submit-cell {
+    text-align: center;
+    padding-top: 30px;
+}
+
+.submit-cell button {
+    padding: 14px 28px;
+    background-color: #1f5dea;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.submit-cell button:hover {
+    background-color: #0c3eaf;
+}
+
+/* ─── 반응형 ─── */
+@media (max-width: 768px) {
+    .contact-content {
+        flex-direction: column;
+        margin-top: 80px;
+    }
+
+    .left-container,
+    .form-container {
+        flex: 1 1 100%;
+    }
+
+    .contact-table th,
+    .contact-table td {
+        display: block;
+        width: 100%;
+        padding: 6px 0;
+    }
+
+    .contact-table th {
+        margin-top: 1rem;
+    }
+
+    .submit-cell {
+        padding-top: 20px;
+    }
+}

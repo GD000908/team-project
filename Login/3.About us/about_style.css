@@ -1,152 +1,175 @@
 /* 기본 설정 */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+html,
 body {
-  font-family: 'Pretendard', sans-serif;
-  background-color: #fff;
-  color: #222;
-  line-height: 1.6;
-  overflow: auto;
+    height: 100%;
+    font-family: 'Pretendard', sans-serif;
+    background-color: #fff;
+    color: #222;
+    line-height: 1.6;
+    overflow-y: auto;
 }
 
 /* 소개 섹션 */
 .about-top {
-  height: calc(100vh - 100px) !important;
-  position: relative;
-  background-image: url();
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
+    background: #444;
+    color: #fff;
+    width: 100vw;
+    margin-bottom: 100px;
 }
 
 .about-overlay {
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 60px 40px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  border-radius: 12px;
-  width: 100%;
+    margin-top: 100px;
+    display: flex;
+    gap: 40px;
+    padding: 60px 40px;
+    background: rgba(14, 110, 255, 0.5);
+    width: 100%;
+    max-width: none;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .slogan-left {
-  flex: 1 1 45%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+    flex: 1 1 45%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 100px;
 }
 
-.slogan-left .slogan {
-  font-size: 42px;
-  font-weight: 700;
-  text-align: left;
-  line-height: 1.4;
+.slogan-left h1 {
+    font-size: 42px;
+    line-height: 1.4;
 }
 
 .slogan-right {
-  flex: 1 1 45%;
+    flex: 1 1 45%;
 }
 
 .slogan-sub {
-  font-size: 18px;
-  line-height: 1.8;
-  text-align: left;
-}
-
-.slogan-sub p+p {
-  margin-top: 10px;
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    font-size: 18px;
+    line-height: 1.8;
 }
 
 .slogan-left,
 .slogan-right {
-  animation: fadeUp 0.6s ease forwards;
+    animation: fadeUp 0.6s ease-out both;
 }
 
-/* 반응형 */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @media (max-width: 768px) {
-  .about-overlay {
-    flex-direction: column;
-    padding: 30px 20px;
-    transform: translate(-50%, -50%);
-  }
+    .about-overlay {
+        flex-direction: column;
+        padding: 30px 20px;
+    }
 
-  .slogan-left,
-  .slogan-right {
-    flex: 1 1 100%;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-  }
+    .slogan-left,
+    .slogan-right {
+        flex: 1 1 100%;
+        text-align: center;
+        justify-content: center;
+        margin-left: 0;
+    }
 
-  .slogan-left .slogan {
-    font-size: 28px;
-    text-align: center;
-  }
+    .slogan-left h1 {
+        font-size: 28px;
+    }
+
+    .slogan-sub {
+        font-size: 16px;
+    }
 }
 
-.slogan {
-  font-size: 28px;
-}
-
-.slogan-sub p {
-  font-size: 16px;
-
-}
-
-/* 하단 기능 소개 */
+/* 하단 섹션 */
 .about-bottom {
-  max-width: 1000px;
-  margin: 40px auto 80px;
-  padding: 0 20px;
-  text-align: center;
+    max-width: 1000px;
+    margin: 80px auto;
+    padding: 0 20px;
+    text-align: center;
 }
 
-.about-bottom h3 {
-  font-size: 28px;
-  margin-bottom: 40px;
-  color: #1f5dea;
+.about-bottom h2 {
+    font-size: 28px;
+    margin-bottom: 40px;
+    color: #1f5dea;
 }
 
 .features {
-  display: flex;
-  gap: 30px;
-  justify-content: center;
-  flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.dir-feature {
+    margin-bottom: 100px;
+}
+
+.func-feature {
+    padding-top: 20px;
+    margin-top: 40px;
+    gap: 40px;
 }
 
 .feature-box {
-  flex: 1 1 250px;
-  background-color: #f9f9f9;
-  padding: 30px 20px;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s;
+    position: relative;
+    flex: 1 1 250px;
+    height: 300px;
+    background: #f9f9f9;
+    padding: 30px 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s;
+    overflow: hidden;
 }
 
 .feature-box:hover {
-  transform: translateY(-5px);
+    transform: translateY(-5px);
 }
 
-.feature-box img {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 20px;
+.feature-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.2;
+    z-index: 0;
 }
+
+.feature-content {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.divider {
+    width: 300px;
+    height: 4px;
+    background-color: gray;
+    margin: 60px auto;
+    border-radius: 5px;
+  }

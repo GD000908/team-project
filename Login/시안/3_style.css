@@ -30,40 +30,42 @@
   
   .form-floating {
     position: relative;
-    margin-bottom: 20px;
-  }
-  
-  .form-control {
     width: 100%;
-    padding: 1.5rem 1rem 0.5rem;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    background: #fff;
-    transition: border-color 0.3s ease;
+    margin: 20px 0;
   }
   
-  .form-control:focus {
+  .form-floating .form-control {
+    width: 100%;
+    padding: 20px 12px 6px;
+    height: 56px;
+    font-size: 16px;
+    border: 1.5px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
     outline: none;
+    transition: border 0.2s ease;
+  }
+  
+  .form-floating .form-control:focus {
     border-color: #1f5dea;
   }
   
   .form-floating label {
     position: absolute;
-    top: 1rem;
-    left: 1rem;
-    font-size: 16px;
+    top: 18px;
+    left: 12px;
     color: #999;
-    background-color: #fff;
+    font-size: 16px;
+    background: #fff;
     padding: 0 4px;
     transition: all 0.2s ease;
     pointer-events: none;
   }
   
-  .form-control:focus + label,
-  .form-control:not(:placeholder-shown) + label {
-    top: -0.6rem;
-    left: 0.8rem;
+  .form-floating .form-control:focus + label,
+  .form-floating .form-control:not(:placeholder-shown) + label {
+    top: -8px;
+    left: 10px;
     font-size: 13px;
     color: #1f5dea;
   }
