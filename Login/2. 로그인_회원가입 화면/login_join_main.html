@@ -13,20 +13,36 @@
         <div class="card" id="card">
             <!-- 로그인 화면 (앞면) -->
             <div class="side front">
-                <a href="/Login/1. 첫 화면/first_main.html"><img src="/Login/images/logo.png" alt="logo" class="logo" /></a>
-                <h2>로그인</h2>
-                <input type="text" placeholder="ID" />
-                <input type="password" placeholder="Password" />
+                <a href="/Login/1. 첫 화면/first_main.html"><img src="/Login/images/logo.png" alt="logo"
+                        class="logo" /></a>
+                <!-- ID 필드 -->
+                <div class="form-floating">
+                    <input type="text" id="loginId" class="form-control" placeholder=" " required />
+                    <label for="loginId">ID</label>
+                </div>
+
+                <!-- Password 필드 -->
+                <div class="form-floating">
+                    <input type="password" id="loginPw" class="form-control" placeholder=" " required />
+                    <label for="loginPw">Password</label>
+                </div>
+
                 <div class="remember">
                     <input type="checkbox" id="remember" />
                     <label for="remember">아이디 저장</label>
                 </div>
                 <button class="btn">로그인</button>
-                <div>
-                    <button type="button" class="login-toggle"></button>
-                    <button type="button" class="login-toggle"></button>
-                    <button type="button" class="login-toggle"></button>
-                </div>
+                <div class="social-login-row">
+                    <button class="social-btn">
+                      <img src="/Login/images/icon/naver.png" alt="Naver" />
+                    </button>
+                    <button class="social-btn">
+                      <img src="/Login/images/icon/kakao.png" alt="Kakao" />
+                    </button>
+                    <button class="social-btn">
+                      <img src="/Login/images/icon/google.png" alt="Google" style="width: 70px; height: 70px; object-fit: contain;" />
+                    </button>
+                  </div>
                 <div class="toggle-link" onclick="flipCard()">회원가입 하기</div>
             </div>
 

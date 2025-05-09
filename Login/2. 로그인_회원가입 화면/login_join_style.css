@@ -1,4 +1,6 @@
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -10,6 +12,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow-y: auto;
 }
 
 .container {
@@ -18,7 +21,7 @@ body {
 
 .card {
     width: 700px;
-    height: 700px;
+    height: auto;
     position: relative;
     transform-style: preserve-3d;
     transition: transform 0.8s;
@@ -31,10 +34,11 @@ body {
 
 .side {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 100%;
-    height: 100%;
+    height: auto;
     backface-visibility: hidden;
     background: white;
     border-radius: 10px;
@@ -42,9 +46,15 @@ body {
     overflow-y: auto;
 }
 
+.side h2 {
+    text-align: center;
+    color: #444;
+}
+
+/*로그인 화면 앞*/
 .front {
     width: 400px;
-    height: 520px;
+    height: auto;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -58,16 +68,84 @@ body {
 
 .front .logo {
     width: 100px;
-    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 40px;
 }
 
 .front input[type="text"],
 .front input[type="password"] {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
 }
 
+
+.front input[type="text"],
+.front input[type="password"] {
+    border: none;
+    border-bottom: 2px solid #ccc;
+    padding: 10px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.front input[type="text"]:focus,
+.front input[type="password"]:focus {
+    border-bottom: 2px solid #1f5dea;
+    border-radius: 5px;
+}
+
+.front .form-floating {
+    position: relative;
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.front .form-floating input {
+    width: 100%;
+    padding: 14px 12px 6px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    background: transparent;
+    outline: none;
+}
+
+.front .form-floating input:focus {
+    border-bottom: 2px solid #1f5dea;
+}
+
+.front .form-floating .form-control {
+    height: 50px;
+    padding: 14px 12px 6px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    background-color: transparent;
+    outline: none;
+    position: relative;
+    z-index: 1;
+}
+
+.front .form-floating label {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    font-size: 16px;
+    color: #999;
+    background-color: #fff;
+    transition: all 0.2s ease;
+    pointer-events: none;
+    padding: 0 4px;
+    z-index: 2;
+}
+
+.front .form-floating input:focus+label,
+.front .form-floating input:not(:placeholder-shown)+label {
+    top: 4px;
+    font-size: 12px;
+    color: #1f5dea;
+}
 
 .front .remember {
     margin-top: 10px;
@@ -80,18 +158,59 @@ body {
     width: 100%;
 }
 
+.social-login {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 30px;
+  }
+
+  .social-login-row {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 24px;
+  }
+  
+  .social-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .social-btn:hover {
+    transform: scale(1.1);
+  }
+  
+  .social-btn img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    display: block;
+  }
+
+/*회원가입 화면 뒤*/
 .back {
-    transform: rotateY(180deg);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateY(180deg);
     display: flex;
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
     padding: 40px;
 }
-
-.back h2 {
-    text-align: center;
-  }
 
 .id-check-group,
 .phone-check-group {
@@ -113,11 +232,11 @@ body {
 .back input[type="text"],
 .back input[type="password"],
 .back input[type="email"] {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 .check-btn {
@@ -187,4 +306,16 @@ h2 {
     .back {
         overflow-y: auto;
     }
+}
+
+/*입력란 효과*/
+.front input[type="text"]:focus,
+.front input[type="password"]:focus,
+.back input[type="text"]:focus,
+.back input[type="password"]:focus,
+.back input[type="email"]:focus {
+    border: 1px solid #1f5dea;
+    outline: none;
+    box-shadow: 0 0 5px rgba(31, 93, 234, 0.5);
+    transition: box-shadow 0.2s, border 0.2s;
 }
