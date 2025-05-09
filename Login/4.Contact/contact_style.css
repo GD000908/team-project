@@ -22,7 +22,7 @@ body {
 .contact-title {
   font-size: 36px;
   font-weight: bold;
-  color: #222;
+  color: gray;
   margin-bottom: 16px;
   position: static;
   text-align: left;
@@ -30,7 +30,7 @@ body {
 
 .contact-divider {
   border: none;
-  border-top: 3px solid #222;
+  border-top: 3px solid #444;
   height: 1px;
   width: 100%;
   margin: 0;
