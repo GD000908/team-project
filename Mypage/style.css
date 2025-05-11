@@ -116,12 +116,13 @@ textarea {
 
 /* Footer */
 footer {
-  background-color: #f3f4f6;
+  background-color: #c3d3e6;
   padding: 40px 16px;
   text-align: center;
   font-size: 14px;
   color: #666;
-  margin-top: 40px;
+  margin-top: 140px;
+
 }
 
 /* 상단 아이콘 버튼에 대한 스타일*/
@@ -137,12 +138,12 @@ footer {
 /* 푸터 */
 
 .main-footer {
-  background-color: #e6f0fa; /* 연한 파랑 */
+  background-color: #e6f0fa; 
   padding: 40px 16px;
   text-align: center;
   font-size: 14px;
   color: #333;
-  margin-top: 60px;
+  margin-top: 140px;
   border-top: 1px solid #c3d3e6;
 }
 
