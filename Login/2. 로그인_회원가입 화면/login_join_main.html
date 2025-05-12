@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Init</title>
+    <link rel="stylesheet" href="login_join_style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="card" id="card">
+            <!-- 로그인 화면 (앞면) -->
+            <div class="side front">
+                <a href="/Login/1. 첫 화면/first_main.html"><img src="/Login/images/logo.png" alt="logo"
+                        class="logo" /></a>
+                <!-- ID 필드 -->
+                <div class="form-floating">
+                    <input type="text" id="loginId" class="form-control" placeholder=" " required />
+                    <label for="loginId">ID</label>
+                </div>
+
+                <!-- Password 필드 -->
+                <div class="form-floating">
+                    <input type="password" id="loginPw" class="form-control" placeholder=" " required />
+                    <label for="loginPw">Password</label>
+                </div>
+
+                <div class="remember">
+                    <input type="checkbox" id="remember" />
+                    <label for="remember">아이디 저장</label>
+                </div>
+                <button class="btn">로그인</button>
+                <div class="social-login-row">
+                    <button class="social-btn">
+                      <img src="/Login/images/icon/naver.png" alt="Naver" />
+                    </button>
+                    <button class="social-btn">
+                      <img src="/Login/images/icon/kakao.png" alt="Kakao" />
+                    </button>
+                    <button class="social-btn">
+                      <img src="/Login/images/icon/google.png" alt="Google" style="width: 70px; height: 70px; object-fit: contain;" />
+                    </button>
+                  </div>
+                <div class="toggle-link" onclick="flipCard()">회원가입 하기</div>
+            </div>
+
+            <!-- 회원가입 화면 (뒷면) -->
+            <div class="side back">
+                <h2>회원가입</h2>
+                <div class="id-check-group">
+                    <input type="text" placeholder="ID" class="id-input" />
+                    <button type="button" class="check-btn">중복확인</button>
+                </div>
+                <input type="password" placeholder="비밀번호" />
+                <input type="password" placeholder="비밀번호 확인" />
+                <div class="phone-check-group">
+                    <input type="text" placeholder="휴대폰 번호" class="phone-input" />
+                    <button type="button" class="check-btn">인증번호</button>
+                </div>
+                <input type="email" placeholder="이메일" />
+                <br />
+
+                <h3 style="font-weight: bold;">관심 분야</h3><br />
+                <div class="checkbox-group">
+                    <label><input type="checkbox"> 경영/기획/전략</label>
+                    <label><input type="checkbox"> 디자인/컨텐츠</label>
+                    <label><input type="checkbox"> 개발/IT</label>
+                    <label><input type="checkbox"> 마케팅/브랜딩</label>
+                    <label><input type="checkbox"> 영업/고객관리</label>
+                    <label><input type="checkbox"> 교육/강의/연구</label>
+                    <label><input type="checkbox"> 운영/사무관리</label>
+                    <label><input type="checkbox"> 생산/물류/품질관리</label>
+                    <label><input type="checkbox"> 사회/공공기관</label>
+                    <label><input type="checkbox"> 특수직</label>
+                </div>
+
+                <button class="btn">회원가입</button>
+                <div class="toggle-link" onclick="flipCard()">로그인으로 돌아가기</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="login_join_script.js"></script>
+</body>
+
+</html>

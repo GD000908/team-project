@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    height: 100%;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .form-signin {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    width: 450px;
+    max-width: 100%;
+  }
+  
+  .logo {
+    display: block;
+    margin: 0 auto 50px; /* 위 0, 좌우 auto, 아래 50px */
+    width: 100px;
+  }
+  
+  .form-floating {
+    position: relative;
+    width: 100%;
+    margin: 20px 0;
+  }
+  
+  .form-floating .form-control {
+    width: 100%;
+    padding: 20px 12px 6px;
+    height: 56px;
+    font-size: 16px;
+    border: 1.5px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    outline: none;
+    transition: border 0.2s ease;
+  }
+  
+  .form-floating .form-control:focus {
+    border-color: #1f5dea;
+  }
+  
+  .form-floating label {
+    position: absolute;
+    top: 18px;
+    left: 12px;
+    color: #999;
+    font-size: 16px;
+    background: #fff;
+    padding: 0 4px;
+    transition: all 0.2s ease;
+    pointer-events: none;
+  }
+  
+  .form-floating .form-control:focus + label,
+  .form-floating .form-control:not(:placeholder-shown) + label {
+    top: -8px;
+    left: 10px;
+    font-size: 13px;
+    color: #1f5dea;
+  }
+  
+  .form-check {
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    background-color: #1f5dea;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .btn:hover {
+    color: #fff;
+    background-color: #0c3eaf;
+  }
+  
+  .signup-link {
+    margin-top: 20px;
+    font-size: 14px;
+    text-align: center;
+    color: #666;
+  }
+  
+  .signup-link a {
+    color: #1f5dea;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .signup-link a:hover {
+    text-decoration: underline;
+  }

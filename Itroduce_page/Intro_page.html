@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Init</title>
+
+    <link rel="stylesheet" href="Intro_style.css">
+    <link rel="stylesheet" href="/Mypage/style.css">
+</head>
+
+<body class="resume-page">
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+
+                <!-- 왼쪽: 로고 -->
+                <div class="logo-box">
+                    <a href="/Mypage/Mypage.html" class="logo">Init</a>
+                </div>
+
+                <!-- 가운데: 메뉴 -->
+                <nav class="nav-menu">
+                    <a href="/MypageMain/Mypage_main.html" class="nav-item">Mypage</a>
+                    <a href="/Resume/resume.html" class="nav-item">이력서</a>
+                    <a href="/Itroduce_page/Intro_page.html" class="nav-item">자기소개서</a>
+                    <a href="/calendar/calendar.html" class="nav-item">공고 캘린더</a>
+                    <a href="/dong/board.html" class="nav-item">커뮤니티</a>
+                </nav>
+
+                <!-- 오른쪽: 알림/유저 -->
+                <div class="navbar-right">
+                    <button class="alarm-button"><img src="/Mypage/myimage/알림.png"
+                            style="width: 30px; height: 32px;"></button>
+                    <button class="logout-button"><img src="/Mypage/myimage/사람.svg"
+                            style="width: 30px; height: 32px;"></button>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <div class="main-wrapper">
+        <div class="main-layout">
+            <div class="sidebar" id="sidebar"></div>
+            <div class="resume">
+                <input type="text" class="title-input" placeholder="자기소개서 제목을 입력하세요" />
+                <div class="toggle-container">
+                    <label class="toggle-label">
+                        <input type="checkbox" id="toggle-question" checked />
+                        <span class="toggle-slider"></span>
+                    </label>
+                    <span class="toggle-text" title="ON: 문항별 제목 작성 가능 / OFF: 내용만 작성">ⓘ</span>
+                </div>
+                <div id="questionContainer"></div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="save-sidebar">
+        <div class="load-trigger" onclick="openLoadModal()">불러오기</div>
+
+        <!-- 모달 창 -->
+        <div id="loadModal" class="modal hidden">
+            <div class="modal-content">
+                <h2>작성한 자기소개서 불러오기</h2>
+                <ul class="load-list">
+                    <li class="load-item">
+                        <div>
+                            <div class="load-title">삼성_최종</div>
+                            <div class="load-meta">작성일: 2025.05.01 | 수정일: 2025.05.07</div>
+                        </div>
+                        <button class="load-btn">불러오기</button>
+                    </li>
+                </ul>
+                <button class="close-btn" onclick="closeLoadModal()">닫기</button>
+            </div>
+        </div>
+
+        <div class="save-buttons">
+            <button class="save-menu-btn" onclick="saveDraft()">중간 저장</button>
+            <button class="save-menu-btn" onclick="saveFinal()">최종 저장</button>
+        </div>
+
+        <div class="export-link-wrapper">
+            <span class="export-link" onclick="toggleExportOptions()">내보내기⬇</span>
+            <div id="export-options" class="export-options hidden">
+                <button onclick="downloadPDF()">PDF로 저장</button>
+                <button onclick="downloadWord()">Word로 저장</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-logo">Init</div>
+            <p>© 2025 이름추천받음. All rights reserved.</p>
+            <p>문의: gundo9918@gmail.com</p>
+        </div>
+    </footer>
+
+    <script src="Intro_script.js"></script>
+</body>
+
+</html>
