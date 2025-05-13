@@ -11,6 +11,7 @@ body.contact-main {
   margin: 0;
   box-sizing: border-box;
   padding-top: 10px;
+  overflow: auto;
 }
 
 .contact-header {
