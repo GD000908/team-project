@@ -29,9 +29,10 @@ nav {
 }
 
 nav h1 a {
-    color: gray;
+    color: #444;
     font-size: 50px;
     text-decoration: none;
+    font-family: 'a프로젝트 보통';
 }
 
 nav ul {
@@ -142,8 +143,8 @@ nav ul li a:hover {
 }
 
 .overlay img {
-    width: 100%;
-    height: 100%;
+    width: 130%;
+    height: 130%;
     object-fit: contain;
     margin-top: 10px;
     filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.4));

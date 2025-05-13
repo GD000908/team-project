@@ -70,6 +70,12 @@ body {
     width: 100px;
     margin-top: 20px;
     margin-bottom: 40px;
+    color: #444;
+    font-size: 50px;
+    text-decoration: none;
+    font-family: 'a프로젝트 보통', sans-serif;
+    text-align: center;
+    font-weight: bold;
 }
 
 .front input[type="text"],
@@ -91,7 +97,7 @@ body {
 
 .front input[type="text"]:focus,
 .front input[type="password"]:focus {
-    border-bottom: 2px solid #1f5dea;
+    border-bottom: 2px solid #356ae4;
     border-radius: 5px;
 }
 
@@ -112,7 +118,7 @@ body {
 }
 
 .front .form-floating input:focus {
-    border-bottom: 2px solid #1f5dea;
+    border-bottom: 2px solid #356ae4;
 }
 
 .front .form-floating .form-control {
