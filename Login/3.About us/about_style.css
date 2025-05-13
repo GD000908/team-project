@@ -28,7 +28,7 @@ body {
     display: flex;
     gap: 40px;
     padding: 60px 40px;
-    background: rgba(14, 110, 255, 0.5);
+    background: #193983;
     width: 100%;
     max-width: none;
     flex-wrap: wrap;
@@ -108,7 +108,8 @@ body {
 .about-bottom h2 {
     font-size: 28px;
     margin-bottom: 40px;
-    color: #0b45ce;
+    color: #0a38a5;
+    font-weight: bold;
 }
 
 .features {
@@ -144,7 +145,18 @@ body {
     transform: translateY(-5px);
 }
 
-.feature-bg {
+.feature-bg1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+    z-index: 0;
+}
+
+.feature-bg2 {
     position: absolute;
     top: 0;
     left: 0;
@@ -155,7 +167,21 @@ body {
     z-index: 0;
 }
 
-.feature-content {
+.feature-content-1 {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.feature-content-2 {
     position: relative;
     z-index: 1;
     height: 100%;
@@ -165,6 +191,7 @@ body {
     align-items: center;
     text-align: center;
 }
+
 
 .divider {
     width: 300px;
