@@ -33,16 +33,18 @@
                 <button class="btn">로그인</button>
                 <div class="social-login-row">
                     <button class="social-btn">
-                      <img src="/Login/images/icon/naver.png" alt="Naver" />
+                        <img src="/Login/images/icon/naver.png" alt="Naver" />
                     </button>
                     <button class="social-btn">
-                      <img src="/Login/images/icon/kakao.png" alt="Kakao" />
+                        <img src="/Login/images/icon/kakao.png" alt="Kakao" />
                     </button>
                     <button class="social-btn">
-                      <img src="/Login/images/icon/google.png" alt="Google" style="width: 70px; height: 70px; object-fit: contain;" />
+                        <img src="/Login/images/icon/google.png" alt="Google"
+                            style="width: 70px; height: 70px; object-fit: contain;" />
                     </button>
-                  </div>
-                <div class="toggle-link" onclick="flipCard()">회원가입 하기</div>
+                </div>
+                <br>
+                <div>아직 회원이 아니신가요? <span class="toggle-link" onclick="flipCard()">회원가입</span></div>
             </div>
 
             <!-- 회원가입 화면 (뒷면) -->
@@ -81,7 +83,12 @@
         </div>
     </div>
 
-    <script src="login_join_script.js"></script>
+    <script>
+        function flipCard() {
+            document.getElementById('card').classList.toggle('flipped');
+        }
+
+    </script>
 </body>
 
 </html>
