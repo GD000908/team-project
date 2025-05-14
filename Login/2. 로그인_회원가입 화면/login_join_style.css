@@ -205,6 +205,12 @@ body {
     display: block;
   }
 
+  .front .btn a {
+    color: white;
+    text-decoration: none;
+    padding: 16px;
+  }
+
 /*회원가입 화면 뒤*/
 .back {
     position: absolute;
