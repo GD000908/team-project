@@ -7,17 +7,17 @@
     <title>Init</title>
 
     <link rel="stylesheet" href="/Mypage/style.css">
-    <link rel="stylesheet" href="/Login/1. 첫 화면/first_style.css">
+    <link rel="stylesheet" href="/Login/1.First_Main/first_style.css">
     <link rel="stylesheet" href="about_style.css">
 </head>
 
 <body>
     <nav>
-        <h1><a href="/Login/1. 첫 화면/first_main.html">Init</a></h1>
+        <h1><a href="/Login/1.First_Main/first_main.html">Init</a></h1>
         <ul>
             <li><a href="/Login/3.About us/about_main.html">ABOUT US</a></li>
             <li><a href="/Login/4.Contact/contact_main.html">CONTACT</a></li>
-            <li><a href="/Login/2. 로그인_회원가입 화면/login_join_main.html">LOGIN</a></li>
+            <li><a href="/Login/2.Login_Join/login_join_main.html">LOGIN</a></li>
         </ul>
     </nav>
 
@@ -45,19 +45,19 @@
         <div class="features dir-feature">
             <div class="feature-box">
                 <img src="/Login/images/0img.png" alt="이력서 관리" class="feature-bg1">
-                <div class="feature-content-1">
+                <div class="feature-content-1 fade-up">
                     <h3>누구나 쉽게<br>시작할 수 있도록</h3>
                 </div>
             </div>
             <div class="feature-box">
                 <img src="/Login/images/0img.png" alt="자소서 작성" class="feature-bg1">
-                <div class="feature-content-1">
+                <div class="feature-content-1 fade-up">
                     <h3>직관적으로 한 눈에<br>볼 수 있도록</h3>
                 </div>
             </div>
             <div class="feature-box">
                 <img src="/Login/images/0img.png" alt="지원 일정 관리" class="feature-bg1">
-                <div class="feature-content-1">
+                <div class="feature-content-1 fade-up">
                     <h3>제한없이 자유롭게<br>사용할 수 있도록</h3>
                 </div>
             </div>
@@ -69,21 +69,21 @@
         <div class="features func-feature">
             <div class="feature-box">
                 <img src="/Login/images/11.career.jpg" alt="이력서 관리" class="feature-bg2">
-                <div class="feature-content-2">
+                <div class="feature-content-2 fade-up">
                     <h3>이력서 관리</h3><br>
                     <p>깔끔한 양식으로 된 폼에 이력서를<br>작성하고 내보낼 수 있으며<br>간편하게 내용도 추가도 해보세요.</p>
                 </div>
             </div>
             <div class="feature-box">
                 <img src="/Login/images/12.resume.jpg" alt="자소서 작성" class="feature-bg2">
-                <div class="feature-content-2">
+                <div class="feature-content-2 fade-up">
                     <h3>자소서 작성</h3><br>
                     <p>가이드에 따라 효율적으로<br>자소서를 완성하고 이전 기록들을 보며<br>더 좋은 방향으로 디벨롭 해보세요.</p>
                 </div>
             </div>
             <div class="feature-box">
                 <img src="/Login/images/13.calendar.jpg" alt="지원 일정 관리" class="feature-bg2">
-                <div class="feature-content-2">
+                <div class="feature-content-2 fade-up">
                     <h3>지원 일정 관리</h3><br>
                     <p>내가 지원한 회사들의 일정을<br>한 눈에 확인하고 중요한 공고 내용을<br>놓치지 마세요.</p>
                 </div>
@@ -99,5 +99,28 @@
         </div>
     </footer>
 </body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const observer = new IntersectionObserver(
+            (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target); // 한 번만 실행
+                    }
+                });
+            },
+            {
+                threshold: 0.2 // 요소가 20% 이상 보이면 실행
+            }
+        );
+
+        // .fade-up 요소 중 첫 번째는 제외 (이미 active임)
+        document.querySelectorAll('.fade-up:not(.active)').forEach(el => {
+            observer.observe(el);
+        });
+    });
+</script>
 
 </html>

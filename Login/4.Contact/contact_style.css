@@ -131,6 +131,14 @@ body.contact-main {
   box-sizing: border-box;
 }
 
+.contact-table input[type="text"]:focus,
+.contact-table input[type="email"]:focus,
+.contact-table textarea:focus {
+  border: 1px solid #356ae4 !important;
+  outline: none;
+  box-shadow: 0 0 5px rgba(53, 106, 228, 0.5);
+}
+
 .contact-table textarea {
   resize: none;
   min-height: 200px;
